@@ -1,16 +1,12 @@
 @import url(frozen.css); 
 @import url(global.css); 
+@import url(fix.css); 
 
-.grid-header li {
+.c-grid-header li {
     text-align: center;
     padding-top: 10px;
 }
-
-.ui-list .ui-grid-trisect li {
-    padding-bottom: 0;
-}
-
-.ranking-badge {
+.c-ranking-badge {
     text-align: center;
     color: #FFF;
     width: 20px;
@@ -18,25 +14,15 @@
     margin: 0;
     border-radius: 50%;
 }
-
-.ranking1 {
+.c-ranking1 {
     background: red;
 }
-.ranking2 {
+.c-ranking2 {
     background: yellow;
 }
-.ranking3 {
+.c-ranking3 {
     background: green;
 }
-
-.text-center {
+.c-text-center {
     text-align: center;
-}
-
-.ui-tooltips-vip {
-    text-align: center;
-}
-
-.ui-tooltips-vip .ui-tooltips-cnt {
-    padding-left: 0;
 }

@@ -1,0 +1,9 @@
+.ui-list .ui-grid-trisect li {
+    padding-bottom: 0;
+}
+.ui-tooltips-vip {
+    text-align: center;
+}
+.ui-tooltips-vip .ui-tooltips-cnt {
+    padding-left: 0;
+}

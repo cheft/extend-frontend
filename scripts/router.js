@@ -1,7 +1,7 @@
 module.exports = {
     routes: {
         '': 'home',
-        'start/:id': 'start'
+        ':id': 'start'
     },
 
     start: function(id) {
