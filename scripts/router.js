@@ -5,9 +5,9 @@ module.exports = {
     },
 
     start: function(id) {
-        app.tags.viewport.show(id);
+        app.tags.viewport.trigger('show', id);
     },
     home: function() {
-        app.tags.viewport.show('test');
+        app.tags.viewport.trigger('show', 'ranking');
     }
 };
