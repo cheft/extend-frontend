@@ -8,6 +8,6 @@ module.exports = {
         app.tags.viewport.show(id);
     },
     home: function() {
-        app.tags.viewport.show('ranking');
+        app.tags.viewport.show('test');
     }
 };
