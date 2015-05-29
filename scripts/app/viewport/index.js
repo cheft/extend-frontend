@@ -1,6 +1,4 @@
 module.exports = {
-	// :TODO
-	store: '',
 
 	actions: {
 
