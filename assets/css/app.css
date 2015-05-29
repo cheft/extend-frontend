@@ -2,6 +2,9 @@
 @import url(global.css);
 @import url(fix.css);
 
+.c-grid-header {
+   padding-left: 40px; 
+}
 .c-grid-header li {
     text-align: center;
     padding-top: 10px;
