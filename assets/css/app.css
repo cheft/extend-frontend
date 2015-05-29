@@ -26,3 +26,59 @@
 .c-text-center {
     text-align: center;
 }
+
+/*common parts start*/
+.c-footer{
+    width: 100%;
+}
+/*common parts end*/
+
+/*foorter CSS start*/
+.c-footer{
+    position: absolute;
+    height: 40px;
+    background: #4f8e0f;
+    bottom: 0;
+    background: -webkit-gradient(linear, left top, left bottom, from(#347008), to(#4f8e0f) );
+}
+.c-footer ul{
+    list-style: none;
+    padding:0 5px;
+}
+.c-footer ul li{
+    padding-top:10px;
+    float: left;
+    text-align: center;
+    width: 25%;
+}
+.c-footer ul li a{
+    font-weight: normal;
+    font-size: 14px;
+    font-weight: 600px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    text-shadow: 0 1px 0 #444;
+    font-size: 14px;
+    color:#fff;
+    display: block;
+    font-family: 脦垄脠铆脩脜潞脷;
+}
+.c-footer li:nth-child(1) a{
+    height: 20px;
+    border-right:1px solid #7eb027;
+}
+.c-footer li:nth-child(2) a,.c-footer li:nth-child(3) a{
+    height: 20px;
+    border-right:1px solid #7eb027;
+    border-left:1px solid #1f3d05;
+}
+.c-footer li:nth-child(4) a{
+    height: 20px;
+    border-left:1px solid #1f3d05;
+}
+/*foorter CSS end*/
+
+/*expriy CSS start*/
+
+
+/*expriy CSS end*/

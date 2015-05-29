@@ -10,4 +10,5 @@ module.exports = {
     home: function() {
         app.tags.viewport.show('ranking');
     }
+
 };
