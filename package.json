@@ -8,14 +8,17 @@
   "author": "cheft",
   "license": "ISC",
   "devDependencies": {
+    "browserify": "^9.0.8",
     "gulp": "^3.8.11",
-    "gulp-browserify": "^0.5.1",
     "gulp-eslint": "^0.12.0",
     "gulp-rename": "^1.2.2",
-    "gulp-riot": "^0.2.15",
     "gulp-server-livereload": "^1.3.0",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-uglify": "^1.1.0",
-    "ip": "^0.3.2"
+    "ip": "^0.3.2",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.2.1",
+    "vinyl-buffer": "^1.0.0",
+    "riotify": "^0.1.0"
   }
 }
