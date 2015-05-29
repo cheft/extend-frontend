@@ -1,6 +1,6 @@
-@import url(frozen.css); 
-@import url(global.css); 
-@import url(fix.css); 
+@import url(frozen.css);
+@import url(global.css);
+@import url(fix.css);
 
 .c-grid-header li {
     text-align: center;

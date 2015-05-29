@@ -15,7 +15,7 @@ gulp.task('riot', function() {
 })
 
 gulp.task('browserify', ['riot'], function() {
-    gulp.src('scripts/main.js', {read: false})
+    gulp.src('scripts/main.js')
     .pipe(browserify())
     .pipe(rename('app.js'))
     // .pipe(sourcemaps.init({loadMaps: true}))
