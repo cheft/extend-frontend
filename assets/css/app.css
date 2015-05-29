@@ -2,8 +2,14 @@
 @import url(global.css);
 @import url(fix.css);
 
+.c-header {
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%,from(#FAB32B), to(#FB9026)) !important;
+    color: #FFF !important;
+    font-size: 16px !important;
+}
 .c-grid-header {
-   padding-left: 40px; 
+   padding-left: 40px;
+   background-color: #F0F1F2 !important;
 }
 .c-grid-header li {
     text-align: center;
@@ -18,13 +24,13 @@
     border-radius: 50%;
 }
 .c-ranking1 {
-    background: red;
+    background: #F9121C;
 }
 .c-ranking2 {
-    background: yellow;
+    background: #FAD031;
 }
 .c-ranking3 {
-    background: green;
+    background: #499F1A;
 }
 .c-text-center {
     text-align: center;
@@ -64,7 +70,6 @@
     font-size: 14px;
     color:#fff;
     display: block;
-    font-family: 脦垄脠铆脩脜潞脷;
 }
 .c-footer li:nth-child(1) a{
     height: 20px;
