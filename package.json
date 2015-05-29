@@ -20,5 +20,8 @@
     "watchify": "^3.2.1",
     "vinyl-buffer": "^1.0.0",
     "riotify": "^0.1.0"
+  },
+  "dependencies": {
+    "riot": "^2.1.0"
   }
 }
