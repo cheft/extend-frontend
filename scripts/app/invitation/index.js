@@ -13,11 +13,6 @@ module.exports = {
                 self.list = data;
                 self.update();
                 l.loading('hide');
-                $.tips({
-                    content:'数据加载完成',
-                    stayTime:2000,
-                    type: 'success'
-                })
             });
         } 
     }

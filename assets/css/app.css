@@ -91,9 +91,64 @@
     padding: 0px 10px;
     color: #FFF !important;
 }
-/*foorter CSS end*/
+.c-share-bg {
+    /*background:url(../img/share_bg.png) no-repeat;*/
+    background-color: rgba(0, 0, 0, 0.9);
+    background-size: 100%;
+    -webkit-box-align: start;
+}
 
-/*expriy CSS start*/
+.c-share-bg .ui-dialog-cnt {
+    background:url(../img/share_bg.png) no-repeat;
+    background-size: 100%;
+    text-align: center;
+    background-color: rgba(253, 253, 253, 0);
+    margin-bottom: 20px;
+    height: 480px;
+}
 
-
-/*expriy CSS end*/
+@media (min-width: 320px) {
+   .c-share-bg .ui-dialog-cnt {
+        width: 290px;
+    }
+}
+@media (min-width: 375px) {
+   .c-share-bg .ui-dialog-cnt {
+        width: 345px;
+    }
+}
+@media (min-width: 414px) {
+   .c-share-bg .ui-dialog-cnt {
+        width: 384px;
+    }
+}
+@media (min-height: 480px) {
+   .c-share-content {
+        padding-top: 250px;
+    }
+}
+@media (min-height: 568px) {
+   .c-share-content {
+        padding-top: 290px;
+    }
+}
+@media (min-height: 667px) {
+    .c-share-content {
+        padding-top: 330px;
+    }
+}
+@media (min-height: 736px) {
+   .c-share-content {
+        padding-top: 370px;
+    }
+}
+.c-share-btn {
+    background: #ECAC2B;
+    color: #FFF;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 44px;
+}
+.c-share-btn:before {
+    border: 1px solid #ECAC2B;
+}
