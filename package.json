@@ -9,6 +9,7 @@
   "license": "ISC",
   "devDependencies": {
     "browserify": "^9.0.8",
+    "concat": "^1.0.0",
     "cors": "^2.7.1",
     "gulp": "^3.8.11",
     "gulp-eslint": "^0.12.0",
