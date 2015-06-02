@@ -38,16 +38,19 @@
 }
 
 /*common parts start*/
-html,body {
+html,body{
     margin:0;
     padding:0;
     height:100%;
 }
-.c-container {
+.c-container{
     background-color: #fff;
     min-height: 100%;
     height: 100%;
     position: relative;
+}
+.c-main{
+    padding-bottom:40px;    /* Height of the footer */
 }
 .c-footer{
     width: 100%;
@@ -420,7 +423,7 @@ html,body {
     left: 48%;
 }
 .c-activity-expend{
-    margin-bottom: 0px;
+    margin-bottom: 20px;
 }
 .c-activity-expend li{
     border-top:0 !important;
