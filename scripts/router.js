@@ -8,7 +8,7 @@ module.exports = {
         app.tags.viewport.trigger('show', id);
     },
     home: function() {
-        app.tags.viewport.trigger('show', 'ranking');
+        app.tags.viewport.trigger('show', 'activity');
     }
 
 };

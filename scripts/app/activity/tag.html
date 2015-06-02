@@ -1,4 +1,5 @@
 <activity>
+	<script>app.mixin(this, require('./'));</script>
 	<div class="c-container">
 		<div class="c-header">我的活动</div>
 		<div class="c-main">
@@ -51,7 +52,8 @@
 			</div>
 
 			<div class="c-progress_desc">
-				<div class="c-text-left">您只需要再推荐<strong class="c-yellow">1人</strong>贷款就获得低音炮</div><div class="c-text-right ui-btn c-reco">推荐排行榜</div>
+				<div class="c-text-left">您只需要再推荐<strong class="c-yellow">1人</strong>贷款就获得低音炮</div>
+				<a class="c-text-right ui-btn c-reco" href="javascript: void 0;" ontouchstart={goRanking}>推荐排行榜</a>
 			</div>
 		
 			<div class="ui-btn-wrap">
@@ -62,7 +64,7 @@
 			    <li class="ui-border-b">
 			        <p>我的邀请人:<span>小刘(15220269668)</span></p>
 			    </li>
-			    <li class="ui-border-b ui-list-item-link">
+			    <li class="ui-border-b ui-list-item-link" ontouchstart={goInvitation}>
 			        <p>累计推荐总人数:<span>2人</span></p>
 			    </li>
 			</ul>

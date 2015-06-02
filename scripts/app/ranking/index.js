@@ -3,6 +3,12 @@ module.exports = {
         ranking: {}
     },
 
+    actions: {
+        back: function() {
+            app.router.back();
+        }
+    },
+
     events: {
         mount: function() {
             self = this;
