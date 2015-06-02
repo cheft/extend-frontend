@@ -8,8 +8,11 @@ require('./app/share/tag');
 require('./app/footer/tag');
 require('./app/activity/tag');
 
-window.app = new c.Application({urlRoot: 'http://10.10.51.118:3000/'});
-app.mount('viewport');
+// dev
+$.get('dist/config.json').done(function(resp) {
+    window.app = new c.Application({urlRoot: resp.urlRoot});
+    app.mount('viewport');
 
-app.router = new c.Router(require('./router'));
-app.router.start();
+    app.router = new c.Router(require('./router'));
+    app.router.start();
+});
