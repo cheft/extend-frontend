@@ -1,22 +1,27 @@
 <invitation>
     <script>app.mixin(this, require('./'));</script>
-    <div class="ui-tooltips ui-tooltips-vip">
-        <div class="ui-tooltips-cnt ui-border-b c-header">推荐详情</div>
+    <div class="invitation">
+        <div class="ui-tooltips ui-tooltips-vip">
+            <div class="ui-tooltips-cnt ui-border-b c-header">
+                <a class="c-a-return icon-left-open" href="#ranking"></a>
+                推荐详情
+            </div>
+        </div>
+        <ul class="ui-grid-trisect c-grid-header" style="padding-left: 0;">
+            <li>手机号</li>
+            <li>状态</li>
+            <li>时间</li>
+        </ul>
+        <ul class="ui-list ui-list-text ui-border-tb">
+            <li class="ui-border-t" each={r, i in list}>
+                <ul class="ui-grid-trisect" style="width: 95%;">
+                    <li>
+                        {r.phone}
+                    </li>
+                    <li style="text-align: center;">&nbsp;{r.number}人</li>
+                    <li style="text-align: right;">{r.date}</li>
+                </ul>
+            </li>
+        </ul>
     </div>
-    <ul class="ui-grid-trisect c-grid-header" style="padding-left: 0;">
-        <li>手机号</li>
-        <li>状态</li>
-        <li>时间</li>
-    </ul>
-    <ul class="ui-list ui-list-text ui-border-tb">
-        <li class="ui-border-t" each={r, i in list}>
-            <ul class="ui-grid-trisect" style="width: 95%;">
-                <li>
-                    {r.phone}
-                </li>
-                <li style="text-align: center;">&nbsp;{r.number}人</li>
-                <li style="text-align: right;">{r.date}</li>
-            </ul>
-        </li>
-    </ul>
 </invitation>

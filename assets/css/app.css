@@ -1,6 +1,7 @@
 @import url(frozen.css);
 @import url(global.css);
 @import url(fix.css);
+@import url(fontello.css);
 
 .c-header {
     background: -webkit-gradient(linear, 0% 0%, 0% 100%,from(#FAB32B), to(#FB9026)) !important;
@@ -83,6 +84,12 @@
 .c-footer li:nth-child(4) a{
     height: 20px;
     border-left:1px solid #1f3d05;
+}
+.c-a-return {
+    position: absolute;
+    left: 0px;
+    padding: 0px 10px;
+    color: #FFF !important;
 }
 /*foorter CSS end*/
 
