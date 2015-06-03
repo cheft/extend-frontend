@@ -601,3 +601,59 @@ html,body{
     float: left;
 }
 /*expiry css end*/
+
+
+/*test css start*/
+html,body {
+  margin: 0;
+  padding:0;
+  height: 100%;
+}
+#container {
+  min-height:100%;
+  height: auto !important;
+  height: 100%; /*IE6不识别min-height*/
+  position: relative;
+}
+#header {
+    background: #ff0;
+    padding: 10px;
+}
+
+#page {
+    width: 960px;
+    margin: 0 auto;
+    padding-bottom: 60px;/*等于footer的高度*/
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;/*脚部的高度*/
+    background: #6cf;
+    clear:both;
+}
+/*=======主体内容部分=======*/
+#left {
+    width: 220px;
+    float: left;
+    margin-right: 20px;
+    background: lime;
+}
+
+#content {
+    background: orange;
+    float: left;
+    width: 480px;
+    margin-right: 20px;
+}
+
+#right{
+    background: green;
+    float: right;
+    width: 220px;
+}
+
+
+/*test css end*/
