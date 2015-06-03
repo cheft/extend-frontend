@@ -24,21 +24,23 @@ var options = {
 };
 
 gulp.task('watch', function() {
-    var b = watchify(browserify(options)
-        .transform(riotify, { type: 'none', ext: 'html', parser: mixin}));
-
-    recurse('./scripts/app', './scripts', b);
-    b.on('update', rebundle);
+    rebundle();
 
     function rebundle() {
-        return b.bundle()
+        var b = watchify(browserify(options)
+        .transform(riotify, { type: 'none', ext: 'html', parser: mixin}));
+
+        recurse('./scripts/app', './scripts', b);
+
+        b.on('update', rebundle);
+
+        b.bundle()
             .pipe(source('app.js'))
             // .pipe(buffer())
             // .pipe(sourcemaps.init({loadMaps: true}))
             // .pipe(sourcemaps.write('./'))
             .pipe(gulp.dest('dist/assets/js'));
     }
-    return rebundle();
 });
 
 var mixin = function(js, options) {
@@ -78,10 +80,15 @@ gulp.task('browserify', function() {
 gulp.task('serve', function() {
     var ser = server({
         host: ip.address(),
-        livereload: true,
         open: true,
-        directoryListing: {path: 'dist'},
-        defaultFile: 'index.html'
+        defaultFile: 'index.html',
+        // directoryListing: {path: 'dist'},
+        livereload: {
+            enable: true,
+            filter: function(filePath, cb) {
+                cb(/dist\/assets/.test(filePath));
+            }
+        }
     });
     gulp.src('./').pipe(ser);
 });
