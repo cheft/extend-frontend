@@ -3,38 +3,14 @@
 		<div class="c-main">
 			<div class="ui-form ui-border-t">
 			    <form action="#" >
-			        <div class="ui-form-item ui-form-item-pure ui-border-b c-friend-name">
-			            <input type="text" placeholder="姓名">
-			            <a href="#" class="ui-icon-close"></a>
-			        </div>
-
-			        <div class="ui-form-item ui-form-item-pure ui-border-b c-friend-id">
-			            <input type="text" placeholder="身份证号">
-			            <a href="#" class="ui-icon-close"></a>
-			        </div>
-
-			        <div class="ui-form-item ui-form-item-pure ui-border-b c-friend-school">
-			            <input type="text" placeholder="学校">
-			            <a href="#" class="ui-icon-close"></a>
-			        </div>
-
-			        <div class="ui-form-item ui-form-item-pure ui-border-b c-friend-major">
-			            <input type="text" placeholder="专业">
-			            <a href="#" class="ui-icon-close"></a>
-			        </div>
-					
-					<div class="ui-form-item ui-form-item-pure ui-border-b c-friend-phone">
-			            <input type="text" placeholder="手机号">
-			            <a href="#" class="ui-icon-close"></a>
-			        </div>
-
-			        <div class="ui-form-item ui-form-item-r ui-border-b c-friend-vervi">
-			            <input type="text" placeholder="验证码">
-			            <!-- 若按钮不可点击则添加 disabled 类 -->
-			            <button type="button" class="ui-border-l c-get-vervi">获取</button>
-			            <a href="#" class="ui-icon-close"></a>
-			        </div>
-
+					<field name="name" type="text" label="姓名" icon="person"></field>
+					<field type="text" label="身份证号" icon="about"></field>
+					<field type="text" label="学校" icon="school"></field>
+					<field type="text" label="专业" icon="book"></field>
+					<field type="phone" label="手机号" icon="phone"></field>
+					<field clas="ui-form-item-r" type="phone" label="验证码" icon="message">
+			    		<button type="button" class="ui-border-l c-get-vervi">获取</button>
+			    	</field>
 			        <div class="ui-btn-wrap">
 					    <button class="ui-btn-lg c-btn-yellow">注册生成分享二维码</button>
 					</div>

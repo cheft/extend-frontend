@@ -29,11 +29,8 @@ gulp.task('watch', function() {
     function rebundle() {
         var b = watchify(browserify(options)
         .transform(riotify, { type: 'none', ext: 'html', parser: mixin}));
-
         recurse('./scripts/app', './scripts', b);
-
         b.on('update', rebundle);
-
         b.bundle()
             .pipe(source('app.js'))
             // .pipe(buffer())
@@ -86,7 +83,7 @@ gulp.task('serve', function() {
         livereload: {
             enable: true,
             filter: function(filePath, cb) {
-                cb(/dist\/assets/.test(filePath));
+                cb(/assets/.test(filePath));
             }
         }
     });
