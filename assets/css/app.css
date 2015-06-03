@@ -43,7 +43,7 @@
     text-align: center;
 }
 
-/*common parts start*/
+/* Framework parts start*/
 html,body{
     margin:0;
     padding:0;
@@ -52,16 +52,17 @@ html,body{
 .c-container{
     background-color: #fff;
     min-height: 100%;
+    height: auto !important;
     height: 100%;
     position: relative;
 }
 .c-main{
-    padding-bottom:40px;    /* Height of the footer */
+    padding-bottom:44px;    /* Height of the footer */
 }
 .c-footer{
     width: 100%;
 }
-/*common parts end*/
+/* Framework parts end*/
 
 /*foorter CSS start*/
 .c-footer{
@@ -70,6 +71,7 @@ html,body{
     background: #4f8e0f;
     bottom: 0;
     background: -webkit-gradient(linear, left top, left bottom, from(#347008), to(#4f8e0f) );
+    clear: both;
 }
 .c-footer ul{
     list-style: none;
@@ -567,3 +569,35 @@ html,body{
   margin-left:100%;
 }
 /*frineds css end*/
+
+/*expiry css start*/
+.c-search-backcolor{
+    background: #E0E0E0;
+}
+
+.c-expiry-w100{
+    width: 100%;
+}
+.c-font-right{
+    text-align: right !important;
+    padding-right:10px;
+}
+.c-goodslist{
+    padding: 10px 15px;
+}
+.c-goodslist ul{
+    list-style: none;
+    height: 20px;
+}
+.c-goodslist li{
+    width: 21%;
+    padding-top:5px;
+    padding-bottom:5px;
+    margin: 0 2%;
+    border-radius: 10px;
+    text-align: center;
+    background: #67DF01;
+    color:#fff;
+    float: left;
+}
+/*expiry css end*/

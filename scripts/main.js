@@ -5,8 +5,10 @@ require('./app/viewport/tag');
 require('./app/ranking/tag');
 require('./app/invitation/tag');
 require('./app/share/tag');
-require('./app/footer/tag');
+require('./app/about/tag');
 require('./app/activity/tag');
+require('./app/register/tag');
+require('./app/expiry/tag');
 
 // dev
 $.get('dist/config.json').done(function(resp) {
