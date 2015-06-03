@@ -1,12 +1,4 @@
-window.riot = require('riot');
-window.c = require('../assets/js/cheft');
-
-require('./app/viewport/tag');
-require('./app/ranking/tag');
-require('./app/invitation/tag');
-require('./app/share/tag');
-require('./app/footer/tag');
-require('./app/activity/tag');
+var c = require('../assets/js/cheft');
 
 // dev
 $.get('dist/config.json').done(function(resp) {

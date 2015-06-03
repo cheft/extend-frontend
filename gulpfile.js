@@ -1,3 +1,5 @@
+var fs         = require('fs');
+var path       = require('path');
 var ip         = require('ip');
 var gulp       = require('gulp');
 var riotify    = require('riotify');
@@ -23,8 +25,9 @@ var options = {
 
 gulp.task('watch', function() {
     var b = watchify(browserify(options)
-        .transform(riotify, { type: 'none', ext: 'html'}));
+        .transform(riotify, { type: 'none', ext: 'html', parser: mixin}));
 
+    recurse('./scripts/app', './scripts', b);
     b.on('update', rebundle);
 
     function rebundle() {
@@ -38,12 +41,36 @@ gulp.task('watch', function() {
     return rebundle();
 });
 
+var mixin = function(js, options) {
+    if(!js) {
+        return "app.mixin(this, require('./'));";
+    }
+    return js;
+}
+
+var recurse = function(dir, root, b) {
+    fs.readdirSync(dir).forEach(function(file) {
+        var filename = path.join(dir, file), ext;
+        if (fs.statSync(filename).isDirectory()) {
+            recurse(filename, root, b);
+        } else {
+            ext = path.extname(filename);
+            if (ext === '.html') {
+                filename = path.relative(root, filename)
+                filename = path.join(path.dirname(filename), path.basename(filename, ext));
+                b.require('./' + filename.replace(/\\/g, '/'), {entry: true, expose: false });
+            }
+        }
+    })
+}
+
 gulp.task('browserify', function() {
-    var b = browserify(options).transform(riotify, { type: 'none', ext: 'html'});
+    var b = browserify(options).transform(riotify, { type: 'none', ext: 'html', compact: true, parser: mixin});
+    recurse('./scripts/app', './scripts', b);
     b.bundle()
         .pipe(source('app.js'))
         .pipe(buffer())
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('dist/assets/js'));
 });

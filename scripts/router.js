@@ -7,8 +7,8 @@ module.exports = {
     start: function(id) {
         app.tags.viewport.trigger('show', id);
     },
+    
     home: function() {
         app.tags.viewport.trigger('show', 'activity');
     }
-
 };
