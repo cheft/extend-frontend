@@ -6,7 +6,7 @@ module.exports = {
                 data[name] = field.el.value;
             });
             console.log(data);
-            // app.router.go('share');
+            app.router.go('share');
         },
 
         ranking: function() {

@@ -1,4 +1,13 @@
 module.exports = {
+    actions: {
+        ding: function() {
+            app.router.go('register');
+        },
+        yao: function() {
+            app.router.go('register');
+        }
+    },
+
     events: {
         mount: function() {
             this.trigger('calHeight');
