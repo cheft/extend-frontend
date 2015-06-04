@@ -9,7 +9,7 @@ module.exports = {
         },
         
         recommend: function() {
-            app.router.go('share');
+            app.router.go('register');
         }
     }
 }
