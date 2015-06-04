@@ -1,4 +1,4 @@
-@import url(frozen.css);
+/*@import url(frozen.css);*/
 @import url(global.css);
 @import url(fix.css);
 @import url(fontello.css);
@@ -12,7 +12,7 @@
     line-height: 44px;
     font-weight: 600;
     text-align: center;
-    box-shadow: 0px 0px 10px rgba(0,0,0,.6);
+    box-shadow: 0px 0px 5px rgba(0,0,0,.6);
 }
 .c-grid-header {
    padding-left: 40px;
@@ -161,7 +161,11 @@ html,body{
     height: 44px;
 }
 .c-share-btn:before {
-    border: 1px solid #ECAC2B;
+    border: none !important;
+}
+.c-share-btn:active {
+    background: #cc9425 !important;
+    color: #FFF !important;
 }
 
 /*common parts start*/
@@ -445,11 +449,14 @@ html,body{
     font-weight: 400;
     padding-left: 50px;
 }
-.c-field .c-get-vervi{
+.c-field .c-get-vervi {
     color: #fff;
-    background:#80C42F;
+    background: #80C42F;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
+}
+.c-get-vervi:active {
+  background-color: #609123 !important;
 }
 .c-btn-yellow{
     background-color: #FFA202;
@@ -771,6 +778,6 @@ html,body{
 }
 .c-form {
     padding-top: 15px;
-    
+
 }
 /*shared css end*/
