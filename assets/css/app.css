@@ -4,7 +4,7 @@
 @import url(fontello.css);
 
 .c-header {
-    background: -webkit-gradient(linear, 0% 0%, 0% 100%,from(#FAB32B), to(#FB9026)) !important;
+    background: #FB9026 !important;
     color: #FFF !important;
     font-size: 16px !important;
     width: 100%;
@@ -52,8 +52,8 @@
 /*foorter CSS start*/
 .c-footer{
     height: 40px;
+    bottom: 0;
     background: #4f8e0f;
-    background: -webkit-gradient(linear, left top, left bottom, from(#347008), to(#4f8e0f) );
 }
 .c-footer ul{
     list-style: none;
@@ -168,7 +168,6 @@
 .c-bar-h5{
     width: 100%;
     height: 5px;
-    background: -webkit-gradient(linear, left top, left bottom, from(#BABABA), to(#CACACA) );
     background: #CACACA;
 }
 .c-yellow{
@@ -500,7 +499,8 @@
     border-radius: 5px;
     -webkit-border-radius: 5px;
     border: 1px solid #ccc;
-    padding:5px;
+    padding: 8px 25px;
+    line-height: 22px;
     color:#565656;
     font-weight: 400;
 }
@@ -783,5 +783,9 @@
 .c-friends-intro .c-person-name{
     color:#000;
     letter-spacing:0;
+}
+.c-form {
+    padding-top: 15px;
+    
 }
 /*shared css end*/

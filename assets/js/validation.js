@@ -18,7 +18,7 @@ y: 校验码，该位数值可通过前17位计算获得
 校验位计算公式：Y_P = mod( ∑(Ai×Wi),11 )
 i为身份证号码从右往左数的 2...18 位; Y_P为脚丫校验码所在校验码数组位置
  */
-var IdCardValidate, Rules, Validate, ValideCode, Wi, error, isTrueValidateCodeBy18IdCard, isValidityBrithBy15IdCard, isValidityBrithBy18IdCard, maleOrFemalByIdCard, success, trim,
+var IdCardValidate, Rules, Validate, ValideCode, Wi, error, isTrueValidateCodeBy18IdCard, isValidityBrithBy15IdCard, isValidityBrithBy18IdCard, maleOrFemalByIdCard, success, tip, trim,
   slice = [].slice;
 
 IdCardValidate = function(idCard) {
@@ -268,6 +268,18 @@ Rules = {
   }
 };
 
+tip = function(m) {
+  var el;
+  el = $.tips({
+    content: m,
+    stayTime: 2000,
+    type: 'warn'
+  });
+  return el.on('touchstart', function() {
+    return el.tips('hide');
+  });
+};
+
 error = function(el, name, message, rule, args) {
   var arg, i, j, len1, m;
   m = name + message;
@@ -277,11 +289,7 @@ error = function(el, name, message, rule, args) {
     m = m.replace(new RegExp("\\{" + i + "\\}", 'g'), arg);
   }
   if (rule !== 'required') {
-    $.tips({
-      content: m,
-      stayTime: 2000,
-      type: 'warn'
-    });
+    tip(m);
   }
   el.parent().css('border-color', '#FC6156');
   return el.prev().css('color', '#FC6156');

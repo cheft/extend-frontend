@@ -1,7 +1,7 @@
 module.exports = {
     actions: {
         register: function() {
-            // app.router.go('share');
+            app.router.go('share');
         },
 
         ranking: function() {
@@ -9,6 +9,9 @@ module.exports = {
         },
 
         getCode: function(e) {
+            if(!this.tags.field[4].validate()) {
+                return
+            }
             var el = $(e.target), time = 10;
             var countdown = function() {
                 if (time <= 0) {
@@ -20,7 +23,6 @@ module.exports = {
             }
             el.attr('disabled', true).addClass('c-btn-disabled').html('获取(' + (time--) + ')');
             countdown();
-
             $.tips({content: '验证码已发送', stayTime: 2000, type: 'success'});
         }
     },
