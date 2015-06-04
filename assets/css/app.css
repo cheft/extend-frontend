@@ -44,13 +44,6 @@
 }
 
 /* Framework parts start*/
-html,body{
-    margin:0;
-    padding:0;
-}
-.c-container{
-    background-color: #fff;
-}
 .c-footer{
     width: 100%;
 }
@@ -60,7 +53,6 @@ html,body{
 .c-footer{
     height: 40px;
     background: #4f8e0f;
-    bottom: 0;
     background: -webkit-gradient(linear, left top, left bottom, from(#347008), to(#4f8e0f) );
 }
 .c-footer ul{
@@ -354,7 +346,7 @@ html,body{
     color:#fff;
     float: left;
     position: relative;
-    background: url(../img/shape.png) no-repeat
+    background: url(../img/shape.png) no-repeat;
 }
 .c-loan-num li:nth-child(1){
     left: 33%;
@@ -431,6 +423,28 @@ html,body{
     position: relative;
     float: right;
     margin:-12px !important;
+}
+.c-end-img{
+    z-index: 2;
+    position: absolute;
+    top:50%;
+    
+    left: 50%;
+    transform:rotate(-45deg);
+    -webkit-transform:rotate(-45deg);
+}
+@media (min-width: 320px) {
+   .c-end-img{
+        margin-top:-240px;
+        margin-left:-53px;
+    }
+}
+
+@media (min-width: 414px) {
+   .c-end-img{
+        margin-top:-260px;
+        margin-left:-53px;
+    }
 }
 /*activity css end*/
 
@@ -578,7 +592,6 @@ html,body{
 }
 /*expiry css end*/
 
-
 /*shared css start*/
 .c-head{
     width: 100%;
@@ -623,6 +636,7 @@ html,body{
 }
 .c-container{
     background-color: #fff;
+    position: relative;
 }
 .c-prize{
     width: 100%;
