@@ -600,10 +600,13 @@
 /*expiry css end*/
 
 /*shared css start*/
+body{
+    background: #fff !important;
+}
 .c-head{
     width: 100%;
-    height: 40px;
-    line-height: 40px;
+    height: 44px;
+    line-height: 44px;
     background:#FF631E;
 }
 .c-text,.c-countdown{
@@ -614,6 +617,7 @@
     margin-left:5px;
     float:left;
     color:#ccc;
+    letter-spacing: 2px;
 }
 .c-countdown{
     float:right;
