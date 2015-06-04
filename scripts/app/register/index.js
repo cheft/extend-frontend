@@ -1,7 +1,7 @@
 module.exports = {
     actions: {
         register: function() {
-            // app.router.go('share');
+            app.router.go('share');
         },
 
         ranking: function() {
