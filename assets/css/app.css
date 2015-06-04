@@ -47,17 +47,9 @@
 html,body{
     margin:0;
     padding:0;
-    height:100%;
 }
 .c-container{
     background-color: #fff;
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    position: relative;
-}
-.c-main{
-    padding-bottom:44px;    /* Height of the footer */
 }
 .c-footer{
     width: 100%;
@@ -66,12 +58,10 @@ html,body{
 
 /*foorter CSS start*/
 .c-footer{
-    position: absolute;
-    height: 44px;
+    height: 40px;
     background: #4f8e0f;
     bottom: 0;
     background: -webkit-gradient(linear, left top, left bottom, from(#347008), to(#4f8e0f) );
-    clear: both;
 }
 .c-footer ul{
     list-style: none;
