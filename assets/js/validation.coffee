@@ -191,12 +191,16 @@ Rules =
         length: 0
         message: '中含有非法字符'
 
+tip = (m) ->
+    el = $.tips content: m, stayTime: 2000, type: 'warn' 
+    el.on 'touchstart', -> el.tips('hide')
+
 error = (el, name, message, rule, args) ->
     m = name + message
     args.shift()
     for arg, i in args
         m = m.replace(new RegExp("\\{#{i}\\}", 'g'), arg)
-    $.tips content: m, stayTime: 2000, type: 'warn' if rule != 'required'
+    tip(m) if rule != 'required'
     el.parent().css('border-color', '#FC6156')
     el.prev().css('color', '#FC6156')
 

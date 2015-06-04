@@ -2,8 +2,8 @@
     <script></script>
     <div class="ui-form-item ui-form-item-pure c-field {opts.clas}">
         <i class="c-field-icon icon-{opts.icon}"></i>
-        <input name="{opts.name}" type="{opts.type}" placeholder="{opts.label}" onblur={validate}>
-        <a href="javascript: void 0;" class="ui-icon-close" ontouchstart={clear}></a>
+        <input name="{opts.name}" type="{opts.type}" placeholder="{opts.label}" oninput={toggleClose} onblur={validate} maxlength="{opts.maxlength}">
+        <a name="_close" href="javascript: void 0;" class="ui-icon-close" style="display: none;" ontouchstart={clear}></a>
         <yield></yield>
     </div>
 </field>

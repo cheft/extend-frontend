@@ -2,11 +2,23 @@ module.exports = {
     actions: {
         init: function() {
             this.opts.name = this.opts.name || 'field';
+            this.opts.type = this.opts.type || 'text';
         },
 
         clear: function(e) {
             this['{opts.name}'].value = '';
             this.validate()
+            $(this.el).parent().css('border-color', '#ccc');
+            $(this.el).prev().css('color', '#ccc');
+            $(this._close).hide();
+        },
+
+        toggleClose: function() {
+            if(this.el.value == '') {
+                $(this._close).hide();
+            }else {
+                $(this._close).show();
+            }
         },
 
         validate: function() {
@@ -19,6 +31,7 @@ module.exports = {
             args.unshift($(this.el));
             var result = app.validate.apply(this, args);
             this.trigger('validate', this.opts.label, result);
+            $(this._close).show();
         }
     },
 
