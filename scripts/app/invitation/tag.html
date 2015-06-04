@@ -1,28 +1,30 @@
 <invitation>
     <script></script>
-    <div class="invitation">
-        <div class="ui-tooltips ui-tooltips-vip">
-            <div class="ui-tooltips-cnt ui-border-b c-header">
-                <a class="c-a-return icon-left-open" href="javascript: void 0;" ontouchstart={back}></a>
-                推荐详情
+    <div class="c-container">
+        <div class="invitation">
+            <div class="ui-tooltips ui-tooltips-vip">
+                <div class="ui-tooltips-cnt ui-border-b c-header">
+                    <a class="c-a-return icon-left-open" href="javascript: void 0;" ontouchstart={back}></a>
+                    推荐详情
+                </div>
             </div>
+            <ul class="ui-grid-trisect c-grid-header" style="padding-left: 0;">
+                <li>手机号</li>
+                <li>状态</li>
+                <li>时间</li>
+            </ul>
+            <ul class="ui-list ui-list-text ui-border-tb">
+                <li class="ui-border-t" each={ranking.data}>
+                    <ul class="ui-grid-trisect" style="width: 95%;">
+                        <li>
+                            {phone}
+                        </li>
+                        <li style="text-align: center;">&nbsp;{number}人</li>
+                        <li style="text-align: right;">{date}</li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-        <ul class="ui-grid-trisect c-grid-header" style="padding-left: 0;">
-            <li>手机号</li>
-            <li>状态</li>
-            <li>时间</li>
-        </ul>
-        <ul class="ui-list ui-list-text ui-border-tb">
-            <li class="ui-border-t" each={ranking.data}>
-                <ul class="ui-grid-trisect" style="width: 95%;">
-                    <li>
-                        {phone}
-                    </li>
-                    <li style="text-align: center;">&nbsp;{number}人</li>
-                    <li style="text-align: right;">{date}</li>
-                </ul>
-            </li>
-        </ul>
     </div>
     <about></about>
 </invitation>
