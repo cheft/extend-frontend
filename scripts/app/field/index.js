@@ -32,6 +32,7 @@ module.exports = {
             var result = app.validate.apply(this, args);
             this.trigger('validate', this.opts.label, result);
             $(this._close).show();
+            return result;
         }
     },
 
