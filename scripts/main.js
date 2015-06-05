@@ -1,5 +1,5 @@
 var c = require('../assets/js/cheft');
-validate = require('../assets/js/validation');
+var validate = require('../assets/js/validation');
 
 c.Adapter = {Promise: $.Deferred, ajax: $.ajax};
 

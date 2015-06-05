@@ -1,10 +1,5 @@
 module.exports = {
     actions: {
-        init: function() {
-            this.opts.name = this.opts.name || 'field';
-            this.opts.type = this.opts.type || 'text';
-        },
-
         clear: function(e) {
             this['{opts.name}'].value = '';
             this.validate()
@@ -37,6 +32,10 @@ module.exports = {
     },
 
     events: {
+        init: function() {
+            this.opts.name = this.opts.name || 'field';
+            this.opts.type = this.opts.type || 'text';
+        },
         mount: function() {
             this.el = this['{opts.name}'];
         }

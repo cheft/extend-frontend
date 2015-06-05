@@ -8,10 +8,10 @@
 			<field name="professional" label="专业" icon="book" validate="required illegal" maxlength="50"></field>
 			<field name="phone" type="tel" label="手机号" icon="phone" validate="required phone" maxlength="16"></field>
 			<field name="code" clas="ui-form-item-r" type="tel" label="验证码" icon="message" validate="required number length 6"  maxlength="6">
-	    		<button type="button" class="c-get-vervi" ontouchstart={parent.getCode}>获取</button>
+	    		<button type="button" class="c-get-vervi" onclick={parent.getCode}>获取</button>
 	    	</field>
 	        <div class="ui-btn-wrap">
-			    <button name="submit" class="ui-btn-lg c-btn-yellow c-btn-disabled" ontouchstart={register}>注册生成分享二维码</button>
+			    <button name="submit" class="ui-btn-lg c-btn-yellow c-btn-disabled" onclick={register}>注册生成分享二维码</button>
 			</div>
 		</div>
 		<div class="c-active-rule">
@@ -22,7 +22,7 @@
 			    <li>邀请并成功绑定 6 个人送低音炮</li>
 			    <li>邀请并成功绑定 12 个人送小冰箱</li>
 			</ol>
-			<p><a href="#" class="c-yellow-font">活动细则 >></a><button class="c-reco" ontouchstart={ranking}>推荐排行榜</button></p>
+			<p><a href="#" class="c-yellow-font">活动细则 >></a><button class="c-reco" onclick={ranking}>推荐排行榜</button></p>
 		</div>
 	</div>
 	<about></about>

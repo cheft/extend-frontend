@@ -1,8 +1,5 @@
 module.exports = {
-    stores: {
-        ranking: {}
-    },
-
+    store: 'ranking',
     actions: {
         back: function() {
             app.router.back();
@@ -11,15 +8,15 @@ module.exports = {
 
     events: {
         mount: function() {
-            self = this;
-            var l = $.loading({
-                content:'加载数据',
-            });
-            this.ranking.get().done(function(data) {
-                self.list = data;
-                self.update();
-                l.loading('hide');
-            });
-        } 
+            this.loader = $.loading({content:'加载数据'});
+            this.store.get();
+        },
+        geted: function(status, data) {
+            if(status === 'success') {
+                this.list = data;
+                this.update();
+                this.loader.loading('hide');
+            }
+        }
     }
 }
