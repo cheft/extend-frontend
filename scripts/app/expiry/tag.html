@@ -1,4 +1,5 @@
 <expiry>
+	<script></script>
 	<div class="c-container">
 		<div class="c-header">兑奖后台</div>
 		
@@ -7,7 +8,8 @@
 			    <div class="ui-searchbar c-search-backcolor">
 			        <i class="ui-icon-search"></i>
 			        <div class="ui-searchbar-text">请输入正确的手机号</div>
-			        <div class="ui-searchbar-input"><input value="" type="tel" placeholder="手机号" autocapitalize="off"></div>
+			        <div class="ui-searchbar-input"><input name="phone" type="tel" placeholder="手机号" autocapitalize="off" maxlength="16" onblur={validate}></div>
+			        
 			    </div>
 			</div>
 		</div>
@@ -15,14 +17,17 @@
 		<div class="ui-form ui-border-t">
 		    <form action="#" >
 		        <div class="ui-form-item ui-border-b">
-		            <label for="#" class="c-font-right">姓名</label>
-		            <input type="text" placeholder="张尧">			            
+		            <span class="c-left-colum">姓名</span>
+		            <span class="c-right-username">张尧</span>
 		        </div>
 		        <div class="ui-form-item ui-border-b">
-		            <label for="#" class="c-font-right">身份证号</label>
-		            <input type="text" placeholder="429006187506285862">
+		            <span class="c-left-colum">身份证号</span>
+		            <span class="c-right-username">429006187506285862</span>
 		        </div>
-				
+		        <div class="ui-form-item ui-border-b">
+		            <span class="c-left-colum">兑奖状态</span>
+		            <span class="c-right-username">未兑</span>
+		        </div>				
 				<div class="c-goodslist">
 					<ul>
 						<li class="c-radius-10">情侣杯</li>
@@ -30,12 +35,10 @@
 						<li class="c-radius-10">低音炮</li>
 						<li class="c-radius-10">冰箱</li>
 					</ul>
-				</div>
-				
+				</div>				
 				<div class="ui-btn-wrap">
 				    <button class="ui-btn-lg c-btn-yellow">兑奖</button>
 				</div>
-
 
 			</form>
 		</div>
