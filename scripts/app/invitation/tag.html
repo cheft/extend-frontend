@@ -8,13 +8,14 @@
                     推荐详情
                 </div>
             </div>
+            <button class="ui-btn-lg" onclick={create}>增加</button>
             <ul class="ui-grid-trisect c-grid-header" style="padding-left: 0;">
                 <li>手机号</li>
                 <li>状态</li>
                 <li>时间</li>
             </ul>
             <ul class="ui-list ui-list-text ui-border-tb">
-                <li class="ui-border-t" each={ranking.data}>
+                <li class="ui-border-t" each={store.data} onclick={parent.remove}>
                     <ul class="ui-grid-trisect" style="width: 95%;">
                         <li>
                             {phone}

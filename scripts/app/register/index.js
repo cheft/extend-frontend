@@ -6,7 +6,7 @@ module.exports = {
                 data[name] = field.el.value;
             });
             console.log(data);
-            app.router.go('share');
+            // app.router.go('share');
         },
 
         ranking: function() {
@@ -53,9 +53,9 @@ module.exports = {
                 }
             }
             if(count >= 6) {
-                $(this.submit).removeClass('c-btn-disabled');
+                $(this.submit).attr('disabled', null).removeClass('c-btn-disabled');
             }else {
-                $(this.submit).addClass('c-btn-disabled');
+                $(this.submit).attr('disabled', true).addClass('c-btn-disabled');
             }
         },
 

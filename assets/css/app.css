@@ -158,9 +158,12 @@
 }
 .c-share-btn:active {
     background: #cc9425 !important;
-    color: #FFF !important;
+    color: #FFF;
 }
-
+.c-btn-yellow:not(:disabled):active {
+    background: #e59202;
+    color: #FFF;
+}
 /*common parts start*/
 .c-footer,
 .c-main{
@@ -687,6 +690,7 @@
     font-size: 24px;
 }
 .c-btn-disabled, .c-get-vervi:disabled {
+    color: #FFF !important;
     background: #ccc !important;
     border: 1px solid #ccc !important;
 }

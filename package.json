@@ -27,6 +27,7 @@
     "watchify": "^3.2.1"
   },
   "dependencies": {
-    "riot": "^2.1.0"
+    "riot": "^2.1.0",
+    "cheftjs": "^1.0.2"
   }
 }

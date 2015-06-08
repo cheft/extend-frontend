@@ -1,5 +1,4 @@
-var c = require('../assets/js/cheft');
-validate = require('../assets/js/validation');
+var c = require('cheftjs');
 
 c.Adapter = {Promise: $.Deferred, ajax: $.ajax};
 
@@ -10,5 +9,5 @@ $.get('dist/config.json').done(function(resp) {
 
     app.router = new c.Router(require('./router'));
     app.router.start();
-    app.validate = validate;
+    app.validate = require('../assets/js/validation');
 });
