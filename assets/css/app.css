@@ -224,17 +224,17 @@
     position: relative;
     background: url(../img/shape.png) no-repeat
 }
-.c-lack-num li:nth-child(1){      /*‰∏∫2ÁöÑÊó∂ÂÄôÁöÑliÁöÑ‰ΩçÁΩÆ*/
+.c-lack-num li:nth-child(1){      /*Œ™2µƒ ±∫ÚµƒliµƒŒª÷√*/
     left: 20%;
     margin-left:-18px;
     display: block;
 }
-.c-lack-num li:nth-child(2){       /*‰∏∫3ÁöÑÊó∂ÂÄôÁöÑliÁöÑ‰ΩçÁΩÆ*/
+.c-lack-num li:nth-child(2){       /*Œ™3µƒ ±∫ÚµƒliµƒŒª÷√*/
     left: 40%;
     margin-left:-24px;
     display: none;
 }
-.c-lack-num li:nth-child(3){        /*‰∏∫6ÁöÑÊó∂ÂÄôÁöÑliÁöÑ‰ΩçÁΩÆ*/
+.c-lack-num li:nth-child(3){        /*Œ™6µƒ ±∫ÚµƒliµƒŒª÷√*/
    left: 70%;
    margin-left:-40px;
    display: none;
@@ -828,7 +828,7 @@ body{
 .ui-btn-group-tiled .c-btn-yellow{
     background-color: #FFC100;
     border-color: #FFC100;
-    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0.5,#FFC100),to(#FFC100));
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0.5,#F5B74C),to(#FFA100));
     color: #fff;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
@@ -844,7 +844,15 @@ body{
     -webkit-box-shadow:5px 5px 10px rgba(0,0,0,.6);
     box-shadow:5px 5px 10px rgba(0,0,0,.6);
 }
-
+.ui-btn-wrap .c-btn-yellow:not(.disabled):not(:disabled):active,.ui-btn-wrap .c-btn-yellow:active {
+    background: #C67E3B;
+    border-color: #C67E3B;
+    color: rgba(255, 255, 255, 0.5);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    -webkit-box-shadow:5px 5px 10px rgba(0,0,0,.6);
+    box-shadow:5px 5px 10px rgba(0,0,0,.6);
+}
 .ui-btn-group-tiled .c-btn-green{
     background-color: #78f404;
     border-color: #78f404;
@@ -913,7 +921,7 @@ body{
     z-index: 2;
     position: absolute;
     top: 0px;
-    right: 15px;
+    right: 0px;
     background-image: url(data:image/jpg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAMAAcDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDsYZpv7Wf94+7ewPzH3or1qfRLE6akQhACtvBHUMc5OfxNFfK/2VUp6Ke+p+evIq1F2VTfXr1P/9k=);
 }
 .c-friends-intro .c-person-name{
