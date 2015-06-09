@@ -8,6 +8,19 @@ window.onload = function() {
         container    : 'viewport',
         router       : require('./router')
     });
+
     app.validate = require('../assets/js/validation');
+
+    app.error = function(data) {
+        var msg = '系统错误';
+        if(data.data && data.data.message) {
+            msg = data.data.message;
+        }
+        var el = $.tips({content: msg, stayTime: 2000, type: 'warn'});
+        el.on('touchstart', function() {
+            el.tips('hide');
+        });
+    }
+
     app.start();
 }

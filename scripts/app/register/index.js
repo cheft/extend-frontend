@@ -6,8 +6,11 @@ module.exports = {
         },
 
         saved: function(data) {
-            var openid = 123456;
-            app.router.go('share/' + openid);
+            if(data.status === 'success') {
+                var openid = 123456;
+                return app.router.go('share/' + openid);
+            }
+            app.error(data);
         },
 
         openid: function(openid) {

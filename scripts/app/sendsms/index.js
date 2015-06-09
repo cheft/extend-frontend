@@ -5,7 +5,7 @@ module.exports = {
             if(data.status == 'success') {
                 return $.tips({content: '验证码已发送', stayTime: 2000, type: 'success'});
             }
-            $.tips({content: data.message, stayTime: 2000, type: 'warn'});
+            app.error(data);
         }
     },
     actions: {

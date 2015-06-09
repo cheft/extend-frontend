@@ -3,7 +3,6 @@ module.exports = {
     events: {
         mount: function() {
             this.trigger('calHeight');
-            this.trigger('countDown');
         },
         openid: function(openid) {
             this.openid = openid;
@@ -13,7 +12,9 @@ module.exports = {
 
         geted: function(data) {
             this.store.data = data.data;
+            document.title = this.store.data.activity.name;
             this.update();
+            this.trigger('countDown', this.store.data.activity.endTime);
         },
 
         calHeight: function() {
@@ -23,8 +24,8 @@ module.exports = {
             $(".c-prize").css("margin-bottom",prizeMt);
         },
 
-        countDown: function() {
-            var endTime= new Date('2015/06/10 00:00:00');
+        countDown: function(date) {
+            var endTime= new Date(date);
             var nowTime = new Date();
             var t = endTime.getTime() - nowTime.getTime();
             var d = Math.floor(t/1000/60/60/24);
@@ -37,7 +38,7 @@ module.exports = {
             this.d.innerText = d;
             self = this;
             setTimeout(function() {
-                self.trigger('countDown');
+                self.trigger('countDown', date);
             }, 1000);
         }
     },
