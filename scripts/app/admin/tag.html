@@ -13,30 +13,30 @@
 			</div>
 		</div>
 		<div class="c-bar-h5"></div>
-		<div class="ui-form ui-border-t">
+		<div class="ui-form ui-border-t" if={store.data.user}>
 		    <form action="#" >
 		        <div class="ui-form-item ui-border-b c-bottom-border">
 		            <span class="c-left-colum">姓名</span>
-		            <span class="c-right-username">张尧</span>
+		            <span class="c-right-username">{store.data.user.name}</span>
 		        </div>
 		        <div class="ui-form-item ui-border-b c-bottom-border">
 		            <span class="c-left-colum">身份证号</span>
-		            <span class="c-right-username">429006187506285862</span>
+		            <span class="c-right-username">{store.data.user.ident}</span>
 		        </div>
 		        <div class="ui-form-item ui-border-b c-bottom-border">
 		            <span class="c-left-colum">兑奖状态</span>
-		            <span class="c-right-username">未兑</span>
+		            <span class="c-right-username">{store.data.user.exchangeCN > 0 ? '已兑': '未兑'}</span>
 		        </div>				
-				<div class="c-goodslist">
+				<div class="c-goodslist" name="goodslist">
 					<ul>
-						<li class="c-radius-10">情侣杯</li>
-						<li class="c-radius-10">U盘</li>
-						<li class="c-radius-10">低音炮</li>
-						<li class="c-radius-10">冰箱</li>
+						<li class="c-radius-10" each={store.data.prizes} if={exchange}>
+							<a href="javascript:void(0);" onclick={parent.choice}>{name}</a>
+						</li>
 					</ul>
 				</div>				
 				<div class="ui-btn-wrap">
-				    <button class="ui-btn-lg c-btn-yellow">兑奖</button>
+					<!--检测用户是否可兑奖，可以兑奖button变亮-->
+				    <button type="button" class="ui-btn-lg c-btn-yellow" if={store.data.user.exchangeCN === 0} onclick={putIn} >{store.data.user.exchangeCN > 0 ? '已兑奖': '兑奖'}</button>
 				</div>
 
 			</form>

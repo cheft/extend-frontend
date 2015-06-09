@@ -534,15 +534,25 @@
     margin:0 15px;
 }
 .c-goodslist li{
-    width: 21%;
+    width:21%;
+    float:left;
+    margin:10px 2%;
+}
+.c-goodslist li a{
+    width: 100%;
     padding-top:5px;
     padding-bottom:5px;
-    margin: 0 2%;
+    
     border-radius: 10px;
     text-align: center;
     background: #67DF01;
     color:#fff;
     float: left;
+    display: block;
+    font-size: 12px;
+}
+.c-goodslist li a.active{
+    background: red;
 }
 .c-field-icon {
     position: absolute;
