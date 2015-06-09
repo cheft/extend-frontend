@@ -1,47 +1,17 @@
 module.exports = {
-    actions: {
-        register: function() {
-            var data = {};
-            this.fieldEach(function(name, field) {
-                data[name] = field.el.value;
-            });
-            console.log(data);
-            // app.router.go('share');
-        },
-
-        ranking: function() {
-            app.router.go('ranking');
-        },
-
-        getCode: function(e) {
-            if(e.target.disabled || !this.tags.phone.validate()) {
-                return;
-            }
-            var el = $(e.target), time = 60;
-            var countdown = function() {
-                if (time <= 0) {
-                    el.attr('disabled', null).html('获取');
-                    return;
-                }
-                el.html('获取(' + (time--) + ')');
-                setTimeout(countdown, 1000);
-            }
-            el.attr('disabled', true).html('获取(' + (time--) + ')');
-            countdown();
-            $.tips({content: '验证码已发送', stayTime: 2000, type: 'success'});
-        },
-
-        fieldEach: function(cb) {
-            var inputs = ['name', 'idcard', 'school', 'professional', 'phone', 'code'];
-            for(var i = 0; i < inputs.length; i++) {
-                cb(inputs[i], this.tags[inputs[i]]);
-            }
-        }
-    },
-
+    store: 'customers',
     events: {
         mount: function() {
             this.trigger('formValidate');
+        },
+
+        saved: function(data) {
+            var openid = 123456;
+            app.router.go('share/' + openid);
+        },
+
+        openid: function(openid) {
+            this.refereeOpenid = openid;
         },
 
         checkSubmit: function(keys, key, value) {
@@ -65,6 +35,45 @@ module.exports = {
                 field.on('validate', function(key, value) {
                     self.trigger('checkSubmit', keys, key, value); 
                 })
+            });
+        }
+    },
+    actions: {
+        register: function() {
+            var data = {};
+            this.fieldEach(function(name, field) {
+                data[name] = field.el.value;
+            });
+            this.store.url = 'customers?verificationCode=' + data.code
+            delete data.code;
+            data.openid = '123456';
+            data.refereeOpenid = this.refereeOpenid;
+            this.store.save(JSON.stringify(data));
+        },
+
+        ranking: function() {
+            app.router.go('ranking');
+        },
+        fieldEach: function(cb) {
+            var inputs = ['name', 'ident', 'university', 'major', 'mobile', 'code'];
+            for(var i = 0; i < inputs.length; i++) {
+                cb(inputs[i], this.tags[inputs[i]]);
+            }
+        },
+
+        test: function() {
+            var data = {
+                name: '陈海峰',
+                ident: '430528199003143053',
+                university: '加里顿大学',
+                major: '计算机信息与技术',
+                mobile: '13316463314',
+                code: '123456'
+            };
+            self = this, keys = {};
+            this.fieldEach(function(name, field) {
+                field.el.value = data[name];
+                self.trigger('checkSubmit', keys, name, data[name]); 
             });
         }
     }

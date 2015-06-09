@@ -1,4 +1,13 @@
 module.exports = {
+    events: {
+        init: function() {
+            this.opts.name = this.opts.name || 'field';
+            this.opts.type = this.opts.type || 'text';
+        },
+        mount: function() {
+            this.el = this['{opts.name}'];
+        }
+    },
     actions: {
         clear: function(e) {
             this['{opts.name}'].value = '';
@@ -28,16 +37,6 @@ module.exports = {
             this.trigger('validate', this.opts.label, result);
             $(this._close).show();
             return result;
-        }
-    },
-
-    events: {
-        init: function() {
-            this.opts.name = this.opts.name || 'field';
-            this.opts.type = this.opts.type || 'text';
-        },
-        mount: function() {
-            this.el = this['{opts.name}'];
         }
     }
 }

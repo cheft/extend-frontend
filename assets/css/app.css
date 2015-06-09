@@ -183,17 +183,24 @@
 /*common parts end*/
 
 /*activity css start*/
-.c-progress_title,
+.c-progress-title,
 .c-register-gift,
 .c-progress-desc,
 .c-loan-gift{
     margin:0 15px;
 }
-.c-progress_title{
+.c-progress-rules {
+    float: right;
+    margin-right: 15px;
+    padding-top:10px;
+    padding-bottom:5px;
+}
+.c-progress-title{
     padding-top:10px;
     padding-bottom:5px;
     font-size: 14px;
     font-weight: 400;
+    margin-left: 15px;
 }
 .c-progress-bar{
     background: #dedede;
@@ -343,7 +350,7 @@
     padding-bottom: 5px;
     margin-bottom: 5px;
 }
-.c-progress_desc{
+.c-progress-desc{
     height: 20px;
     line-height: 20px;
     font-size: 12px;
@@ -677,7 +684,7 @@
     color: #E4E5E5;
     font-size: 24px;
 }
-.c-btn-disabled, .c-get-vervi:disabled {
+.c-get-vervi:disabled, .c-btn-yellow:disabled {
     color: #FFF !important;
     background: #ccc !important;
     border: 1px solid #ccc !important;
@@ -763,6 +770,10 @@ body{
     height: 112px;
     text-align: center;
     margin:0 auto;
+}
+.c-prize-image img {
+    width: 120px;
+    height: 100px;
 }
 .c-prize-name{
     text-align: center;
@@ -903,6 +914,7 @@ body{
     padding-top: 15px;
 
 }
-
-
+.c-yellow-color {
+    color: #FB9026;
+}
 /*shared css end*/
