@@ -1,0 +1,18 @@
+<activity-footer>
+    <script></script>
+    <ul class="c-activity-expend">
+        <li class="ui-border-b">
+            <p>我的邀请人
+                <span class="c-pull-right">
+                    {store.data.myReferrer ? store.data.myReferrer.nickname + '(' + store.data.myReferrer.mobile + ')' : '无'}
+                </span>
+            </p>
+        </li>
+        <li class="ui-border-b ui-list-item-link" onclick={invitation}>
+            <p>累计推荐总人数<span class="c-pull-right">{store.data.totalRecommendedCount} 人</span></p>
+        </li>
+        <li class="ui-border-b ui-list-item-link" onclick={ranking}>
+            推荐排行榜
+        </li>
+    </ul>
+</activity-footer>

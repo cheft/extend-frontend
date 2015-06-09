@@ -1,28 +1,59 @@
 module.exports = {
-    store: 'activities/myactivitypage',
+    store: 'prizes',
 
     events: {
         mount: function() {
-            this.store.get()
+            this.store.get();
+        },
+        updated: function() {
+            var list1 = $('.c-recommended-bar li');
+            if(list1.length > 0) {
+                list1.css('width',  100 / list1.length + '%');
+                $('.c-recommended-prize li').css('width', 100 / list1.length + '%');
+            }
+            var list2 = $('.c-credited-bar li');
+            if(list2.length > 0) {
+                list2.css('width',  100 / list2.length + '%');
+                $('.c-credited-prize li').css('width', 100 / list2.length + '%');
+            }
         },
         geted: function(data) {
             this.store.data = data.data;
-            console.log(data);
+            this.update();
+        },
+        process: function(data) {
+            this.recommendedCount = data.totalRecommendedCount;
+            this.creditedCount = data.creditedCount;
+            this.nextRecommendedPrize = this.calWidth(this.store.data.prizeList4Signed, this.recommendedCount);
+            this.nextCreditedPrize = this.calWidth(this.store.data.prizeList4Credited, this.creditedCount);
+            $('.c-recommended-bar-bg').css('width', this.nextRecommendedPrize.percent + '%');
+            $('.c-recommended-count').css('left', this.nextRecommendedPrize.percent + '%');
+            $('.c-credited-bar-bg').css('width', this.nextCreditedPrize.percent + '%');
+            $('.c-credited-count').css('left', this.nextCreditedPrize.percent + '%');
             this.update();
         }
     },
 
     actions: {
-        ranking: function() {
-            app.router.go('ranking');
-        },
-
-        invitation: function() {
-            app.router.go('invitation');
-        },
-        
         recommend: function() {
             app.router.go('share');
+        },
+        calWidth: function(list, count) {
+            var scale = 100 / list.length;
+            var prize = {percent: 0}, tmp = 0;
+            for(var i = 0; i < list.length; i++) {
+                var p = list[i];
+                if(count >= p.minLimit) {
+                    prize.percent += scale;
+                    tmp = p.minLimit;
+                }else {
+                    prize.percent += (count - tmp) / (p.minLimit - tmp);
+                    prize.name = p.name;
+                    prize.number = p.minLimit - tmp;
+                    break;
+                }
+            }
+            return prize;
         }
     }
 }

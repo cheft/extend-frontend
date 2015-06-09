@@ -202,7 +202,7 @@
     font-weight: 400;
     margin-left: 15px;
 }
-.c-progress-bar{
+.c-recommended-bar, .c-credited-bar {
     background: #dedede;
     border-radius: 8px;
     -webkit-border-radius: 8px;
@@ -212,7 +212,7 @@
     list-style: none;
     display: block;
 }
-.c-lack-num{
+.c-lack-num {
     display: block;
     height:18px;
     line-height: 18px;
@@ -231,44 +231,37 @@
     position: relative;
     background: url(../img/shape.png) no-repeat
 }
-.c-lack-num li:nth-child(1){      /*为2的时候的li的位置*/
+.c-recommended-count { 
     left: 20%;
-    margin-left:-18px;
+    margin-left:-15px;
     display: block;
 }
-.c-lack-num li:nth-child(2){       /*为3的时候的li的位置*/
-    left: 40%;
-    margin-left:-24px;
-    display: none;
-}
-.c-lack-num li:nth-child(3){        /*为6的时候的li的位置*/
-   left: 70%;
-   margin-left:-40px;
-   display: none;
-}
-.c-progress-bar li{
+.c-recommended-bar li, .c-credited-bar li {
     height: 20px;
     line-height: 20px;
     display: block;
     float: left;
     text-align: center;
+    position: relative;
+    z-index: 3; 
 }
-.c-progress-bar li:nth-child(1),
-.c-progress-bar li:nth-child(2),
-.c-progress-bar li:nth-child(3){    
-    width: 20%;
-}
-.c-progress-bar li:nth-child(4){
-    width: 40%;
-}
-.c-progress-current{
+.c-recommended-bar-bg, .c-credited-bar-bg {
     background: #67DF01;
+    left: -0;
+    right: auto;
+    position: absolute;
+    z-index: 2;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 15px;
+    margin-left: 15px;
+    width: 20%;
     border-radius: 8px;
-    -webkit-border-radius: 8px;
 }
-.c-current-circle,.c-circle{
+
+.c-current-circle, .c-circle{
     display: block;
-    width: 16px;
+    width: 30px;
     height: 16px;
     line-height: 16px;
     margin: 2px auto;
@@ -277,6 +270,7 @@
     -webkit-border-radius: 8px;
     box-shadow: 2px 3px 4px -2px;
     -webkit-box-shadow: 2px 3px 4px -2px;
+    float: right;
 }
 .c-current-circle{
     color: #000;
@@ -286,29 +280,36 @@
     color: #ccc;
     background: #999;
 }
-.c-giftslist,.c-progresslist{
+.c-recommended-prize, .c-credited-prize {
     margin-top: 15px;
     width: 100%;
     height: 20px;
 }
-.c-giftslist li{
-    width: 14%;
+.c-recommended-prize li, .c-credited-prize li{
+    width: 20%;
     height: 20px;
     line-height: 20px;
     font-size: 12px;
     float: left;
     display: block;
     text-align: center;
+}
+.c-recommended-prize .c-bubble, .c-credited-prize .c-bubble {
+    width: 60px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: center;
     color:#999;
     border-radius:10px;
     -webkit-border-radius:10px;
     background-color: #D9D9D9;
     position: relative;
-    padding:0 2%;
+    float: right;
 }
-.c-giftslist li:before {
+.c-recommended-prize .c-bubble:before, .c-credited-prize .c-bubble:before {
     left: 50%;
-    margin-left: -5px;
+    margin-left: 10px;
     right: auto;
     content: '';
     position: absolute;
@@ -316,25 +317,14 @@
     border-left: transparent 5px solid;
     border-right: transparent 5px solid;
     z-index: 2;
-    margin-top: -5px;
+    margin-top: -4px;
 }
-.c-giftslist li:nth-child(1){
-    left: 1%;
-}
-.c-giftslist li:nth-child(2){
-    left: 3%;
-}
-.c-giftslist li:nth-child(3){
-    left: 5%;
-}
-.c-giftslist li:nth-child(4){
-    left: 17%;
-}
-.c-current-gifts{
+.c-bubble.active {
     background-color: #67DF01 !important;
     color:#fff !important;
-    background: #FFA202;
-    color: #fff;
+}
+.c-bubble.active:before {
+    border-bottom: 5px #67DF01 solid !important;
 }
 .c-current-gifts:before {
     left: 50%;
@@ -346,12 +336,7 @@
     border-left: transparent 5px solid;
     border-right: transparent 5px solid;
     z-index: 2;
-    margin-top: -5px;
-}
-.c-progress{
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 5px;
-    margin-bottom: 5px;
+    margin-top: -4px;
 }
 .c-progress-desc{
     height: 20px;
@@ -376,137 +361,7 @@
 .c-text-right{
     float: right;
 }
-.c-loan-bar{
-    background: #dedede;
-    border-radius: 8px;
-    -webkit-border-radius: 8px;
-    overflow: hidden;
-}
-.c-loan-num{
-    display: block;
-    height:18px;
-    line-height: 18px;
-    position: relative;
-    margin-bottom: 10px;
-}
-.c-loan-num li{
-    width: 25px;
-    height: 18px;
-    background: red;
-    text-align: center;
-    line-height: 13px;
-    display: block;
-    color:#fff;
-    float: left;
-    position: relative;
-    background: url(../img/shape.png) no-repeat;
-}
-.c-loan-num li:nth-child(1){    /*progress one position*/
-    left: 33%;
-    margin-left:-18px;
-    display: block;
-}
-.c-loan-num li:nth-child(2){    /*progress two position*/
-    left: 66%;
-    margin-left:-24px;
-    display: none;
-}
-.c-loan-bar li{
-    height: 20px;
-    line-height: 20px;
-    display: block;
-    float: left;
-    text-align: center;
-}
-.c-loan-bar li:nth-child(1),
-.c-loan-bar li:nth-child(2),
-.c-loan-bar li:nth-child(3){    
-    width: 33%;
-}
-.c-loan-bar li:nth-child(4){
-    width: 40%;
-}
-.c-loan{
-    margin-top: 5px;
-    width: 100%;
-    height: 20px;
-}
-.c-loan li{
-    width: 14%;
-    height: 20px;
-    line-height: 20px;
-    font-size: 12px;
-    float: left;
-    display: block;
-    text-align: center;
-    color:#999;
-    border-radius:10px;
-    -webkit-border-radius:10px;
-    background-color: #D9D9D9;
-    position: relative;
-}
-.c-progresslist li{
-    width: 14%;
-    height: 20px;
-    line-height: 20px;
-    font-size: 12px;
-    float: left;
-    display: block;
-    text-align: center;
-    color:#999;
-    border-radius:10px;
-    -webkit-border-radius:10px;
-    background-color: #D9D9D9;
-    position: relative;
-    padding:0 2%;
-}
 
-.c-progresslist li:nth-child(1){
-    left: 8%;
-}
-.c-progresslist li:nth-child(2){
-    left: 23%;
-}
-.c-progresslist li:nth-child(3){
-    left: 37%;
-}
-.c-progresslist li:before {
-    left: 50%;
-    margin-left: -5px;
-    right: auto;
-    content: '';
-    position: absolute;
-    border-bottom: 5px #ccc solid;
-    border-left: transparent 5px solid;
-    border-right: transparent 5px solid;
-    z-index: 2;
-    margin-top: -5px;
-}
-.c-current-progressgift{
-    background-color: #67DF01 !important;
-    color: #fff !important;
-}
-.c-current-progressgift:before {
-    left: 50%;
-    margin-left: -5px;
-    right: auto;
-    content: '';
-    position: absolute;
-    border-bottom: 5px #67DF01 solid !important;
-    border-left: transparent 5px solid;
-    border-right: transparent 5px solid;
-    z-index: 2;
-    margin-top: -5px;
-}
-.c-loan li:nth-child(1){
-    left: 10%;
-}
-.c-loan li:nth-child(2){
-    left: 29%;
-}
-.c-loan li:nth-child(3){
-    left: 48%;
-}
 .c-activity-expend{
     margin-bottom: 20px;
 }
@@ -954,5 +809,12 @@ body{
 }
 .c-yellow-color {
     color: #FB9026;
+}
+.c-pull-right {
+    float: right;
+    margin-right: 20px;
+}
+.c-qrcode img {
+    width: 120px;
 }
 /*shared css end*/

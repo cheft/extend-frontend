@@ -28,7 +28,8 @@
 		    <div class="c-friends">
 		    	<div class="c-up-friends"></div>
 		    	<div class="c-friends-info">达飞好友：
-		    		<span>共{store.data.friendsCount}人({store.data.creditedCount}人贷款)</span>
+		    		<span>共 {store.data.friendsCount} 人( {store.data.creditedCount} 人贷款)</span>
+                    <span if={!store.data.referrerCredited}> {store.data.referrer.name} 已贷款</span>
 		    	</div>
 		    	<div class="c-friends-list">
 			   		<div class="c-friends-intro" each={f, i in store.data.friendList} if={i < 5}>
