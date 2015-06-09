@@ -1,17 +1,19 @@
 module.exports = {
-    actions: {
-        ding: function() {
-            app.router.go('register');
-        },
-        yao: function() {
-            app.router.go('register');
-        }
-    },
-
+    store: 'activities/landingpage',
     events: {
         mount: function() {
             this.trigger('calHeight');
             this.trigger('countDown');
+        },
+        openid: function(openid) {
+            this.openid = openid;
+            this.store.params = {openid: openid};
+            this.store.get();
+        },
+
+        geted: function(data) {
+            this.store.data = data.data;
+            this.update();
         },
 
         calHeight: function() {
@@ -37,6 +39,15 @@ module.exports = {
             setTimeout(function() {
                 self.trigger('countDown');
             }, 1000);
+        }
+    },
+
+    actions: {
+        ding: function() {
+            app.router.go('register/' + this.openid);
+        },
+        yao: function() {
+            app.router.go('register');
         }
     }
 }

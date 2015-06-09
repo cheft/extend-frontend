@@ -1,9 +1,18 @@
 module.exports = {
-    actions: {
-        init: function() {
-            // this.number = 5;
-        },
+    store: 'activities/myactivitypage',
 
+    events: {
+        mount: function() {
+            this.store.get()
+        },
+        geted: function(data) {
+            this.store.data = data.data;
+            console.log(data);
+            this.update();
+        }
+    },
+
+    actions: {
         ranking: function() {
             app.router.go('ranking');
         },
@@ -13,15 +22,7 @@ module.exports = {
         },
         
         recommend: function() {
-            app.router.go('register');
-        }
-    },
-
-    events: {
-        mount: function() {
-            this.number = 2;
-            this.update();
+            app.router.go('share');
         }
     }
-
 }

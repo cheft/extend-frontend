@@ -2,14 +2,16 @@
 	<script></script>
 	<div class="c-container">
 		<div class="c-header">我的活动</div>
-		<div class="c-progress_title">推荐注册礼品进度</div>
+		<div class="c-progress-title" style="float: left;">推荐注册礼品进度</div>
+		<div class="c-progress-rules c-text-right c-yellow">活动细则&gt;&gt;</div>
+		<div style="clear: both;"></div>
 		
 		<div class="c-register-gift">
 			<ul class="c-lack-num">
-				<li>{number}</li>
+				<li>2</li>
 			</ul>
 			<ul class="c-progress-bar">
-				<li class="c-progress-current"><span class="c-current-circle">{progress}1</span></li>
+				<li class="c-progress-current"><span class="c-current-circle">1</span></li>
 				<li><span class="c-circle">3</span></li>
 				<li><span class="c-circle">6</span></li>
 				<li><span class="c-circle">12</span></li>
@@ -22,11 +24,11 @@
 			</ul>
 		</div>
 
-		<div class="c-progress_desc">
-			<div class="c-text-left">您只需要再推荐<strong class="c-yellow">1人</strong>注册就获得U盘</div><div class="c-text-right c-yellow">活动细则&gt;&gt;</div>
+		<div class="c-progress-desc">
+			<div class="c-text-left">您只需要再推荐<strong class="c-yellow">1人</strong>注册就获得U盘</div>
 		</div>
 			
-		<div class="c-progress_title">推荐贷款礼品进度</div>
+		<div class="c-progress-title">推荐贷款礼品进度</div>
 		<div class="c-register-gift">
 			<ul class="c-loan-num">
 				<li>1</li>
@@ -44,11 +46,9 @@
 			</ul>
 		</div>
 
-		<div class="c-progress_desc">
+		<div class="c-progress-desc">
 			<div class="c-text-left">您只需要再推荐<strong class="c-yellow">1人</strong>贷款就获得低音炮</div>
-			<a class="c-text-right ui-btn c-reco" href="javascript: void 0;" onclick={ranking}>推荐排行榜</a>
 		</div>
-	
 		<div class="ui-btn-wrap">
 		    <button class="ui-btn-lg c-btn-yellow" onclick={recommend}>立即推荐</button>
 		</div>
@@ -58,11 +58,13 @@
 		        <p>我的邀请人:<span>小刘(15220269668)</span></p>
 		    </li>
 		    <li class="ui-border-b ui-list-item-link" onclick={invitation}>
-		        <p>累计推荐总人数:<span>2人</span></p>
+		        <p>累计推荐总人数:<span>{store.data.signedCount}人</span></p>
+		    </li>
+		    <li class="ui-border-b ui-list-item-link" onclick={ranking}>
+		        推荐排行榜
 		    </li>
 		</ul>
-		
-		<div class="c-end-img"><img src="assets/img/end.png" alt="奖品已兑完"></div>
+		<!-- <div class="c-end-img"><img src="assets/img/end.png" alt="奖品已兑完"></div> -->
 
     </div>
     <about></about>

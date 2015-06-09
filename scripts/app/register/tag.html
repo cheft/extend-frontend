@@ -3,15 +3,15 @@
 	<div class="c-container">
 		<div class="ui-form c-form">
 			<field name="name" label="姓名" icon="person" validate="required realName" maxlength="16"></field>
-			<field name="idcard" label="身份证号" icon="about" validate="required idCard" maxlength="18"></field>
-			<field name="school" label="学校" icon="school" validate="required illegal" maxlength="50"></field>
-			<field name="professional" label="专业" icon="book" validate="required illegal" maxlength="50"></field>
-			<field name="phone" type="tel" label="手机号" icon="phone" validate="required phone" maxlength="16"></field>
+			<field name="ident" label="身份证号" icon="about" validate="required idCard" maxlength="18"></field>
+			<field name="university" label="学校" icon="school" validate="required illegal" maxlength="50"></field>
+			<field name="major" label="专业" icon="book" validate="required illegal" maxlength="50"></field>
+			<field name="mobile" type="tel" label="手机号" icon="phone" validate="required phone" maxlength="16"></field>
 			<field name="code" clas="ui-form-item-r" type="tel" label="验证码" icon="message" validate="required number length 6"  maxlength="6">
-	    		<button type="button" class="c-get-vervi" onclick={parent.getCode}>获取</button>
+	    		<sendsms></sendsms>	
 	    	</field>
 	        <div class="ui-btn-wrap">
-			    <button name="submit" class="ui-btn-lg c-btn-yellow c-btn-disabled" disabled="disabled" onclick={register}>注册生成分享二维码</button>
+			    <button name="submit" class="ui-btn-lg c-btn-yellow" disabled="disabled" onclick={register}>注册生成分享二维码</button>
 			</div>
 		</div>
 		<div class="c-active-rule">
@@ -22,7 +22,7 @@
 			    <li>邀请并成功绑定 6 个人送低音炮</li>
 			    <li>邀请并成功绑定 12 个人送小冰箱</li>
 			</ol>
-			<p><a href="#" class="c-yellow-font">活动细则 >></a><button class="c-reco" onclick={ranking}>推荐排行榜</button></p>
+			<p><a href="javascript: void 0;" class="c-yellow-font" onclick={test}>活动细则 >></a><button class="c-reco" onclick={ranking}>推荐排行榜</button></p>
 		</div>
 	</div>
 	<about></about>

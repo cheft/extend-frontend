@@ -11,43 +11,29 @@
     </div>
     <div class="c-container">
 	    <div class="c-prize">
-	    	<div class="c-prize-image"><img src="assets/img/image.png" alt="活动产品图片"></div>			
-			<div class="c-prize-name">超强音低音炮/<span class="c-red-text">200元</span></div>
+	    	<div class="c-prize-image"><img src={'assets/img/prize/' + store.data.nextPrize.image} /></div>		
+			<div class="c-prize-name">{store.data.nextPrize.name}/<span class="c-red-text">{store.data.nextPrize.price}元</span></div>
 	    </div>
 	    <div class="c-person-info">
 		    <div class="c-person-logo"></div>
-		    <div class="c-person-name">dayney</div>
+		    <div class="c-person-name">{store.data.referrer.name}</div>
 	    </div>
 	    <div class="c-background-color">
-		    <div class="c-tip">ricci只差3人帮顶或者1人贷款就能获得低音炮了</div>
+		    <div class="c-tip">{store.data.referrer.name}只差{store.data.nextPrizeSignGapCount}人帮顶或者{store.data.nextPrizeCreditGapCount}人贷款就能获得 {store.data.nextPrize.name} 了</div>
 		    <div class="ui-btn-group-tiled ui-btn-wrap">
-			    <button class="ui-btn-lg c-btn-yellow" onclick={ding}>帮他顶</button> <button class="ui-btn-lg c-btn-green" onclick={yao}>我也要</button>
+			    <button class="ui-btn-lg c-btn-yellow" onclick={ding}>帮他顶</button>
+			    <button class="ui-btn-lg c-btn-green" onclick={yao}>我也要</button>
 			</div>
 		    <div class="c-tip">活动细则>></div>
 		    <div class="c-friends">
 		    	<div class="c-up-friends"></div>
-		    	<div class="c-friends-info">达飞好友：<span>共5人(1人贷款)</span></div>
+		    	<div class="c-friends-info">达飞好友：
+		    		<span>共{store.data.friendsCount}人({store.data.creditedCount}人贷款)</span>
+		    	</div>
 		    	<div class="c-friends-list">
-			    	<div class="c-friends-intro">
-			    		<div class="c-bookmark"></div>
+			   		<div class="c-friends-intro" each={f, i in store.data.friendList} if={i < 5}>
 			    		<div class="c-person-logo"></div>
-			    		<div class="c-person-name">dayney</div>
-			    	</div>
-			    	<div class="c-friends-intro">
-			    		<div class="c-person-logo"></div>
-			    		<div class="c-person-name">dayney</div>
-			    	</div>
-			    	<div class="c-friends-intro">
-			    		<div class="c-person-logo"></div>
-			    		<div class="c-person-name">dayney</div>
-			    	</div>
-			    	<div class="c-friends-intro">
-			    		<div class="c-person-logo"></div>
-			    		<div class="c-person-name">dayney</div>
-			    	</div>
-			    	<div class="c-friends-intro">
-			    		<div class="c-person-logo"></div>
-			    		<div class="c-person-name">dayney</div>
+			    		<div class="c-person-name">{f.name}</div>
 			    	</div>
 		    	</div>
 		    </div>
