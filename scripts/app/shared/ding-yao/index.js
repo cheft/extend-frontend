@@ -1,37 +1,32 @@
 module.exports = {
     store: 'customers/isregister',
     actions: {
-        common: function(content) {
-            var defer = $.Deferred();
+        ding: function() {
+            var openid = this.parent.openid;
+            this.store.url = 'customers/associated';
             this.store.get().done(function(data) {
-                if(data.data) {
+                if(data.data && data.data.associated) {
                     var dia = $.dialog({
-                        title: '提示',
-                        content: content,
-                        button: ['我的活动中心','取消']
+                        content: '同一用户不可重复帮顶哦，您也可以邀请好友轻松赢肾6',
+                        button: ['活动中心','取消']
                     });
                     dia.on('dialog:action',function(e){
                         if(e.index === 0) {
                             app.router.go('activity');
                         }
                     });
-                    return defer.reject();
+                    return;
                 }
-                return defer.resovle();
-                
-            });
-            return defer.promise();
-        },
-        ding: function() {
-            var openid = this.parent.openid;
-            this.common('您已经注册过，不能再帮别人顶了！').done(function() {
                 app.router.go('register/' + openid);
             });
-            
         },
         yao: function() {
-            this.common('您已经注册过，请点击我的活动中心！').done(function() {
-                app.router.go('register/' + openid);
+            this.store.url = 'customers/isregister';
+            this.store.get().done(function(data) {
+                if(data.data) {
+                    return app.router.go('activity');
+                }
+                app.router.go('register');
             });
         }
     }

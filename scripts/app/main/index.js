@@ -5,7 +5,7 @@ module.exports = {
             this.store.get()
         },
         geted: function(data) {
-            if(data) {
+            if(data.data) {
                 return app.router.go('activity');
             }
             return app.router.go('register');

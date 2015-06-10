@@ -12,5 +12,10 @@ module.exports = {
         geted: function(data) {
             console.log(data);
         }
+    },
+    actions: {
+        goStudent: function() {
+            location.href = app.studnetUrl;
+        }
     }
 }

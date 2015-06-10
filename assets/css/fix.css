@@ -7,3 +7,11 @@
 .ui-tooltips-vip .ui-tooltips-cnt {
     padding-left: 0;
 }
+.ui-dialog .ui-dialog-bd {
+    color: #FD642E;
+    text-align: center;
+}
+.ui-dialog .ui-dialog-ft button {
+    background: #FD642E;
+    color: #FFF;
+}
