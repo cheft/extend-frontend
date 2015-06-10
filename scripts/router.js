@@ -3,7 +3,8 @@ module.exports = {
         '': 'home',
         ':id': 'start',
         ':id/:openid': 'goByOpenId',
-        'register/:openid': 'ding'
+        'register/:openid': 'ding',
+        'share/:openid': 'share'
     },
 
     start: function(id) {
@@ -11,7 +12,7 @@ module.exports = {
     },
     
     home: function() {
-        app.container.trigger('show', 'main');
+        app.container.trigger('show', 'activity');
     }, 
 
     goByOpenId: function(id, openid) {
@@ -21,6 +22,11 @@ module.exports = {
 
     ding: function(openid) {
         app.container.trigger('show', 'register');
+        app.currentTag.trigger('openid', openid);
+    },
+
+    share: function(openid) {
+        app.container.trigger('show', 'share');
         app.currentTag.trigger('openid', openid);
     }
 };

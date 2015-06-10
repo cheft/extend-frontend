@@ -3,11 +3,19 @@ module.exports = {
     events: {
         mount: function() {
             this.trigger('formValidate');
+            this.store.url = 'customers/isregister'
+        },
+
+        geted: function() {
+            if(data.data) {
+                return app.router.go('activity');
+            }
         },
 
         saved: function(data) {
-            if(data.status === 'success') {
-                return app.router.go('share/');
+            this.loader.loading('hide');
+            if(data.data) {
+                return app.router.go('share/' + data.data);
             }
             app.error(data);
         },
@@ -42,6 +50,7 @@ module.exports = {
     },
     actions: {
         register: function() {
+            this.loader = $.loading({content:'保存数据'});
             var data = {};
             this.fieldEach(function(name, field) {
                 data[name] = field.el.value;

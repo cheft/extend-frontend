@@ -32,10 +32,15 @@ module.exports = {
             var h = Math.floor(t/1000/60/60%24);
             var m = Math.floor(t/1000/60%60);
             var s = Math.floor(t/1000%60);
+            // this.s.innerText = (s+'').length < 2 ? '0' + s : s;
+            // this.h.innerText = (h+'').length < 2 ? '0' + h : h;
+            // this.m.innerText = (m+'').length < 2 ? '0' + m : m;
+            // this.d.innerText = (d+'').length < 2 ? '0' + d : d;
             this.s.innerText = s;
             this.h.innerText = h;
             this.m.innerText = m;
             this.d.innerText = d;
+
             self = this;
             setTimeout(function() {
                 self.trigger('countDown', date);

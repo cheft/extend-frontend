@@ -158,11 +158,11 @@
 }
 .c-share-btn:active {
     background: #cc9425 !important;
-    color: #FFF;
+    color: #FFF !important;
 }
 .c-btn-yellow:not(:disabled):active {
-    background: #e59202;
-    color: #FFF;
+    background: #e59202 !important;
+    color: #FFF !important;
 }
 /*common parts start*/
 .c-footer,
@@ -330,7 +330,7 @@
     left: 50%;
     margin-left: -5px;
     right: auto;
-    content: '';
+    content: ' ';
     position: absolute;
     border-bottom: 5px #67DF01 solid !important;
     border-left: transparent 5px solid;
@@ -799,6 +799,6 @@ body{
     margin-right: 20px;
 }
 .c-qrcode img {
-    width: 120px;
+    width: 180px;
 }
 /*shared css end*/

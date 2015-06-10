@@ -22,8 +22,9 @@ module.exports = {
             this.update();
         },
         process: function(data) {
-            this.recommendedCount = data.totalRecommendedCount;
-            this.creditedCount = data.creditedCount;
+            this.recommendedCount = data.content.totalRecommendedCount;
+            this.creditedCount = data.content.creditedCount;
+            this.prizeAcquired = data.content.prizeAcquired;
             this.nextRecommendedPrize = this.calWidth(this.store.data.prizeList4Signed, this.recommendedCount);
             this.nextCreditedPrize = this.calWidth(this.store.data.prizeList4Credited, this.creditedCount);
             $('.c-recommended-bar-bg').css('width', this.nextRecommendedPrize.percent + '%');
@@ -36,7 +37,7 @@ module.exports = {
 
     actions: {
         recommend: function() {
-            app.router.go('share');
+            app.router.go('share/' + this.tags['activity-footer'].store.data.openid);
         },
         calWidth: function(list, count) {
             var scale = 100 / list.length;
