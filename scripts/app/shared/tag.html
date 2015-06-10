@@ -20,15 +20,12 @@
 	    </div>
 	    <div class="c-background-color">
 		    <div class="c-tip">{store.data.referrer.name}只差{store.data.nextPrizeSignGapCount}人帮顶或者{store.data.nextPrizeCreditGapCount}人贷款就能获得 {store.data.nextPrize.name} 了</div>
-		    <div class="ui-btn-group-tiled ui-btn-wrap">
-			    <button class="ui-btn-lg c-btn-yellow" onclick={ding}>帮他顶</button>
-			    <button class="ui-btn-lg c-btn-green" onclick={yao}>我也要</button>
-			</div>
+		    <ding-yao></ding-yao>
 		    <div class="c-tip">活动细则>></div>
 		    <div class="c-friends">
 		    	<div class="c-up-friends"></div>
 		    	<div class="c-friends-info">达飞好友：
-		    		<span>共 {store.data.friendsCount} 人( {store.data.creditedCount} 人贷款)</span>
+		    		<span>共 {store.data.friendCount} 人( {store.data.creditedCount} 人贷款)</span>
                     <span if={!store.data.referrerCredited}> {store.data.referrer.name} 已贷款</span>
 		    	</div>
 		    	<div class="c-friends-list">

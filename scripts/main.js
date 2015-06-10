@@ -8,7 +8,7 @@ window.onload = function() {
         container    : 'viewport',
         router       : require('./router')
     });
-
+    app.studnetUrl = '';
     app.validate = require('../assets/js/validation');
 
     app.error = function(data) {

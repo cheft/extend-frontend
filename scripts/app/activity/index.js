@@ -47,9 +47,9 @@ module.exports = {
                     prize.percent += scale;
                     tmp = p.minLimit;
                 }else {
-                    prize.percent += (count - tmp) / (p.minLimit - tmp);
+                    prize.percent += (count - tmp) / (p.minLimit - tmp) * scale;
                     prize.name = p.name;
-                    prize.number = p.minLimit - tmp;
+                    prize.number = p.minLimit - count;
                     break;
                 }
             }

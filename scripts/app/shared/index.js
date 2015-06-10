@@ -41,14 +41,5 @@ module.exports = {
                 self.trigger('countDown', date);
             }, 1000);
         }
-    },
-
-    actions: {
-        ding: function() {
-            app.router.go('register/' + this.openid);
-        },
-        yao: function() {
-            app.router.go('register');
-        }
     }
 }
