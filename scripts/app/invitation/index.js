@@ -5,7 +5,6 @@ module.exports = {
             this.store.get();
         },
         geted: function(data) {
-            console.log(data);
             this.list = data.data;
             this.update();
         }

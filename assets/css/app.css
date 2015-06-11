@@ -157,11 +157,11 @@
 }
 .c-share-btn:active {
     background: #cc9425 !important;
-    color: #FFF;
+    color: #FFF !important;
 }
 .c-btn-yellow:not(:disabled):active {
-    background: #e59202;
-    color: #FFF;
+    background: #e59202 !important;
+    color: #FFF !important;
 }
 /*common parts start*/
 .c-footer,
@@ -293,7 +293,7 @@
     display: block;
     text-align: center;
 }
-.c-recommended-prize .c-bubble, .c-credited-prize .c-bubble {
+.c-bubble {
     width: 60px;
     height: 20px;
     line-height: 20px;
@@ -306,36 +306,27 @@
     position: relative;
     float: right;
 }
-.c-recommended-prize .c-bubble:before, .c-credited-prize .c-bubble:before {
-    left: 50%;
-    margin-left: 10px;
-    right: auto;
-    content: '';
-    position: absolute;
-    border-bottom: 5px #ccc solid;
-    border-left: transparent 5px solid;
-    border-right: transparent 5px solid;
-    z-index: 2;
-    margin-top: -4px;
-}
 .c-bubble.active {
     background-color: #67DF01 !important;
     color:#fff !important;
 }
-.c-bubble.active:before {
-    border-bottom: 5px #67DF01 solid !important;
+.c-bubble:before {
+    content: "";
 }
-.c-current-gifts:before {
+.c-bubble:before {
     left: 50%;
     margin-left: -5px;
     right: auto;
-    content: '';
+    content: "";
     position: absolute;
-    border-bottom: 5px #67DF01 solid !important;
+    border-bottom: 5px #cccccc solid !important;
     border-left: transparent 5px solid;
     border-right: transparent 5px solid;
     z-index: 2;
     margin-top: -4px;
+}
+.c-bubble.active:before {
+    border-bottom: 5px #67DF01 solid !important;
 }
 .c-progress-desc{
     height: 20px;
@@ -459,7 +450,7 @@
     border-radius: 5px;
     -webkit-border-radius: 5px;
     border: 1px solid #ccc;
-    padding: 8px 25px;
+    padding: 8px;
     line-height: 22px;
     color:#565656;
     font-weight: 400;
@@ -705,27 +696,18 @@ body{
     border-color: #FFC100;
     background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0.5,#F5B74C),to(#FFA100));
     color: #fff;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    -webkit-box-shadow:5px 5px 10px rgba(0,0,0,.6);
     box-shadow:5px 5px 10px rgba(0,0,0,.6);
 }
 .ui-btn-group-tiled .c-btn-yellow:not(.disabled):not(:disabled):active,.ui-btn-group-tiled .c-btn-yellow:active {
     background: #a5a444;
     border-color: #a5a444;
     color: rgba(255, 255, 255, 0.5);
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    -webkit-box-shadow:5px 5px 10px rgba(0,0,0,.6);
     box-shadow:5px 5px 10px rgba(0,0,0,.6);
 }
 .ui-btn-wrap .c-btn-yellow:not(.disabled):not(:disabled):active,.ui-btn-wrap .c-btn-yellow:active {
     background: #C67E3B;
     border-color: #C67E3B;
     color: rgba(255, 255, 255, 0.5);
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    -webkit-box-shadow:5px 5px 10px rgba(0,0,0,.6);
     box-shadow:5px 5px 10px rgba(0,0,0,.6);
 }
 /*¶ÒÍê½±ÁËÖ®ºóÍ¼±êÊÇ»ÒÉ«µÄ*/
@@ -743,22 +725,15 @@ body{
     border-color: #78f404;
     background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0.5,#83d13a),to(#83d13a));
     color: #fff;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    -webkit-box-shadow:5px 5px 10px rgba(0,0,0,.6);
     box-shadow:5px 5px 10px rgba(0,0,0,.6);
+}
+.c-btn-green:before {
+    border-color: #78f404;
 }
 .ui-btn-group-tiled .c-btn-green:not(.disabled):not(:disabled):active,.ui-btn-group-tiled .c-btn-green:active {
     background: #74a14b;
     border-color: #74a14b;
     color: rgba(255, 255, 255, 0.5);
-    -webkit-background-clip: padding-box;
-        background-clip: padding-box;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    -webkit-box-shadow:5px 5px 10px rgba(0,0,0,.6);
     box-shadow:5px 5px 10px rgba(0,0,0,.6);
 }
 .c-friends{
@@ -824,7 +799,7 @@ body{
     margin-right: 20px;
 }
 .c-qrcode img {
-    width: 120px;
+    width: 180px;
 }
 /*shared css end*/
 /*activity-detail css start*/

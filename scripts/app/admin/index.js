@@ -4,23 +4,27 @@ module.exports = {
 	events: {
         geted: function(data) {
            	this.store.data = data.data;
-           	this.userId = this.store.data.user.openid;
+           	this.userId = this.store.data.user.id;
             this.update();
         },
         saved: function(data) {
         	if(data) {
-        		return $.tips({content: '兑奖成功', stayTime: 2000, type: 'info'});
-        	}
-        	app.error(data);
+        		$.tips({content: '兑奖成功', stayTime: 2000, type: 'info'});
+        	}else {
+        	   app.error(data);
+            }
+            this.search();
         }
     },
 	actions: {
-		validate: function(e) {			
-			// if(!app.validate($(e.target), '手机号', 'required', 'phone')) {
-			// 	return;
-			// }
-			// this.store.url = 'prizes/customer/' + $(e.target).val();
-			this.store.url = 'prizes/customer/13316463314';
+		search: function() {
+            if(this.phone.value.trim() == '') {
+                return $.tips({content: '请填写手机号进行搜索', stayTime: 2000, type: 'warn'});
+            }
+			if(!app.validate($(this.phone), '手机号', 'phone')) {
+				return;
+			}
+			this.store.url = 'prizes/customer/' + $(this.phone).val();
 			this.store.get();
 		},
 		choice: function(e) {
@@ -28,7 +32,7 @@ module.exports = {
 			$(e.target).addClass('active');
 			this.prizeId = e.item.id;
 		},
-		putIn:function(e) {
+		putIn: function(e) {
 			if(!this.prizeId) {
 				return $.tips({content: '请先选择奖品', stayTime: 2000, type: 'warn'});
 			}

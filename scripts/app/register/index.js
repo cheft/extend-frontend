@@ -3,11 +3,21 @@ module.exports = {
     events: {
         mount: function() {
             this.trigger('formValidate');
+            this.store.url = 'customers/isregister'
+        },
+
+        geted: function() {
+            if(data.data) {
+                return app.router.go('activity');
+            }
         },
 
         saved: function(data) {
-            var openid = 123456;
-            app.router.go('share/' + openid);
+            this.loader.loading('hide');
+            if(data.data) {
+                return app.router.go('share/' + data.data);
+            }
+            app.error(data);
         },
 
         openid: function(openid) {
@@ -40,13 +50,13 @@ module.exports = {
     },
     actions: {
         register: function() {
+            this.loader = $.loading({content:'保存数据'});
             var data = {};
             this.fieldEach(function(name, field) {
                 data[name] = field.el.value;
             });
             this.store.url = 'customers?verificationCode=' + data.code
             delete data.code;
-            data.openid = '123456';
             data.refereeOpenid = this.refereeOpenid;
             this.store.save(JSON.stringify(data));
         },

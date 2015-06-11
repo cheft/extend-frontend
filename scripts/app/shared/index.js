@@ -3,7 +3,6 @@ module.exports = {
     events: {
         mount: function() {
             this.trigger('calHeight');
-            this.trigger('countDown');
         },
         openid: function(openid) {
             this.openid = openid;
@@ -13,7 +12,9 @@ module.exports = {
 
         geted: function(data) {
             this.store.data = data.data;
+            document.title = this.store.data.activity.name;
             this.update();
+            this.trigger('countDown', this.store.data.activity.endTime);
         },
 
         calHeight: function() {
@@ -23,31 +24,27 @@ module.exports = {
             $(".c-prize").css("margin-bottom",prizeMt);
         },
 
-        countDown: function() {
-            var endTime= new Date('2015/06/10 00:00:00');
+        countDown: function(date) {
+            var endTime= new Date(date);
             var nowTime = new Date();
             var t = endTime.getTime() - nowTime.getTime();
             var d = Math.floor(t/1000/60/60/24);
             var h = Math.floor(t/1000/60/60%24);
             var m = Math.floor(t/1000/60%60);
             var s = Math.floor(t/1000%60);
+            // this.s.innerText = (s+'').length < 2 ? '0' + s : s;
+            // this.h.innerText = (h+'').length < 2 ? '0' + h : h;
+            // this.m.innerText = (m+'').length < 2 ? '0' + m : m;
+            // this.d.innerText = (d+'').length < 2 ? '0' + d : d;
             this.s.innerText = s;
             this.h.innerText = h;
             this.m.innerText = m;
             this.d.innerText = d;
+
             self = this;
             setTimeout(function() {
-                self.trigger('countDown');
+                self.trigger('countDown', date);
             }, 1000);
-        }
-    },
-
-    actions: {
-        ding: function() {
-            app.router.go('register/' + this.openid);
-        },
-        yao: function() {
-            app.router.go('register');
         }
     }
 }
