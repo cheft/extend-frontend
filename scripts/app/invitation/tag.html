@@ -16,9 +16,7 @@
             <ul class="ui-list ui-list-text ui-border-tb">
                 <li class="ui-border-t" each={list}>
                     <ul class="ui-grid-trisect" style="width: 95%;">
-                        <li>
-                            {mobile}
-                        </li>
+                        <li>{mobile}</li>
                         <li style="text-align: center;" class={ credited ? 'c-yellow-color' : '' }>{ credited ? '已贷款' : '已注册' }</li>
                         <li style="text-align: right;">{createTime}</li>
                     </ul>
