@@ -14,7 +14,11 @@ module.exports = {
             this.store.data = data.data;
             document.title = this.store.data.activity.name;
             this.update();
-            this.trigger('countDown', this.store.data.activity.endTime);
+            if(this.store.data && this.store.data.activity.endTime) {
+                var endTime = this.store.data.activity.endTime;
+                endTime = endTime.replace(' ', 'T') + '.000Z';
+                this.trigger('countDown', endTime);
+            }
         },
 
         calHeight: function() {
@@ -27,20 +31,15 @@ module.exports = {
         countDown: function(date) {
             var endTime= new Date(date);
             var nowTime = new Date();
-            var t = endTime.getTime() - nowTime.getTime();
+            var t = endTime - nowTime;
             var d = Math.floor(t/1000/60/60/24);
             var h = Math.floor(t/1000/60/60%24);
             var m = Math.floor(t/1000/60%60);
             var s = Math.floor(t/1000%60);
-            // this.s.innerText = (s+'').length < 2 ? '0' + s : s;
-            // this.h.innerText = (h+'').length < 2 ? '0' + h : h;
-            // this.m.innerText = (m+'').length < 2 ? '0' + m : m;
-            // this.d.innerText = (d+'').length < 2 ? '0' + d : d;
-            this.s.innerText = s;
-            this.h.innerText = h;
-            this.m.innerText = m;
-            this.d.innerText = d;
-
+            this.s.innerText = (s+'').length < 2 ? '0' + s : s;
+            this.h.innerText = (h+'').length < 2 ? '0' + h : h;
+            this.m.innerText = (m+'').length < 2 ? '0' + m : m;
+            this.d.innerText = (d+'').length < 2 ? '0' + d : d;
             self = this;
             setTimeout(function() {
                 self.trigger('countDown', date);

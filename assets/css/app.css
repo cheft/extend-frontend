@@ -310,12 +310,13 @@
     background-color: #67DF01 !important;
     color:#fff !important;
 }
+/* Don't delete this */
 .c-bubble:before {
     content: "";
 }
 .c-bubble:before {
     left: 50%;
-    margin-left: -5px;
+    margin-left: 10px;
     right: auto;
     content: "";
     position: absolute;
@@ -670,6 +671,7 @@ body{
     background-position: 50%;
     border-radius: 25px;
     -webkit-border-radius:25px;
+    background-size: 50px;
 }
 .c-person-name{
     height: 24px;

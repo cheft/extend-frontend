@@ -3,12 +3,13 @@ c.Adapter = {Promise: $.Deferred, ajax: $.ajax};
 
 window.onload = function() {
     this.app = new c.Application({
-        urlRoot      : 'http://10.10.71.125:8080/StruthioCamelus/',
+        urlRoot      : 'api/',
         contentType  : 'application/json',
         container    : 'viewport',
         router       : require('./router')
     });
-    app.studnetUrl = '';
+    app.studnetUrl = 'http://idcwxtest.dafysz.cn/student-credit/chooseItem';
+    app.website = 'http://idcwxtest.dafysz.cn/StruthioCamelus/';
     app.validate = require('../assets/js/validation');
 
     app.error = function(data) {

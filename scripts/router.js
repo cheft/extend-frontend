@@ -12,7 +12,7 @@ module.exports = {
     },
     
     home: function() {
-        app.container.trigger('show', 'activity');
+        app.container.trigger('show', 'main');
     }, 
 
     goByOpenId: function(id, openid) {

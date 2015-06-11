@@ -69,7 +69,7 @@ gulp.task('browserify', function() {
     b.bundle()
         .pipe(source('app.js'))
         .pipe(buffer())
-        // .pipe(uglify())
+        .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('dist/assets/js'));
 });
@@ -77,11 +77,11 @@ gulp.task('browserify', function() {
 gulp.task('serve', function() {
     var ser = server({
         host: ip.address(),
-        open: true,
+        open: false,
         defaultFile: 'index.html',
         // directoryListing: {path: 'dist'},
         livereload: {
-            enable: true,
+            enable: false,
             filter: function(filePath, cb) {
                 cb(/assets/.test(filePath));
             }
@@ -144,8 +144,7 @@ gulp.task('css', function() {
         .pipe(gulp.dest('dist/assets/css'));
 });
 
-
-gulp.task('default', ['watch', 'serve', 'db', 'setip']);
+gulp.task('default', ['watch', 'serve', 'db']);
 
 gulp.task('build', ['browserify', 'common', 'copy', 'img', 'css']);
 
