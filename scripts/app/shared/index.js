@@ -45,5 +45,10 @@ module.exports = {
                 self.trigger('countDown', date);
             }, 1000);
         }
+    },
+    actions: {
+        goDetail: function() {
+            app.router.go('activity-detail');
+        }
     }
 }
