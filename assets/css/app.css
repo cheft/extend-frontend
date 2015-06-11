@@ -42,7 +42,6 @@
 .c-text-center {
     text-align: center;
 }
-
 /* Framework parts start*/
 .c-footer{
     width: 100%;
@@ -713,6 +712,16 @@ body{
     color: rgba(255, 255, 255, 0.5);
     box-shadow:5px 5px 10px rgba(0,0,0,.6);
 }
+/*¶ÒÍê½±ÁËÖ®ºóÍ¼±êÊÇ»ÒÉ«µÄ*/
+.ui-btn-wrap .c-btn-gray:not(.disabled):not(:disabled):active,.ui-btn-wrap .c-btn-yellow:active {
+    background: #C67E3B;
+    border-color: #C67E3B;
+    color: rgba(255, 255, 255, 0.5);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    -webkit-box-shadow:5px 5px 10px rgba(0,0,0,.6);
+    box-shadow:5px 5px 10px rgba(0,0,0,.6);
+}
 .ui-btn-group-tiled .c-btn-green{
     background-color: #78f404;
     border-color: #78f404;
@@ -795,3 +804,59 @@ body{
     width: 180px;
 }
 /*shared css end*/
+/*activity-detail css start*/
+.c-detail-container {
+    padding: 0 15px;
+    margin: 10px auto;
+}
+.c-detail-container section{
+    margin-top: 10px;
+}
+.c-detail-title{
+    background-image: url("../img/activily_detail.png");
+    background-repeat: no-repeat;
+}
+.c-detail-container h2{
+    height:25px;
+    line-height: 25px;
+    padding-left: 10px;
+    font-size: 16px;
+    color:#f00;
+    font-weight: bolder;
+}
+.c-detail-num{
+    font-size: 12px;
+    font-weight: bolder;
+    padding-top:5px;
+    height: 20px;
+    line-height: 20px;
+}
+.c-detail-container ul{
+    list-style-type: none;
+}
+.c-detail-container li{
+    padding:2px 0;
+    font-size: 12px;
+}
+.c-detail-container ol{
+    margin-left:15px;
+}
+.c-detail-container ol li{
+    list-style-type: decimal;
+}
+.c-detail-container ol li img{
+    list-style-type: decimal;
+}
+.c-detail-qr{
+    height:80px;
+}
+.c-detail-qr img{
+    vertical-align:middle;
+    width: 80px;
+    height: 80px;
+}
+.c-red-font{
+    color:#f00;
+    text-shadow:1px 1px 1px rgba(0,0,0,.3);
+}
+/*activity-detail css end*/
