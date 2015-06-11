@@ -659,7 +659,7 @@ body{
 }
 .c-person-info{
     background-image: url(../img/share-backimg.png);
-    background-position:center -15px;
+    background-position:center -30px;
     background-repeat: no-repeat;
 }
 .c-person-logo{
@@ -712,7 +712,7 @@ body{
     color: rgba(255, 255, 255, 0.5);
     box-shadow:5px 5px 10px rgba(0,0,0,.6);
 }
-/*¶ÒÍê½±ÁËÖ®ºóÍ¼±êÊÇ»ÒÉ«µÄ*/
+
 .ui-btn-wrap .c-btn-gray:not(.disabled):not(:disabled):active,.ui-btn-wrap .c-btn-yellow:active {
     background: #C67E3B;
     border-color: #C67E3B;
