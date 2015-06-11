@@ -1,12 +1,12 @@
 module.exports = {
-    store: 'customers/isregister',
+    store: 'customers/attr',
     events: {
-        mount: function() {
+        init: function() {
             this.store.get()
         },
         geted: function(data) {
-            if(!data.data) {
-                return app.router.go('register');
+            if(!data.data.exists) {
+                app.router.go('register');
             }
         }
     }

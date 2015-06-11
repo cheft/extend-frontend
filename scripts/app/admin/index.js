@@ -10,9 +10,10 @@ module.exports = {
         saved: function(data) {
         	if(data) {
         		$.tips({content: '兑奖成功', stayTime: 2000, type: 'info'});
-                return $(this.phone);
-        	}
-        	app.error(data);
+        	}else {
+        	   app.error(data);
+            }
+            this.search();
         }
     },
 	actions: {

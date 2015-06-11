@@ -294,7 +294,7 @@
     display: block;
     text-align: center;
 }
-.c-recommended-prize .c-bubble, .c-credited-prize .c-bubble {
+.c-bubble {
     width: 60px;
     height: 20px;
     line-height: 20px;
@@ -307,36 +307,27 @@
     position: relative;
     float: right;
 }
-.c-recommended-prize .c-bubble:before, .c-credited-prize .c-bubble:before {
-    left: 50%;
-    margin-left: 10px;
-    right: auto;
-    content: '';
-    position: absolute;
-    border-bottom: 5px #ccc solid;
-    border-left: transparent 5px solid;
-    border-right: transparent 5px solid;
-    z-index: 2;
-    margin-top: -4px;
-}
 .c-bubble.active {
     background-color: #67DF01 !important;
     color:#fff !important;
 }
-.c-bubble.active:before {
-    border-bottom: 5px #67DF01 solid !important;
+.c-bubble:before {
+    content: "";
 }
-.c-current-gifts:before {
+.c-bubble:before {
     left: 50%;
     margin-left: -5px;
     right: auto;
-    content: ' ';
+    content: "";
     position: absolute;
-    border-bottom: 5px #67DF01 solid !important;
+    border-bottom: 5px #cccccc solid !important;
     border-left: transparent 5px solid;
     border-right: transparent 5px solid;
     z-index: 2;
     margin-top: -4px;
+}
+.c-bubble.active:before {
+    border-bottom: 5px #67DF01 solid !important;
 }
 .c-progress-desc{
     height: 20px;
