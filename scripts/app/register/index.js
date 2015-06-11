@@ -50,7 +50,7 @@ module.exports = {
     },
     actions: {
         register: function() {
-            this.loader = $.loading({content:'保存数据'});
+            this.loader = $.loading({content: '提交数据中'});
             var data = {};
             this.fieldEach(function(name, field) {
                 data[name] = field.el.value;
