@@ -1,18 +1,16 @@
 module.exports = {
-    store: 'wechatapi/jsconfig',
+    store: 'activities/landingpage',
     events: {
         update: function() {
             this.qrcode = app.urlRoot + 'customers/qrcode?v=' + (new Date()).getMilliseconds();
         },
-
         geted: function(data) {
-            this.config(data.data);
-            var link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + data.data.appId + '&redirect_uri=http://idcwxtest.dafysz.cn/StruthioCamelus/api/dispatcher/share?referee=' + this.openid + '&response_type=code&scope=snsapi_base&state=1#wechat_redirect';
+            var link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + app.signature.appId + '&redirect_uri=http://idcwxtest.dafysz.cn/StruthioCamelus/api/dispatcher/share?referee=' + openid + '&response_type=code&scope=snsapi_base&state=1#wechat_redirect';
             var obj = {
                 title: '达飞学生贷，为你而来',
-                desc: '推荐有礼，免费领取iPhone6',
+                desc: '够朋友就帮忙顶下，我能拿' + data.data.nextPrize.name + '了，你也可以试试！',
                 link: link, 
-                imgUrl: app.website + 'assets/img/logo.png'
+                imgUrl: app.website + 'assets/img/share-icon.jpg'
             };
             wx.ready(function(){
                 wx.onMenuShareTimeline(obj);
@@ -22,24 +20,13 @@ module.exports = {
             });
         },
         openid: function(openid) {
-            this.openid = openid;
-            this.store.params = {href: location.href.split('#')[0]};
+            this.store.params = {openid: openid};
             this.store.get();
         }
     },
     actions: {
         goStudent: function() {
             location.href = app.studnetUrl;
-        },
-        config: function(data) {
-            wx.config({
-                debug: false, 
-                appId: data.appId, 
-                timestamp: data.timestamp,
-                nonceStr: data.nonceStr, 
-                signature: data.signature,
-                jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareQQ']
-            });
-        }
+        }   
     }
 }

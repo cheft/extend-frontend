@@ -10,8 +10,8 @@
             </div>
             <ul class="ui-grid-trisect c-grid-header">
                 <li>手机号</li>
-                <li>推荐人数</li>
-                <li>最后推荐时间</li>
+                <li style="width: 25%;">推荐人数</li>
+                <li style="text-align: right; width: 41.66666666%;">最后推荐时间</li>
             </ul>
             <ul class="ui-list ui-list-text ui-border-tb">
                 <li class="ui-border-t" each={r, i in list}>
@@ -20,10 +20,10 @@
                     </div>
                     <ul class="ui-grid-trisect" style="width: 95%;">
                         <li>
-                            {r.mobile}
+                            {r.mobile.replace(r.mobile.substr(3, 4), '****')}
                         </li>
-                        <li style="text-align: center;">&nbsp;{r.recommendedCount}人</li>
-                        <li style="text-align: right;">{r.lastRecommendedDate}</li>
+                        <li style="text-align: center; width: 25%;">&nbsp;{r.recommendedCount}人</li>
+                        <li style="text-align: right; width: 41.66666666%;"">{r.lastRecommendedDate}</li>
                     </ul>
                 </li>
             </ul>

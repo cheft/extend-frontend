@@ -6,9 +6,9 @@ module.exports = {
         },
         geted: function(data) {
             if(!data.data.exists) {
-                app.router.go('register');
+                app.container.trigger('show', 'register');
             }else {
-                app.router.go('activity');
+                app.container.trigger('show', 'activity');
             }
         }
     }

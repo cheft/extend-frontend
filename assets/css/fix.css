@@ -15,3 +15,9 @@
     background: #FD642E;
     color: #FFF;
 }
+.ui-dialog-notice .ui-dialog-cnt {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 162, 0, 0.65);
+    border-radius: 50%;
+}

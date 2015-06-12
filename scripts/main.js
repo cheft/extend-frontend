@@ -8,7 +8,9 @@ window.onload = function() {
         container    : 'viewport',
         router       : require('./router')
     });
+
     app.studnetUrl = 'http://idcwxtest.dafysz.cn/student-credit/chooseItem';
+    // :TODO 可去掉
     app.website = 'http://idcwxtest.dafysz.cn/StruthioCamelus/';
     app.validate = require('../assets/js/validation');
 
@@ -22,6 +24,17 @@ window.onload = function() {
             el.tips('hide');
         });
     }
+
+    app.on('ajax', function(config) {
+        if(app.loader) {
+            app.loader.loading('hide');
+        }
+        app.loader = $.loading({content:''});
+    });
+
+    app.on('ajaxed', function(config) {
+        app.loader.loading('hide');
+    });
 
     app.start();
 }

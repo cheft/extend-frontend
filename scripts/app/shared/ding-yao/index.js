@@ -6,10 +6,8 @@ module.exports = {
         },
         geted: function(data) {
             this.store.data = data.data;
-            this.loader.loading('hide');
         },
         saved: function() {
-            this.loader.loading('hide');
             $.dialog({
                 content: '已帮他顶成功',
                 button: ['确定']
@@ -20,7 +18,6 @@ module.exports = {
     },
     actions: {
         getData: function() {
-            this.loader = $.loading({content: '读取数据中'});
             this.store.url = 'customers/attr';
             this.store.get();
         },
@@ -39,7 +36,6 @@ module.exports = {
                 });
                 return;
             }else if(this.store.data.exists) {
-                this.loader = $.loading({content: '提交数据中'});
                 this.store.url = 'customers/up?referee=' + this.userId;
                 this.store.save({});
             }else {

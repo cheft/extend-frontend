@@ -10,15 +10,15 @@
             </div>
             <ul class="ui-grid-trisect c-grid-header" style="padding-left: 0;">
                 <li>手机号</li>
-                <li>状态</li>
-                <li>时间</li>
+                <li style="width: 25%;">状态</li>
+                <li style="width: 41.66666666%;">时间</li>
             </ul>
             <ul class="ui-list ui-list-text ui-border-tb">
                 <li class="ui-border-t" each={list}>
                     <ul class="ui-grid-trisect" style="width: 95%;">
                         <li>{mobile}</li>
-                        <li style="text-align: center;" class={ credited ? 'c-yellow-color' : '' }>{ credited ? '已贷款' : '已注册' }</li>
-                        <li style="text-align: right;">{createTime}</li>
+                        <li style="text-align: center;width: 25%;" class={ credited ? 'c-yellow-color' : '' }>{ credited ? '已贷款' : '已注册' }</li>
+                        <li style="text-align: right;width: 41.66666666%;">{createTime}</li>
                     </ul>
                 </li>
             </ul>
