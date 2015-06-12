@@ -21,12 +21,12 @@
 	    <div class="c-background-color">
 		    <div class="c-tip">{store.data.referrer.nickname}只差{store.data.nextPrizeSignGapCount}人帮顶或者{store.data.nextPrizeCreditGapCount}人贷款就能获得 {store.data.nextPrize.name} 了</div>
 		    <ding-yao></ding-yao>
-		    <div class="c-tip">活动细则>></div>
+		    <div class="c-tip" ontouchstart={goDetail}>活动细则>></div>
 		    <div class="c-friends">
 		    	<div class="c-up-friends"></div>
 		    	<div class="c-friends-info">达飞好友：
 		    		<span>共 {store.data.friendCount} 人( {store.data.creditedCount} 人贷款)</span>
-                    <span if={store.data.referrerCredited}> {store.data.referrer.name} 已贷款</span>
+                    <span if={store.data.referrerCredited}> {store.data.referrer.nickname}已贷款</span>
 		    	</div>
 		    	<div class="c-friends-list">
 			   		<div class="c-friends-intro" each={f, i in store.data.friendList} if={i < 5}>
