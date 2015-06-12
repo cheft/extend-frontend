@@ -75,19 +75,6 @@
     color:#fff;
     display: block;
 }
-.c-footer li:nth-child(1) a{
-    height: 20px;
-    border-right:1px solid #7eb027;
-}
-.c-footer li:nth-child(2) a,.c-footer li:nth-child(3) a{
-    height: 20px;
-    border-right:1px solid #7eb027;
-    border-left:1px solid #1f3d05;
-}
-.c-footer li:nth-child(4) a{
-    height: 20px;
-    border-left:1px solid #1f3d05;
-}
 .c-a-return {
     position: absolute;
     left: 0px;
