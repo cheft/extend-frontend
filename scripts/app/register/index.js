@@ -13,7 +13,6 @@ module.exports = {
         },
 
         saved: function(data) {
-            this.loader.loading('hide');
             if(data.data) {
                 return app.router.go('share/' + data.data);
             }
@@ -50,7 +49,6 @@ module.exports = {
     },
     actions: {
         register: function() {
-            this.loader = $.loading({content: '提交数据中'});
             var data = {};
             this.fieldEach(function(name, field) {
                 data[name] = field.el.value;

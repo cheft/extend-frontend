@@ -12,7 +12,6 @@ module.exports = {
 
         geted: function(data) {
             this.store.data = data.data;
-            document.title = this.store.data.activity.name;
             this.update();
             if(this.store.data && this.store.data.activity.endTime) {
                 var endTime = this.store.data.activity.endTime;
