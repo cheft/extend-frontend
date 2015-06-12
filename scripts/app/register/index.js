@@ -13,7 +13,7 @@ module.exports = {
         },
 
         saved: function(data) {
-            if(data.data) {
+            if(data.status == 'success') {
                 return app.router.go('share/' + data.data);
             }
             app.error(data);

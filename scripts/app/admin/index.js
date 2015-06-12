@@ -8,7 +8,7 @@ module.exports = {
             this.update();
         },
         saved: function(data) {
-        	if(data) {
+        	if(data.status == 'success') {
         		$.tips({content: '兑奖成功', stayTime: 2000, type: 'info'});
         	}else {
         	   app.error(data);

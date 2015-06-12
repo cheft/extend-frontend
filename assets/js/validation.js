@@ -291,12 +291,12 @@ error = function(el, name, message, rule, args) {
   if (rule !== 'required') {
     tip(m);
   }
-  el.parent().css('border-color', '#FC6156');
+  el.parent().css('border', '1px solid #FC6156');
   return el.prev().css('color', '#FC6156');
 };
 
 success = function(el) {
-  el.parent().css('border-color', '#64BD63');
+  el.parent().css('border', '1px solid #64BD63');
   return el.prev().css('color', '#64BD63');
 };
 
