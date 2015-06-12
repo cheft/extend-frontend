@@ -320,7 +320,7 @@
     right: auto;
     content: "";
     position: absolute;
-    border-bottom: 5px #cccccc solid !important;
+    border-bottom: 5px #d9d9d9 solid !important;
     border-left: transparent 5px solid;
     border-right: transparent 5px solid;
     z-index: 2;
