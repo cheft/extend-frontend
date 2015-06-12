@@ -28,12 +28,17 @@ module.exports = {
                 self.exists = data.data.exists;
                 self.lovingGuy = data.data.lovingGuy;
             });
-
+        },
+        goActivity: function() {
             this.store.url = 'customers/subscribed';
             this.store.get().done(function(data) {
-                self.concerned = data.data;
+                if(data.data) {
+                    self.concerned = data.data;
+                    app.router.go('activity');
+                }else {
+                    location.href = app.getUrls('').concernedUrl;
+                }
             });
-
         },
         ding: function() {
             self = this;
@@ -46,11 +51,7 @@ module.exports = {
                 });
                 dia.on('dialog:action',function(e){
                     if(e.index === 0) {
-                        if(self.concerned) {
-                            app.router.go('activity');
-                        }else {
-                            location.href = app.getUrls('').concernedUrl;
-                        }
+                        this.goActivity();
                     }
                 });
                 return;
@@ -63,13 +64,10 @@ module.exports = {
         },
         yao: function() {
             if(this.exists) {
-                if(this.concerned) {
-                    return app.router.go('activity');
-                }else {
-                    return location.href = app.getUrls('').concernedUrl;
-                }
+                this.goActivity();
+            }else {
+                app.router.go('register');
             }
-            return app.router.go('register');
         }
     }
 }

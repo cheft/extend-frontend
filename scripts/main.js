@@ -38,7 +38,7 @@ window.onload = function() {
             shareHasOpenid: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + app.signature.appId + '&redirect_uri=http://idcwxtest.dafysz.cn/StruthioCamelus/api/dispatcher/share?referee=' + openid  + '&response_type=code&scope=snsapi_base&state=1#wechat_redirect',
             shareNoOpenid: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + app.signature.appId + '&redirect_uri=' + 'http://idcwxtest.dafysz.cn/StruthioCamelus/api/dispatcher/index&response_type=code&scope=snsapi_base&state=1#wechat_redirect',
             studentUrl: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + app.signature.appId + '&redirect_uri=http://idcwxtest.dafysz.cn/student-credit/chooseItem&response_type=code&scope=snsapi_base&state=1&connect_redirect=1#wechat_redirect',
-            concerned: 'http://mp.weixin.qq.com/s?__biz=MzAxNzE3MDU3MA==&mid=206424861&idx=1&sn=473a356cdc76e578abe70554f8017d20#rd'
+            concernedUrl: 'http://mp.weixin.qq.com/s?__biz=MzAxNzE3MDU3MA==&mid=206424861&idx=1&sn=473a356cdc76e578abe70554f8017d20#rd'
         }
     }
 
