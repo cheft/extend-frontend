@@ -4,7 +4,11 @@ module.exports = {
 	events: {
         geted: function(data) {
            	this.store.data = data.data;
-           	this.userId = this.store.data.user.id;
+            if(this.store.data.user) {
+            	this.userId = this.store.data.user.id;
+            }else {
+                $.tips({content: '无兑奖信息', stayTime: 2000, type: 'warn'});
+            }
             this.update();
         },
         saved: function(data) {
