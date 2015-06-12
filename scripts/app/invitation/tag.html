@@ -13,12 +13,12 @@
                 <li>状态</li>
                 <li>时间</li>
             </ul>
-            <ul class="ui-list ui-list-text ui-border-tb">                    
+            <ul class="ui-list ui-list-text ui-border-tb">          
                 <li class="ui-border-t c-invitation-list" each={list}>
                     <ul class="ui-grid-trisect c-invitation-list" style="width: 95%;">
-                        <li>{mobile}</li>
-                        <li style="text-align: center;width: 25%;" class={ credited ? 'c-yellow-color' : '' }>{ credited ? '已贷款' : '已注册' }</li>
-                        <li style="text-align: right;width: 41.66666666%;">{createTime}</li>
+                        <li>{mobile.replace(mobile.substr(3, 4), '****')}</li>
+                        <li style="text-align: right;width: 32%;" class={ credited ? 'c-yellow-color' : '' }>{ credited ? '已贷款' : '已注册' }</li>
+                        <li style="text-align: right;width: 34.66666667%;">{createTime}</li>
                     </ul>
                 </li>
             </ul>

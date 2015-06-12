@@ -201,11 +201,11 @@ error = (el, name, message, rule, args) ->
     for arg, i in args
         m = m.replace(new RegExp("\\{#{i}\\}", 'g'), arg)
     tip(m) if rule != 'required'
-    el.parent().css('border-color', '#FC6156')
+    el.parent().css('border', '1px solid #FC6156')
     el.prev().css('color', '#FC6156')
 
 success = (el) ->
-    el.parent().css('border-color', '#64BD63')
+    el.parent().css('border', '1px solid #64BD63')
     el.prev().css('color', '#64BD63')
 
 Validate = (el, name, rules...) ->

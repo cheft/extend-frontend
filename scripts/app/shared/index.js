@@ -18,6 +18,7 @@ module.exports = {
                 endTime = endTime.replace(' ', 'T') + '.000Z';
                 this.trigger('countDown', endTime);
             }
+            app.container.tags.signature.trigger('share', this.openid, this.store.data.nextPrize.name);
         },
 
         calHeight: function() {

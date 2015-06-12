@@ -1,41 +1,60 @@
 module.exports = {
-    store: 'customers/attr',
+    store: 'customers/subscribed',
     events: {
         mount: function() {
             this.getData();
         },
-        geted: function(data) {
-            this.store.data = data.data;
-        },
-        saved: function() {
-            $.dialog({
-                content: '已帮他顶成功',
-                button: ['确定']
-            });
-            this.getData();
-            this.parent.trigger('openid', this.parent.openid);
+        saved: function(data) {
+            if(data.status == 'success') {
+                $.dialog({
+                    content: '已帮他顶成功',
+                    button: ['确定']
+                });
+                this.getData();
+                this.parent.trigger('openid', this.parent.openid);
+            }else if(data.status == 'fail') {
+                $.dialog({
+                    content: data.data,
+                    button: ['确定']
+                });
+            }
         }
     },
     actions: {
         getData: function() {
+            self = this;
             this.store.url = 'customers/attr';
-            this.store.get();
+            this.store.get().done(function(data) {
+                self.exists = data.data.exists;
+                self.lovingGuy = data.data.lovingGuy;
+            });
+
+            this.store.url = 'customers/subscribed';
+            this.store.get().done(function(data) {
+                self.concerned = data.data;
+            });
+
         },
         ding: function() {
+            self = this;
             var openid = this.parent.openid;
             this.userId = this.parent.store.data.referrer.id;
-            if(this.store.data.lovingGuy) {
+            if(this.lovingGuy) {
                 var dia = $.dialog({
-                    content: '同一用户不可重复帮顶哦，您也可以邀请好友轻松赢肾6',
+                    content: '不可重复帮顶哦，您也可以邀请好友轻松赢肾6',
                     button: ['活动中心','取消']
                 });
                 dia.on('dialog:action',function(e){
                     if(e.index === 0) {
-                        app.router.go('activity');
+                        if(self.concerned) {
+                            app.router.go('activity');
+                        }else {
+                            location.href = app.getUrls('').concernedUrl;
+                        }
                     }
                 });
                 return;
-            }else if(this.store.data.exists) {
+            }else if(this.exists) {
                 this.store.url = 'customers/up?referee=' + this.userId;
                 this.store.save({});
             }else {
@@ -43,8 +62,12 @@ module.exports = {
             }
         },
         yao: function() {
-            if(this.store.data.exists) {
-                return app.router.go('activity');
+            if(this.exists) {
+                if(this.concerned) {
+                    return app.router.go('activity');
+                }else {
+                    return location.href = app.getUrls('').concernedUrl;
+                }
             }
             return app.router.go('register');
         }

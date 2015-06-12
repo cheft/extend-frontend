@@ -21,32 +21,6 @@
 .c-grid-header li {
     text-align: center;
     padding-top: 10px;
-    float: left;
-}
-
-.c-grid-header li:nth-child(1){
-    width:40%;
-}
-.c-grid-header li:nth-child(2){
-    width:25%;
-}
-.c-grid-header li:nth-child(3){
-    width:35%;
-}
-.c-invitation-list li{
-    width: 95%;
-    float:left;
-}
-.c-invitation-list li:nth-child(1){
-    width:40%;
-}
-.c-invitation-list li:nth-child(2){
-    width:25%;
-    text-align: center;
-}
-.c-invitation-list li:nth-child(3){
-    width:35% !important;
-    text-align: right;
 }
 .c-ranking-badge {
     text-align: center;
@@ -302,7 +276,7 @@
     padding-bottom: 10px;
     margin-right: 15px;
     margin-left: 15px;
-    width: 20%;
+    width: 0%;
     border-radius: 8px;
 }
 
@@ -715,7 +689,7 @@ body{
     font-weight: 600;
 }
 .c-person-info{
-    background-image: url(../img/share-backimg.png);
+    background-image: url(../img/share-icon.png);
     background-position:center -30px;
     background-repeat: no-repeat;
 }
