@@ -320,7 +320,7 @@
     right: auto;
     content: "";
     position: absolute;
-    border-bottom: 5px #cccccc solid !important;
+    border-bottom: 5px #d9d9d9 solid !important;
     border-left: transparent 5px solid;
     border-right: transparent 5px solid;
     z-index: 2;
@@ -637,7 +637,16 @@ body{
     width: 149px;
     height: 112px;
     text-align: center;
-    margin:0 auto;
+}
+@media (min-height: 480px) {
+    .c-prize-image{
+    margin: 0 auto;
+    }
+}
+@media (max-height: 480px) {
+    .c-prize-image{
+    margin: 10px auto 0;
+    }
 }
 .c-prize-image img {
     width: 120px;
