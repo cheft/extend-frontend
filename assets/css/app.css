@@ -21,6 +21,32 @@
 .c-grid-header li {
     text-align: center;
     padding-top: 10px;
+    float: left;
+}
+
+.c-grid-header li:nth-child(1){
+    width:40%;
+}
+.c-grid-header li:nth-child(2){
+    width:25%;
+}
+.c-grid-header li:nth-child(3){
+    width:35%;
+}
+.c-invitation-list li{
+    width: 95%;
+    float:left;
+}
+.c-invitation-list li:nth-child(1){
+    width:40%;
+}
+.c-invitation-list li:nth-child(2){
+    width:25%;
+    text-align: center;
+}
+.c-invitation-list li:nth-child(3){
+    width:35% !important;
+    text-align: right;
 }
 .c-ranking-badge {
     text-align: center;
@@ -100,7 +126,29 @@
     background-size: 100%;
     -webkit-box-align: start;
 }
-
+.c-share-bg .ui-dialog-cnt{
+    margin:0 auto;
+}
+@media (min-height: 480px) {
+    .c-share-bg {
+        height: 580px;
+    }
+}
+@media (min-height: 568px) {
+    .c-share-bg {
+        height: 610px;
+    }
+}
+@media (min-height: 667px) {
+    .c-share-bg {
+        height: 667px;
+    }
+}
+@media (min-height: 736px) {
+    .c-share-bg {
+        height: 736px;
+    }
+}
 .c-share-bg .ui-dialog-cnt {
     background:url(../img/share_bg.png) no-repeat;
     background-size: 100%;
@@ -811,6 +859,12 @@ body{
 }
 .c-qrcode img {
     width: 180px;
+}
+.c-qrcode + span{
+    height:24px;
+    line-height: 24px;
+    color:#fff;
+    text-align: center;
 }
 /*shared css end*/
 /*activity-detail css start*/
