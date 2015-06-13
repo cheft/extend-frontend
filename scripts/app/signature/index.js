@@ -32,10 +32,14 @@ module.exports = {
                 };
             }
             wx.ready(function() {
-                wx.onMenuShareTimeline(obj);
                 wx.onMenuShareAppMessage(obj);
                 wx.onMenuShareQQ(obj);
                 wx.onMenuShareWeibo(obj);
+                wx.onMenuShareTimeline({
+                    title: obj.title + '；' + obj.desc,
+                    link: obj.link,
+                    imgUrl: obj.imgUrl
+                });
             })
         },
         mount: function() {

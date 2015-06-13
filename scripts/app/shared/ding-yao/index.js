@@ -1,9 +1,6 @@
 module.exports = {
     store: 'customers/subscribed',
     events: {
-        mount: function() {
-            this.getData();
-        },
         saved: function(data) {
             if(data.status == 'success') {
                 $.dialog({
@@ -21,14 +18,6 @@ module.exports = {
         }
     },
     actions: {
-        getData: function() {
-            self = this;
-            this.store.url = 'customers/attr';
-            this.store.get().done(function(data) {
-                self.exists = data.data.exists;
-                self.lovingGuy = data.data.lovingGuy;
-            });
-        },
         goActivity: function() {
             this.store.url = 'customers/subscribed';
             this.store.get().done(function(data) {
@@ -44,30 +33,39 @@ module.exports = {
             self = this;
             var openid = this.parent.openid;
             this.userId = this.parent.store.data.referrer.id;
-            if(this.lovingGuy) {
-                var dia = $.dialog({
-                    content: '不可重复帮顶哦，您也可以邀请好友轻松赢肾6',
-                    button: ['活动中心','取消']
-                });
-                dia.on('dialog:action',function(e){
-                    if(e.index === 0) {
-                        this.goActivity();
+            this.store.url = 'customers/attr';
+            this.store.get().done(function(data) {
+                if(data.data.exists) {
+                    if(data.data.lovingGuy) {
+                        var dia = $.dialog({
+                            content: '不可重复帮顶哦，您也可以邀请好友轻松赢肾6',
+                            button: ['活动中心','取消']
+                        });
+                        dia.on('dialog:action',function(e){
+                            if(e.index === 0) {
+                                self.goActivity();
+                            }
+                        });
+                        return;
+                    }else {
+                        self.store.url = 'customers/up?referee=' + self.userId;
+                        self.store.save({});
                     }
-                });
-                return;
-            }else if(this.exists) {
-                this.store.url = 'customers/up?referee=' + this.userId;
-                this.store.save({});
-            }else {
-                app.router.go('register/' + openid);
-            }
+                }else {
+                    app.router.go('register/' + openid);
+                }
+            });
         },
         yao: function() {
-            if(this.exists) {
-                this.goActivity();
-            }else {
-                app.router.go('register');
-            }
+            self = this;
+            this.store.url = 'customers/attr';
+            this.store.get().done(function(data) {
+                if(data.data.exists) {
+                    self.goActivity();
+                }else {
+                    app.router.go('register');
+                }
+            });
         }
     }
 }

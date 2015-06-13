@@ -15,7 +15,7 @@ module.exports = {
     },
     actions: {
         goStudent: function() {
-            location.href = getUrls('').studentUrl;
+            location.href = app.getUrls('').studentUrl;
         }   
     }
 }

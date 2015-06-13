@@ -689,7 +689,7 @@ body{
     font-weight: 600;
 }
 .c-person-info{
-    background-image: url(../img/share-icon.png);
+    background-image: url(../img/share-backimg.png);
     background-position:center -30px;
     background-repeat: no-repeat;
 }
@@ -697,7 +697,7 @@ body{
     width: 50px;
     height: 50px;
     margin:0 auto;
-    background-image: url(../img/person-logo.png);
+    background-image: url(../img/share-icon.jpg);
     background-repeat: no-repeat;
     background-position: 50%;
     border-radius: 25px;
