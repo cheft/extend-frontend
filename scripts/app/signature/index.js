@@ -9,7 +9,7 @@ module.exports = {
                 timestamp: data.data.timestamp,
                 nonceStr: data.data.nonceStr, 
                 signature: data.data.signature,
-                jsApiList: ['hideOptionMenu', 'onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareQQ']
+                jsApiList: ['closeWindow', 'hideOptionMenu', 'onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareQQ']
             });
             this.trigger('share');
         },
@@ -40,6 +40,8 @@ module.exports = {
                     link: obj.link,
                     imgUrl: obj.imgUrl
                 });
+
+                // wx.closeWindow();
             })
         },
         mount: function() {

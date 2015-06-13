@@ -48,7 +48,10 @@ module.exports = {
         }
     },
     actions: {
-        register: function() {
+        register: function(e) {
+            if(app.isTouchmove(e)) {
+                return;
+            };
             var data = {};
             this.fieldEach(function(name, field) {
                 data[name] = field.el.value;
@@ -69,7 +72,7 @@ module.exports = {
             }
         },
 
-        test: function() {
+        setValue: function() {
             var data = {
                 name: '陈海峰',
                 ident: '430528199003143053',

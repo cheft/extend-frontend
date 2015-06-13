@@ -3,7 +3,7 @@ module.exports = {
 
     events: {
         mount: function() {
-            this.store.get()
+            this.store.get();
         },
         geted: function(data) {
             this.store.data = data.data;
@@ -27,11 +27,17 @@ module.exports = {
     },
 
     actions: {
-        ranking: function() {
+        ranking: function(e) {
+            if(app.isTouchmove(e)) {
+                return;
+            };
             app.router.go('ranking');
         },
 
-        invitation: function() {
+        invitation: function(e) {
+            if(app.isTouchmove(e)) {
+                return;
+            };
             app.router.go('invitation');
         }
     }

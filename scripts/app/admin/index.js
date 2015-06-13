@@ -32,11 +32,17 @@ module.exports = {
 			this.store.get();
 		},
 		choice: function(e) {
+            if(app.isTouchmove(e)) {
+                return;
+            };
 			$(this.goodslist).find('.active').removeClass('active');
 			$(e.target).addClass('active');
 			this.prizeId = e.item.id;
 		},
 		putIn: function(e) {
+            if(app.isTouchmove(e)) {
+                return;
+            };
 			if(!this.prizeId) {
 				return $.tips({content: '请先选择奖品', stayTime: 2000, type: 'warn'});
 			}

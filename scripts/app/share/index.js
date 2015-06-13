@@ -1,9 +1,7 @@
 module.exports = {
     store: 'activities/landingpage',
     events: {
-        update: function() {
-            this.qrcode = app.urlRoot + 'customers/qrcode?v=' + (new Date()).getMilliseconds();
-        },
+
         geted: function(data) {
             app.container.tags.signature.trigger('share', this.openid, data.data.nextPrize.name);
         },
@@ -14,7 +12,10 @@ module.exports = {
         }
     },
     actions: {
-        goStudent: function() {
+        goStudent: function(e) {
+            if(app.isTouchmove(e)) {
+                return;
+            };
             location.href = app.getUrls('').studentUrl;
         }   
     }

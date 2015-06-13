@@ -36,7 +36,10 @@ module.exports = {
     },
 
     actions: {
-        recommend: function() {
+        recommend: function(e) {
+            if(app.isTouchmove(e)) {
+                return;
+            };
             app.router.go('share/' + this.tags['activity-footer'].store.data.openid);
         },
         goDetail: function() {

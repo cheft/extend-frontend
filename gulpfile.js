@@ -79,9 +79,9 @@ gulp.task('serve', function() {
         host: ip.address(),
         open: false,
         defaultFile: 'index.html',
-        // directoryListing: {path: 'dist'},
+        directoryListing: {path: 'dist'},
         livereload: {
-            enable: false,
+            enable: true,
             filter: function(filePath, cb) {
                 cb(/assets/.test(filePath));
             }
@@ -144,7 +144,7 @@ gulp.task('css', function() {
         .pipe(gulp.dest('dist/assets/css'));
 });
 
-gulp.task('default', ['watch', 'serve', 'db']);
+gulp.task('default', ['watch', 'serve']);
 
 gulp.task('build', ['browserify', 'common', 'copy', 'img', 'css']);
 

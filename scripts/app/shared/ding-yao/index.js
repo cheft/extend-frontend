@@ -29,7 +29,10 @@ module.exports = {
                 }
             });
         },
-        ding: function() {
+        ding: function(e) {
+            if(app.isTouchmove(e)) {
+                return;
+            };
             self = this;
             var openid = this.parent.openid;
             this.userId = this.parent.store.data.referrer.id;
@@ -56,7 +59,10 @@ module.exports = {
                 }
             });
         },
-        yao: function() {
+        yao: function(e) {
+            if(app.isTouchmove(e)) {
+                return;
+            };
             self = this;
             this.store.url = 'customers/attr';
             this.store.get().done(function(data) {

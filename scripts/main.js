@@ -42,5 +42,21 @@ window.onload = function() {
         }
     }
 
+    app.isTouchmove = function(e) {
+        var move = true;
+        if(e.type === 'touchmove') {
+            app.touchmove = true;
+        }else if(e.type === 'touchend') {
+            if(app.touchmove) {
+                move = true;
+                app.touchmove = false;
+            }else {
+                move = false;
+            }
+        }
+        return move;
+    }
+
     app.start();
 }
+
