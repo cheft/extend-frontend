@@ -22,6 +22,9 @@ module.exports = {
             this.update();
         },
         process: function(data) {
+            if(!data.content) {
+                return;
+            }
             this.recommendedCount = data.content.totalRecommendedCount;
             this.creditedCount = data.content.creditedCount;
             this.prizeAcquired = data.content.prizeAcquired;

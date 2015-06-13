@@ -2,6 +2,9 @@ module.exports = {
     store: 'wechatapi/jsconfig',
     events: {
         geted: function(data) {
+            if(!data.data.appId) {
+                return;
+            }
             app.signature = data.data;
             wx.config({
                 debug: false, 
