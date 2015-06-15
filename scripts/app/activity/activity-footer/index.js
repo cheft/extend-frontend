@@ -6,6 +6,9 @@ module.exports = {
             this.store.get();
         },
         geted: function(data) {
+            if(data.status != 'success') {
+                return;
+            }
             this.store.data = data.data;
             this.parent.trigger('process', this.store.data);
             var inviter = '';
