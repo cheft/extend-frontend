@@ -58,11 +58,23 @@
     list-style: none;
     padding:0 5px;
 }
+.c-a{
+    width: calc(25% - 1px);
+    border-right: 1px solid #fff;
+}
+.c-b{
+    width: calc(25% - 2px);
+    border-left: 1px solid #1A1D17;
+    border-right: 1px solid #fff;
+}
+.c-c{
+    width: calc(25% - 1px);
+    border-left: 1px solid #1A1D17;
+}
 .c-footer ul li{
-    padding-top:10px;
+    margin-top:10px;
     float: left;
     text-align: center;
-    width: 25%;
 }
 .c-footer ul li a{
     font-weight: normal;
