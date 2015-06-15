@@ -24,7 +24,7 @@
 	    <div class="c-background-color">
 		    <div class="c-tip">
                 <span>{store.data.referrer.nickname ? store.data.referrer.nickname : store.data.referrer.name}只差{store.data.nextPrizeSignGapCount}人帮顶</span>
-                <span if={store.data.creditedCount > 0}>或者{store.data.nextPrizeCreditGapCount}人贷款</span>
+                <span if={(store.data.creditedCount > 0 || store.data.friendCount > 5)}>或者{store.data.nextPrizeCreditGapCount}人贷款</span>
                 <span>就能获得 {store.data.nextPrize.name} 了</span>
             </div>
 		    <ding-yao></ding-yao>
