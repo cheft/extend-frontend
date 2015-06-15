@@ -14,21 +14,13 @@
                 <li>时间</li>
             </ul>
             <ul class="ui-list ui-list-text ui-border-tb">
-                <li class="ui-border-t c-invitation-list">
-                    <ul class="ui-grid-trisect c-invitation-list" style="width: 95%;">
-                        <li>13554363745</li>
-                        <li style="text-align: center;width: 32%; padding-left: 7px;" class={ credited ? 'c-yellow-color' : '' }>已贷款</li>
-                        <li style="text-align: right;width: 34.66666667%;">2015-06-15</li>
-                    </ul>
-                </li>
-
-                <!-- <li class="ui-border-t c-invitation-list" each={list}>
+                <li class="ui-border-t c-invitation-list" each={list}>
                     <ul class="ui-grid-trisect c-invitation-list" style="width: 95%;">
                         <li>{mobile.replace(mobile.substr(3, 4), '****')}</li>
-                        <li style="text-align: right;width: 32%;" class={ credited ? 'c-yellow-color' : '' }>{ credited ? '已贷款' : '已注册' }</li>
+                        <li style="text-align: center;width: 32%; padding-left: 7px;" class={ credited ? 'c-yellow-color' : '' }>{ credited ? '已贷款' : '已注册' }</li>
                         <li style="text-align: right;width: 34.66666667%;">{createTime}</li>
                     </ul>
-                </li> -->
+                </li>
             </ul>
         </div>
     </div>
