@@ -60,14 +60,17 @@
 }
 .c-a{
     width: calc(25% - 1px);
-    border-right: 1px solid #fff;
+    width: -webkit-calc(25% - 1px);
+    border-right: 1px solid #E0E0E0;
 }
 .c-b{
     width: calc(25% - 2px);
+    width: -webkit-calc(25% - 2px);
     border-left: 1px solid #1A1D17;
-    border-right: 1px solid #fff;
+    border-right: 1px solid #E0E0E0;
 }
 .c-c{
+    width: -webkit-calc(25% - 1px);
     width: calc(25% - 1px);
     border-left: 1px solid #1A1D17;
 }
