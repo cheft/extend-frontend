@@ -2,7 +2,7 @@ module.exports = {
     store: 'wechatapi/jsconfig',
     events: {
         geted: function(data) {
-            if(!data.data.appId) {
+            if(data.status != 'success') {
                 return;
             }
             app.signature = data.data;

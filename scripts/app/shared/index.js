@@ -16,7 +16,9 @@ module.exports = {
             if(this.store.data && this.store.data.activity.endTime) {
                 var endTime = this.store.data.activity.endTime;
                 endTime = endTime.replace(' ', 'T') + '.000Z';
-                this.trigger('countDown', endTime);
+                var endDate = new Date(endTime);
+                endDate.setHours(endDate.getHours() - 8);
+                this.trigger('countDown', endDate);
             }
             app.container.tags.signature.trigger('share', this.openid, this.store.data.nextPrize.name);
         },
@@ -28,10 +30,9 @@ module.exports = {
             $(".c-prize").css("margin-bottom",prizeMt);
         },
 
-        countDown: function(date) {
-            var endTime= new Date(date);
-            var nowTime = new Date();
-            var t = endTime - nowTime;
+        countDown: function(endDate) {
+            var nowDate = new Date();
+            var t = endDate - nowDate;
             var d = Math.floor(t/1000/60/60/24);
             var h = Math.floor(t/1000/60/60%24);
             var m = Math.floor(t/1000/60%60);
@@ -42,7 +43,7 @@ module.exports = {
             this.d.innerText = (d+'').length < 2 ? '0' + d : d;
             self = this;
             setTimeout(function() {
-                self.trigger('countDown', date);
+                self.trigger('countDown', endDate);
             }, 1000);
         }
     },
