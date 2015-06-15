@@ -6,8 +6,7 @@ module.exports = {
                 $.dialog({
                     content: '已帮他顶成功',
                     button: ['确定']
-                });
-                this.getData();
+                });                
                 this.parent.trigger('openid', this.parent.openid);
             }else if(data.status == 'fail') {
                 $.dialog({
