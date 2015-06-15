@@ -898,6 +898,9 @@ body{
     color:#f00;
     text-shadow:1px 1px 1px rgba(0,0,0,.3);
 }
+.c-a-active a{
+    color: #fff;
+}
 .c-white-color {
     color: #FFF;
 }
