@@ -49,9 +49,6 @@ module.exports = {
     },
     actions: {
         register: function(e) {
-            if(app.isTouchmove(e)) {
-                return;
-            };
             var data = {};
             this.fieldEach(function(name, field) {
                 data[name] = field.el.value;

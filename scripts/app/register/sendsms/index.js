@@ -10,9 +10,6 @@ module.exports = {
     },
     actions: {
         getCode: function(e) {
-            if(app.isTouchmove(e)) {
-                return;
-            };
             var regTag = this.parent.parent;
             if(!regTag.tags.mobile.validate()) {
                 return;
