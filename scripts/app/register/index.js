@@ -55,6 +55,7 @@ module.exports = {
             });
             this.store.url = 'customers?verificationCode=' + data.code
             delete data.code;
+            data.ident = data.ident.toUpperCase();
             data.refereeOpenid = this.refereeOpenid;
             this.store.save(JSON.stringify(data));
         },
