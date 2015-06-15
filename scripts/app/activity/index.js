@@ -45,9 +45,6 @@ module.exports = {
             };
             app.router.go('share/' + this.tags['activity-footer'].store.data.openid);
         },
-        goDetail: function() {
-            app.router.go('activity-detail');
-        },
         calWidth: function(list, count) {
             var scale = 100 / list.length;
             var prize = {percent: 0}, tmp = 0;

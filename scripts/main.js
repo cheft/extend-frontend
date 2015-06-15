@@ -16,7 +16,7 @@ window.onload = function() {
         if(data.data) {
             msg = data.data
         }
-        var el = $.tips({content: msg, stayTime: 2000, type: 'warn'});
+        var el = $.tips({content: msg, stayTime: 3000, type: 'warn'});
         el.on('touchstart', function() {
             el.tips('hide');
         });
