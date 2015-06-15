@@ -9,23 +9,21 @@
                 </div>
             </div>
             <ul class="ui-grid-trisect c-grid-header">
-                <li style="text-align: left; width: 35%;">手机号</li>
-                <li style="width: 25%;">推荐人数</li>
-                <li style="text-align: right; width: 33%;">最后推荐时间</li>
+                <li style="text-align: left; width: 25%; text-indent: 20px;">手机号</li>
+                <li style="text-align: right; width: 37%; ">推荐人数</li>
+                <li style="text-align: right; width: 36%; ">最后推荐时间</li>
             </ul>
-            <ul class="ui-list ui-list-text ui-border-tb">
-                <li class="ui-border-t" each={r, i in list}>
-                    <div class="c-ranking-badge c-ranking{i+1}">
-                        <i if={i < 3}>{i + 1}</i>
-                    </div>
-                    <ul class="ui-grid-trisect" style="width: 95%;">
-                        <li>
-                            {r.mobile.replace(r.mobile.substr(3, 4), '****')}
-                        </li>
-                        <li style="text-align: center; width: 25%; padding-left: 7px;">&nbsp;{r.recommendedCount}人</li>
-                        <li style="text-align: right; width: 41.66666666%;">{r.lastRecommendedDate}</li>
-                    </ul>
-                </li>
+            <ul class="ui-list ui-list-text ui-border-tb">                
+               <li class="ui-border-t" each={r, i in list}>
+                   <div class="c-ranking-badge c-ranking{i+1}">
+                       <i if={i < 3}>{i + 1}</i>
+                   </div>
+                   <ul class="ui-grid-trisect" style="width: 95%;">
+                       <li style="text-align: left; width: 30%;">{r.mobile.replace(r.mobile.substr(3, 4), '****')}</li>
+                       <li style="text-align: right; width: 32%;">&nbsp;{r.recommendedCount}人</li>
+                       <li style="text-align: right; width: 38%;">{r.lastRecommendedDate}</li>
+                   </ul>
+               </li>
             </ul>
         </div>
     </div>
