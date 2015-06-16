@@ -76,7 +76,7 @@ module.exports = {
                     inviter += data.content.myReferrer.name;
                 }
                 var mobile = data.content.myReferrer.mobile;
-                inviter += '(' + mobile.replace(mobile.substr(3, 4), '****') + ')';
+                inviter += '(' + mobile.substr(0, 3) + '****' + mobile.substr(7) + ')';
             }else {
                 inviter = '无';
             }
