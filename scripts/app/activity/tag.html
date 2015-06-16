@@ -53,20 +53,19 @@
 		</div>
 		
 		<ul class="c-activity-expend">
-        <li class="ui-border-b">
-            <p>我的邀请人
+            <li class="ui-border-b">
+                我的邀请人
                 <span class="c-pull-right">
                     {inviter}
                 </span>
-            </p>
-        </li>
-        <li class="ui-border-b ui-list-item-link" ontouchmove={invitation} ontouchend={invitation}>
-            <p>累计推荐总人数<span class="c-pull-right">{recommendedCount} 人</span></p>
-        </li>
-        <li name="test" class="ui-border-b ui-list-item-link" ontouchmove={ranking} ontouchend={ranking}>
-            推荐排行榜
-        </li>
-    </ul>
+            </li>
+            <li class="ui-border-b ui-list-item-link" ontouchmove={invitation} ontouchend={invitation}>
+                累计推荐总人数<span class="c-pull-right">{recommendedCount} 人</span>
+            </li>
+            <li name="test" class="ui-border-b ui-list-item-link" ontouchmove={ranking} ontouchend={ranking}>
+                推荐排行榜
+            </li>
+        </ul>
 		<div class="c-end-img" if={store.data.content.prizeAcquired}><img src="assets/img/end.png" alt="奖品已兑"></div>
     </div>
 </activity>
