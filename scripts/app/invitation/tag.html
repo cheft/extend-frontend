@@ -16,7 +16,7 @@
             <ul class="ui-list ui-list-text ui-border-tb" style="padding-left: 7px;">
                 <li class="ui-border-t c-invitation-list" each={list}  style="margin-left: 0; padding-right: 0px;">
                    <ul class="ui-grid-trisect c-invitation-list" style="padding: 0; width: 100%;">
-                       <li  style="text-align: center;">{mobile.replace(mobile.substr(3, 4), '****')}</li>
+                       <li  style="text-align: center;">{mobile.substr(0, 3) + '****' + mobile.substr(7)}</li>
                        <li style="text-align: center;" class={ credited ? 'c-yellow-color' : '' }>{ credited ? '已贷款' : '已注册' }</li>
                        <li style="text-align: center;">{createTime}</li>
                    </ul>
