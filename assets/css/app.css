@@ -675,13 +675,13 @@ body{
     height: 100px;
 }
 .c-prize-name{
+    height: 24px;
+    line-height: 24px;
     text-align: center;
     color:#4d4d4d;
     font-size: 16px;
     letter-spacing:2px;
     font-weight: 600;
-    position: relative;
-    margin-top: -5px;
 }
 .c-red-text{
     color:#f00;
