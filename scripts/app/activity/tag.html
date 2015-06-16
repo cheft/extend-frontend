@@ -10,19 +10,20 @@
 				<li class="c-recommended-count">{recommendedCount}</li>
 			</ul>
 			<ul class="c-recommended-bar">
-				<li each={store.data.prizeList4Signed}>
+				<li each={prizes.prizeList4Signed}>
 					<div class="{(parent.recommendedCount >= minLimit) ? 'c-current-circle' : 'c-circle'}">{minLimit}</div>
 				</li>
 				<div class="c-recommended-bar-bg" />
 			</ul>				
 			<ul class="c-recommended-prize">
-				<li each={store.data.prizeList4Signed}>
+				<li each={prizes.prizeList4Signed}>
 					<div class="c-bubble {(parent.recommendedCount >= minLimit) ? 'active' : ''}">{name}</div>
 				</li>
 			</ul>
 		</div>
 		<div class="c-progress-desc">
-			<div class="c-text-left">您只需要再推荐<strong class="c-yellow"> {nextRecommendedPrize.number} 人注册 </strong>就获得 {nextRecommendedPrize.name}</div>
+			<div class="c-text-left" if={recommendedCount < maxSignPrize.minLimit}>您只需要再推荐<strong class="c-yellow"> {nextRecommendedPrize.number} 人注册 </strong>就获得 {nextRecommendedPrize.name}</div>
+            <div class="c-text-left" if={recommendedCount >= maxSignPrize.minLimit}>您已推荐<strong class="c-yellow"> {recommendedCount} 人注册 </strong>并获得 {maxSignPrize.name} 一个</div>
 		</div>
 			
 		<div class="c-progress-title">推荐贷款礼品进度</div>
@@ -31,27 +32,41 @@
 				<li class="c-credited-count">{creditedCount}</li>
 			</ul>
 			<ul class="c-credited-bar">
-				<li each={store.data.prizeList4Credited}>
+				<li each={prizes.prizeList4Credited}>
 					<div class="{(parent.creditedCount >= minLimit) ? 'c-current-circle' : 'c-circle'}">{minLimit}</div>
 				</li>
 				<div class="c-credited-bar-bg" />
 			</ul>				
 			<ul class="c-credited-prize">
-				<li each={store.data.prizeList4Credited}>
+				<li each={prizes.prizeList4Credited}>
 					<div class="c-bubble {(parent.creditedCount >= minLimit) ? 'active' : ''}">{name}</div>
 				</li>
 			</ul>
 		</div>
 
 		<div class="c-progress-desc">
-			<div class="c-text-left">您只需要再推荐<strong class="c-yellow"> {nextCreditedPrize.number} 人贷款 </strong>就获得 {nextCreditedPrize.name}</div>
+			<div class="c-text-left" if={creditedCount < maxCreditPrize.minLimit}>您只需要再推荐<strong class="c-yellow"> {nextCreditedPrize.number} 人贷款 </strong>就获得 {nextCreditedPrize.name}</div>
+            <div class="c-text-left" if={creditedCount >= maxCreditPrize.minLimit}>您已推荐<strong class="c-yellow"> {creditedCount} 人贷款 </strong>并获得 {maxCreditPrize.name} 一个</div>
 		</div>
 		<div class="ui-btn-wrap">
 		    <button class="ui-btn-lg c-btn-yellow" ontouchmove={recommend} ontouchend={recommend}>立即推荐</button>
 		</div>
 		
-		<activity-footer></activity-footer>
-		<div class="c-end-img" if={prizeAcquired}><img src="assets/img/end.png" alt="奖品已兑"></div>
+		<ul class="c-activity-expend">
+        <li class="ui-border-b">
+            <p>我的邀请人
+                <span class="c-pull-right">
+                    {inviter}
+                </span>
+            </p>
+        </li>
+        <li class="ui-border-b ui-list-item-link" ontouchmove={invitation} ontouchend={invitation}>
+            <p>累计推荐总人数<span class="c-pull-right">{recommendedCount} 人</span></p>
+        </li>
+        <li name="test" class="ui-border-b ui-list-item-link" ontouchmove={ranking} ontouchend={ranking}>
+            推荐排行榜
+        </li>
+    </ul>
+		<div class="c-end-img" if={store.data.content.prizeAcquired}><img src="assets/img/end.png" alt="奖品已兑"></div>
     </div>
-    <about></about>
 </activity>

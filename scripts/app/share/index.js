@@ -1,9 +1,8 @@
 module.exports = {
     store: 'activities/landingpage',
     events: {
-
         geted: function(data) {
-            app.container.tags.signature.trigger('share', this.openid, data.data.nextPrize.name);
+            app.container.tags.wxshare.trigger('share', this.openid, data.data.nextPrize.name);
         },
         openid: function(openid) {
             this.openid = openid;

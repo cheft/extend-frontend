@@ -3,6 +3,15 @@ module.exports = {
     events: {
         mount: function() {
             this.trigger('calHeight');
+            app.on('geted_prizes', function(prizes) {
+                self.minSignPrize = prizes.prizeList4Signed[0];
+                self.maxSignPrize = prizes.prizeList4Signed[prizes.prizeList4Signed.length - 1];
+                self.minCreditPrize = prizes.prizeList4Credited[0];
+                self.maxCreditPrize = prizes.prizeList4Credited[prizes.prizeList4Credited.length - 1];
+                if(this.store && this.store.data) {
+                    this.trigger('calPrize');
+                }
+            });
         },
         openid: function(openid) {
             this.openid = openid;
@@ -11,6 +20,9 @@ module.exports = {
         },
 
         geted: function(data) {
+            if(data.status != 'success') {
+                return;
+            }
             this.store.data = data.data;
             this.update();
             if(this.store.data && this.store.data.activity.endTime) {
@@ -20,7 +32,29 @@ module.exports = {
                 endDate.setHours(endDate.getHours() - 8);
                 this.trigger('countDown', endDate);
             }
-            app.container.tags.signature.trigger('share', this.openid, this.store.data.nextPrize.name);
+            app.container.tags.wxshare.trigger('share', this.openid, this.store.data.nextPrize.name);
+            if(this.minSignPrize) {
+                this.trigger('calPrize');
+            }
+        },
+        calPrize: function() {
+            var name = this.store.data.referrer.nickname ? this.store.data.referrer.nickname : this.store.data.referrer.name;
+            this.bePrize = '';
+            if(this.store.data.friendCount < maxCreditPrize.minLimit && this.store.data.creditedCount < maxCreditPrize.minLimit) {
+                this.bePrize = name + '只差' + this.store.data.nextPrizeSignGapCount + '人帮顶';
+                if(this.store.creditedCount > 0 || this.store.data.friendCount > minSignPrize.minLimit) {
+                    this.bePrize += '或者' + this.store.data.nextPrizeCreditGapCount + '人贷款';
+                }
+                this.bePrize += '就能获得 ' + this.store.data.nextPrize.name + ' 了';
+            }else {
+                if(this.store.data.friendCount >= maxSignPrize.minLimit) {
+                    this.bePrize = name + ' 已有' + this.store.data.friendCount + '人帮顶获得' + maxSignPrize.name + '，为他喝彩！';
+                }
+                if(this.store.data.creditedCount >= maxCreditPrize.minLimit) {
+                    this.bePrize = name + ' 已推荐' + this.store.data.creditedCount + '人贷款获得' + maxCreditPrize.name + '，为他喝彩！';
+                }
+            }
+            this.update();
         },
 
         calHeight: function() {
