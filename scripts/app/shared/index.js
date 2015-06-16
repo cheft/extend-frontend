@@ -58,7 +58,7 @@ module.exports = {
             this.bePrize = '';
             if(this.store.data.friendCount < this.maxSignPrize.minLimit && this.store.data.creditedCount < this.maxCreditPrize.minLimit) {
                 this.bePrize = name + '只差' + this.store.data.nextPrizeSignGapCount + '人帮顶';
-                if(this.store.creditedCount > 0 || this.store.data.friendCount > this.minSignPrize.minLimit) {
+                if(this.store.creditedCount > 0 || this.store.data.friendCount >= this.minSignPrize.minLimit) {
                     this.bePrize += '或者' + this.store.data.nextPrizeCreditGapCount + '人贷款';
                 }
                 this.bePrize += '就能获得 ' + this.store.data.nextPrize.name + ' 了';
