@@ -3,14 +3,17 @@ module.exports = {
     events: {
         mount: function() {
             self = this;
-            self.store.get();
-            app.on('geted_prizes', function(prizes) {
-                self.prizes = prizes;
-                self.minSignPrize = prizes.prizeList4Signed[0];
-                self.maxSignPrize = prizes.prizeList4Signed[prizes.prizeList4Signed.length - 1];
-                self.minCreditPrize = prizes.prizeList4Credited[0];
-                self.maxCreditPrize = prizes.prizeList4Credited[prizes.prizeList4Credited.length - 1];
-                self.update();
+            this.store.url = 'prizes';
+            this.store.get().done(function(data) {
+                self.prizes = data.data;
+                self.store.url = 'activities/myactivitypage';
+                self.store.get().done(function(data) {
+                    if(data.status != 'success') {
+                        return;
+                    }
+                    self.store.data = data.data;
+                    self.calPrize(data.data);
+                });
             });
         },
         updated: function() {
@@ -24,42 +27,6 @@ module.exports = {
                 list2.css('width',  100 / list2.length + '%');
                 $('.c-credited-prize li').css('width', 100 / list2.length + '%');
             }
-        },
-        geted: function(data) {
-            if(data.status != 'success') {
-                return;
-            }
-            this.store.data = data.data;
-            var inviter = '';
-            if(data.data.content.myReferrer) {
-                if(data.data.content.myReferrer.nickname) {
-                    inviter += data.data.content.myReferrer.nickname;
-                }else {
-                    inviter += data.data.content.myReferrer.name;
-                }
-                var mobile = data.data.content.myReferrer.mobile;
-                inviter += '(' + mobile.replace(mobile.substr(3, 4), '****') + ')';
-            }else {
-                inviter = '无';
-            }
-            this.inviter = inviter;
-            this.recommendedCount = data.data.content.totalRecommendedCount;
-            this.creditedCount = data.data.content.creditedCount;
-            this.nextRecommendedPrize = this.calWidth(this.prizes.prizeList4Signed, this.recommendedCount);
-            this.nextCreditedPrize = this.calWidth(this.prizes.prizeList4Credited, this.creditedCount);
-            if(this.nextRecommendedPrize.percent >= 100) {
-                this.nextRecommendedPrize.percent = 100;
-            }
-            if(this.nextCreditedPrize.percent >= 100) {
-                this.nextCreditedPrize.percent = 100;
-            }
-            $('.c-recommended-bar-bg').css('width', this.nextRecommendedPrize.percent + '%');
-            $('.c-recommended-count').css('left', this.nextRecommendedPrize.percent + '%');
-            $('.c-credited-bar-bg').css('width', this.nextCreditedPrize.percent + '%');
-            $('.c-credited-count').css('left', this.nextCreditedPrize.percent + '%');
-
-            this.update();
-            app.container.tags.wxshare.trigger('share', data.data.openid, this.nextRecommendedPrize.name);
         }
     },
 
@@ -99,6 +66,40 @@ module.exports = {
                 }
             }
             return prize;
+        },
+        calPrize: function(data) {
+            var inviter = '';
+            if(data.content.myReferrer) {
+                if(data.content.myReferrer.nickname) {
+                    inviter += data.content.myReferrer.nickname;
+                }else {
+                    inviter += data.content.myReferrer.name;
+                }
+                var mobile = data.content.myReferrer.mobile;
+                inviter += '(' + mobile.replace(mobile.substr(3, 4), '****') + ')';
+            }else {
+                inviter = '无';
+            }
+            this.inviter = inviter;
+            this.recommendedCount = data.content.totalRecommendedCount;
+            this.creditedCount = data.content.creditedCount;
+            this.maxSignPrize = this.prizes.prizeList4Signed[this.prizes.prizeList4Signed.length - 1];
+            this.maxCreditPrize = this.prizes.prizeList4Credited[this.prizes.prizeList4Credited.length - 1];
+            this.nextRecommendedPrize = this.calWidth(this.prizes.prizeList4Signed, this.recommendedCount);
+            this.nextCreditedPrize = this.calWidth(this.prizes.prizeList4Credited, this.creditedCount);
+            if(this.nextRecommendedPrize.percent >= 100) {
+                this.nextRecommendedPrize.percent = 100;
+            }
+            if(this.nextCreditedPrize.percent >= 100) {
+                this.nextCreditedPrize.percent = 100;
+            }
+            $('.c-recommended-bar-bg').css('width', this.nextRecommendedPrize.percent + '%');
+            $('.c-recommended-count').css('left', this.nextRecommendedPrize.percent + '%');
+            $('.c-credited-bar-bg').css('width', this.nextCreditedPrize.percent + '%');
+            $('.c-credited-count').css('left', this.nextCreditedPrize.percent + '%');
+
+            app.container.tags.wxshare.trigger('share', data.openid, this.nextRecommendedPrize.name);
+            this.update();
         }
     }
 }
