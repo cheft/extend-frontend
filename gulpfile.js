@@ -15,7 +15,6 @@ var buffer     = require('vinyl-buffer');
 var source     = require('vinyl-source-stream');
 var server     = require('gulp-server-livereload');
 var imageop    = require('gulp-image-optimization');
-var jsonserver = require('json-server');
 
 var options = {
     entries: ['./main.js'],
@@ -90,23 +89,8 @@ gulp.task('serve', function() {
     gulp.src('./').pipe(ser);
 });
 
-gulp.task('db', function() {
-    var cors   = require('cors')
-    var server = jsonserver.create();
-    var router = jsonserver.router('data/db.json');
-    server.use(jsonserver.defaults);
-    server.use(cors({origin: true, credentials: true}));
-    server.use(router);
-    server.listen(3000);
-});
-
-gulp.task('setip', function() {
-    var fs = require('fs');
-    fs.writeFile('dist/config.json', '{"urlRoot": "http://' + ip.address() + ':3000/"}');
-})
-
 gulp.task('lint', function() {
-    gulp.src('scripts/*.js')
+    gulp.src('scripts/app/**/*.js')
         .pipe(eslint())
         .pipe(eslint.format());
 });
@@ -146,5 +130,5 @@ gulp.task('css', function() {
 
 gulp.task('default', ['watch', 'serve']);
 
-gulp.task('build', ['browserify', 'common', 'copy', 'img', 'css']);
+gulp.task('build', ['lint', 'browserify', 'common', 'copy', 'img', 'css']);
 

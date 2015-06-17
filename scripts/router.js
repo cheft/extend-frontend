@@ -10,10 +10,10 @@ module.exports = {
     start: function(id) {
         app.container.trigger('show', id);
     },
-    
+
     home: function() {
         app.container.trigger('show', 'main');
-    }, 
+    },
 
     goByOpenId: function(id, openid) {
         app.container.trigger('show', id);
