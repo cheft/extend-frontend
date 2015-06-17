@@ -3,15 +3,20 @@ module.exports = {
     events: {
         mount: function() {
             this.trigger('formValidate');
-            this.store.url = 'customers/isregister'
+            // this.store.url = 'customers/isregister';
+            // this.store.get().done(function(data) {
+            //     if(data.data) {
+            //         return app.router.go('activity');
+            //     }
+            // });
+            var self = this;
+            $(this.tags.position.root).on('click', function() {
+                self.openPosition();
+            });
+            $(this.tags.university.root).on('click', function() {
+                self.openUniversity();
+            })
         },
-
-        geted: function() {
-            if(data.data) {
-                return app.router.go('activity');
-            }
-        },
-
         saved: function(data) {
             if(data.status == 'success') {
                 return app.router.go('share/' + data.data);
@@ -79,11 +84,52 @@ module.exports = {
                 mobile: '13316463314',
                 code: '123456'
             };
-            self = this, keys = {};
+            var self = this, keys = {};
             this.fieldEach(function(name, field) {
                 field.el.value = data[name];
                 self.trigger('checkSubmit', keys, name, data[name]); 
             });
+        },
+        openPosition: function() {
+            var self = this;
+            this.store.url = 'provinces';
+            this.store.get().done(function(data) {
+                self.provinces = data.data;
+                self.update();
+                self.tags.p.show();
+            });
+        },
+        openUniversity: function() {
+            this.tags.s.show();
+        },
+        selectP: function(e) {
+            var self = this;
+            this.tags.position.value = e.target.innerHTML;
+            this.store.url = decodeURIComponent('provinces/' + e.target.innerHTML + '/cities');
+            this.store.get().done(function(data) {
+                self.cities = data.data;
+                self.update();
+                self.tags.p.close();
+                self.tags.c.show();
+            });
+        },
+        selectC: function(e) {
+            var self = this;
+            this.store.url = decodeURIComponent('provinces/' +
+                this.tags.position.value + '/cities/' + e.target.innerHTML + '/universities');
+            this.store.get().done(function(data) {
+                self.schools = data.data;
+                self.update();
+                self.tags.c.close();
+                self.tags.s.show();
+            });
+            this.tags.position.el.value = this.tags.position.value + '/' + e.target.innerHTML;
+            this.tags.position.validate();
+        },
+        selectS: function(e) {
+            this.tags.university.el.value = e.target.innerHTML;
+            this.tags.university.validate();
+            this.tags.s.close();
         }
     }
 }
