@@ -106,7 +106,7 @@ gulp.task('setip', function() {
 })
 
 gulp.task('lint', function() {
-    gulp.src('scripts/**/*.js')
+    gulp.src('scripts/*.js')
         .pipe(eslint())
         .pipe(eslint.format());
 });
