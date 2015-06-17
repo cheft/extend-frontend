@@ -20,7 +20,7 @@ i为身份证号码从右往左数的 2...18 位; Y_P为脚丫校验码所在校
 # 身份证验证位值.10代表X
 
 IdCardValidate = (idCard) ->
-    # idCard = trim(idCard.replace(RegExp(" ", "g"), ""))
+    idCard = trim(idCard.replace(RegExp(" ", "g"), ""))
     # 身份证限制18位
     # if idCard.length is 15
     #     isValidityBrithBy15IdCard idCard
