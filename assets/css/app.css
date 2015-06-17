@@ -66,13 +66,13 @@
 .c-b{
     width: calc(25% - 2px);
     width: -webkit-calc(25% - 2px);
-    border-left: 1px solid #1A1D17;
+    border-left: 1px solid #2B3C1A;
     border-right: 1px solid #E0E0E0;
 }
 .c-c{
     width: -webkit-calc(25% - 1px);
     width: calc(25% - 1px);
-    border-left: 1px solid #1A1D17;
+    border-left: 1px solid #2B3C1A;
 }
 .c-footer ul li{
     margin-top:10px;
@@ -1020,12 +1020,12 @@ body{
 .question-title {
   padding-bottom: 5px;
   line-height: 20px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   color: #4c4c4c;
 }
 .question-text {
-  font-size: 14px;
+  font-size: 12px;
   color: #4c4c4c;
   line-height: 20px;
 }
