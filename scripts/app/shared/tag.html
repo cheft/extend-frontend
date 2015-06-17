@@ -37,7 +37,7 @@
 			   		<div class="c-friends-intro" each={f, i in store.data.friendList} if={i < 5}>
 			    		<div class="c-person-logo" style="background-image: url({f.avatar});" if={f.avatar}></div>
                         <div class="c-person-logo" if={!f.avatar}></div>
-			    		<div class="c-person-name">{f.nickname ? f.nickname : f.name}</div>
+			    		<div class="c-person-name">{f.nickname ? f.nickname : f.name}</div>			 
 			    	</div>
 		    	</div>
 		    </div>

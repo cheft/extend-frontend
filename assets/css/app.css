@@ -807,6 +807,7 @@ body{
     height: 74px;
     float:left;
     position: relative;
+    overflow: hidden;
 }
 .c-bookmark {
     width: 7px;
