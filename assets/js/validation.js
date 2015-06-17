@@ -23,6 +23,7 @@ var IdCardValidate, Rules, Validate, ValideCode, Wi, error, isTrueValidateCodeBy
 
 IdCardValidate = function(idCard) {
   var a_idCard;
+  idCard = trim(idCard.replace(RegExp(" ", "g"), ""));
   if (idCard.length === 18) {
     a_idCard = idCard.split("");
     if (isValidityBrithBy18IdCard(idCard) && isTrueValidateCodeBy18IdCard(a_idCard)) {
