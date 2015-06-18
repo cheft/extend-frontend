@@ -3,12 +3,20 @@ module.exports = {
     events: {
         mount: function() {
             this.trigger('formValidate');
-            // this.store.url = 'customers/isregister';
-            // this.store.get().done(function(data) {
-            //     if(data.data) {
-            //         return app.router.go('activity');
-            //     }
-            // });
+            this.store.url = 'customers/attr';
+            this.store.get().done(function(data) {
+                if(data.status === 'fail') {
+                    if(typeof WeixinJSBridge === 'undefined') {
+                        history.back();
+                    }else {
+                        WeixinJSBridge.call('closeWindow');
+                    }
+                }else {
+                    if(data.data.exists) {
+                        return app.router.go('activity');
+                    }
+                }
+            });
             var self = this;
             $(this.tags.position.root).on('click', function() {
                 self.openPosition();
@@ -76,6 +84,7 @@ module.exports = {
         },
         openPosition: function() {
             var self = this;
+            this.tags.university.el.value = '';
             this.store.url = 'provinces';
             this.store.get().done(function(data) {
                 self.provinces = data.data;
@@ -84,6 +93,9 @@ module.exports = {
             });
         },
         openUniversity: function() {
+            if(this.tags.position.el.value === '') {
+                return $.tips({content: '请先选择省和城市', stayTime: 2000, type: 'warn'});
+            }
             this.tags.s.show();
         },
         selectP: function(e) {
