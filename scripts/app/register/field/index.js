@@ -10,7 +10,7 @@ module.exports = {
     },
     actions: {
         clear: function() {
-            this['{opts.name}'].value = '';
+            this.el.value = '';
             this.validate();
             $(this.el).parent().css('border-color', '#ccc');
             $(this.el).prev().css('color', '#ccc');

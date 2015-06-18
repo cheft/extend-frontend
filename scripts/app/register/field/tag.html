@@ -2,8 +2,7 @@
     <script></script>
     <div class="ui-form-item ui-form-item-pure c-field {opts.clas}">
         <i class="c-field-icon icon-{opts.icon}"></i>
-        <input if={!opts.readonly} name="{opts.name}" type="{opts.type}" placeholder="{opts.label}" oninput={toggleClose} onblur={validate} maxlength="{opts.maxlength}">
-        <input if={opts.readonly} name="{opts.name}" type="{opts.type}" placeholder="{opts.label}" oninput={toggleClose} onblur={validate} maxlength="{opts.maxlength}" style="ime-mode:disabled" readonly="readonly">
+        <input name="{opts.name}" type="{opts.type}" placeholder="{opts.label}" oninput={toggleClose} onblur={validate} maxlength="{opts.maxlength}" style="{opts.readonly ? 'ime-mode:disabled': ''}" readonly="{readonly: opts.readonly}">
         <a name="close" href="javascript: void 0;" class="ui-icon-close" style="display: none;" ontouchstart={clear}></a>
         <yield></yield>
     </div>
