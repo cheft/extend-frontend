@@ -101,14 +101,14 @@
         }
 
         .animated {
-            animation-duration: 3s;
-            animation-fill-mode: both;
+            -webkit-animation-duration: 0.3s;
+            -webkit-animation-fill-mode: both;
         }
-
-        @keyframes zoomIn {
+        
+        @-webkit-keyframes zoomIn {
             0% {
                 opacity: 0;
-                transform: scale3d(.3, .3, .3);
+                -webkit-transform: scale3d(.3, .3, .3);
             }
 
             50% {
@@ -116,25 +116,20 @@
             }
         }
         .zoomIn {
-            animation-name: zoomIn;
+            -webkit-animation-name: zoomIn;
         }
 
-        @keyframes zoomOut {
-            0% {
-                opacity: 1;
+        @-webkit-keyframes out {
+            from {
+                display: -webkit-box;
+                display: box;
             }
-
-            50% {
-                opacity: 0;
-                transform: scale3d(.3, .3, .3);
-            }
-
-            100% {
-                opacity: 0;
+            to {
+                display: none;
             }
         }
-        .zoomOut {
-            animation-name: zoomOut;
+        .out {
+            -webkit-animation-name out;
         }
     </style>
 </ui-dialog>

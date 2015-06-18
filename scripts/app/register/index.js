@@ -17,7 +17,7 @@ module.exports = {
                     }
                 }
             });
-            
+
             var self = this;
             $(this.tags.position.root).on('click', function() {
                 self.openPosition();
@@ -96,6 +96,7 @@ module.exports = {
         openPosition: function() {
             var self = this;
             this.tags.university.el.value = '';
+            this.tags.university.clear();
             this.store.url = 'provinces';
             this.store.get().done(function(data) {
                 self.provinces = data.data;
@@ -112,7 +113,7 @@ module.exports = {
         selectP: function(e) {
             var self = this;
             this.tags.position.value = e.target.innerHTML;
-            this.store.url = decodeURIComponent('provinces/' + e.target.innerHTML + '/cities');
+            this.store.url = encodeURIComponent('provinces/' + e.target.innerHTML + '/cities');
             this.store.get().done(function(data) {
                 self.cities = data.data;
                 self.update();
@@ -122,9 +123,9 @@ module.exports = {
         },
         selectC: function(e) {
             var self = this;
-            this.store.url = decodeURIComponent('cities/' + e.target.innerHTML + '/universities');
+            this.store.url = encodeURIComponent('cities/' + e.target.innerHTML + '/universities');
             this.store.get().done(function(data) {
-                self.schools = data.data;
+                self.schools = data.data || [];
                 self.update();
                 self.tags.c.close();
                 self.tags.s.show();

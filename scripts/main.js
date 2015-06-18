@@ -3,7 +3,7 @@ c.Adapter = {Promise: $.Deferred, ajax: $.ajax};
 
 window.app = new c.Application({
     urlRoot: 'api/',
-    contentType: 'application/json',
+    contentType: 'application/json;charset=UTF-8',
     container: 'viewport',
     router: require('./router')
 });

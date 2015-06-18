@@ -54,6 +54,9 @@
 	                <li class="c-border-t" each={parent.schools} ontouchstart onclick="{parent.parent.selectS}">
 	                    {name}
 	                </li>
+	                <li class="c-border-t" if={parent.schools.length <= 0}>
+	                    无相关数据
+	                </li>
 	            </ul>
 	        </div>
 	    </ui-dialog>
