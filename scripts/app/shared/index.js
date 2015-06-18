@@ -5,7 +5,7 @@ module.exports = {
             this.calHeight();
         },
         openid: function(openid) {
-            self = this;
+            var self = this;
             this.openid = openid;
             this.store.url = 'prizes';
             this.store.get().done(function(data) {
@@ -15,11 +15,11 @@ module.exports = {
                 self.maxCreditPrize = data.data.prizeList4Credited[data.data.prizeList4Credited.length - 1];
                 self.store.url = 'activities/landingpage';
                 self.store.params = {openid: self.openid};
-                self.store.get().done(function(data) {
-                    if(data.status != 'success') {
+                self.store.get().done(function(result) {
+                    if(result.status !== 'success') {
                         return;
                     }
-                    self.store.data = data.data;
+                    self.store.data = result.data;
                     self.calData();
                 });
             });
@@ -27,15 +27,15 @@ module.exports = {
         countDown: function(endDate) {
             var nowDate = new Date();
             var t = endDate - nowDate;
-            var d = Math.floor(t/1000/60/60/24);
-            var h = Math.floor(t/1000/60/60%24);
-            var m = Math.floor(t/1000/60%60);
-            var s = Math.floor(t/1000%60);
-            this.s.innerText = (s+'').length < 2 ? '0' + s : s;
-            this.h.innerText = (h+'').length < 2 ? '0' + h : h;
-            this.m.innerText = (m+'').length < 2 ? '0' + m : m;
-            this.d.innerText = (d+'').length < 2 ? '0' + d : d;
-            self = this;
+            var d = Math.floor(t / 1000 / 60 / 60 / 24);
+            var h = Math.floor(t / 1000 / 60 / 60 % 24);
+            var m = Math.floor(t / 1000 / 60 % 60);
+            var s = Math.floor(t / 1000 % 60);
+            this.s.innerText = (s + '').length < 2 ? '0' + s : s;
+            this.h.innerText = (h + '').length < 2 ? '0' + h : h;
+            this.m.innerText = (m + '').length < 2 ? '0' + m : m;
+            this.d.innerText = (d + '').length < 2 ? '0' + d : d;
+            var self = this;
             setTimeout(function() {
                 self.trigger('countDown', endDate);
             }, 1000);
@@ -74,10 +74,10 @@ module.exports = {
         },
 
         calHeight: function() {
-            var prizeHeight = ($(document).height() > $(window).height()) ? ($(document).height() - $(".c-head").height()  - $(".c-prize").height() - $(".c-person-info").height() - $(".c-background-color").height()) : ($(window).height() - $(".c-head").height()  - $(".c-prize").height() - $(".c-person-info").height() - $(".c-background-color").height()); 
+            var prizeHeight = ($(document).height() > $(window).height()) ? ($(document).height() - $('.c-head').height() - $('.c-prize').height() - $('.c-person-info').height() - $('.c-background-color').height()) : ($(window).height() - $('.c-head').height() - $('.c-prize').height() - $('.c-person-info').height() - $('.c-background-color').height());
             var prizeMt = prizeHeight / 2;
-            $(".c-prize").css("margin-top",prizeMt);
-            $(".c-prize").css("margin-bottom",prizeMt);
+            $('.c-prize').css('margin-top', prizeMt);
+            $('.c-prize').css('margin-bottom', prizeMt);
         }
     }
-}
+};

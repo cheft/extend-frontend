@@ -14,8 +14,8 @@ module.exports = {
         goStudent: function(e) {
             if(app.isTouchmove(e)) {
                 return;
-            };
+            }
             location.href = app.getUrls('').studentUrl;
-        }   
+        }
     }
-}
+};

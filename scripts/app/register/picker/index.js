@@ -4,4 +4,4 @@ module.exports = {
             $(this.dialog).dialog('hide');
         }
     }
-}
+};

@@ -2,7 +2,7 @@ module.exports = {
     store: 'sms',
     events: {
         geted: function(data) {
-            if(data.status == 'success') {
+            if(data.status === 'success') {
                 return $.tips({content: '验证码已发送', stayTime: 2000, type: 'success'});
             }
             app.error(data);
@@ -22,11 +22,11 @@ module.exports = {
                 }
                 el.html('获取(' + (time--) + ')');
                 setTimeout(countdown, 1000);
-            }
+            };
             el.attr('disabled', true).html('获取(' + (time--) + ')');
             countdown();
             this.store.url = 'sms/' + regTag.tags.mobile.el.value;
             this.store.get();
-        },
+        }
     }
-}
+};

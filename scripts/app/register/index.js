@@ -15,10 +15,10 @@ module.exports = {
             });
             $(this.tags.university.root).on('click', function() {
                 self.openUniversity();
-            })
+            });
         },
         saved: function(data) {
-            if(data.status == 'success') {
+            if(data.status === 'success') {
                 return app.router.go('share/' + data.data);
             }
             app.error(data);
@@ -47,18 +47,18 @@ module.exports = {
             var keys = {}, self = this;
             this.fieldEach(function(name, field) {
                 field.on('validate', function(key, value) {
-                    self.trigger('checkSubmit', keys, key, value); 
-                })
+                    self.trigger('checkSubmit', keys, key, value);
+                });
             });
         }
     },
     actions: {
-        register: function(e) {
+        register: function() {
             var data = {};
             this.fieldEach(function(name, field) {
                 data[name] = field.el.value;
             });
-            this.store.url = 'customers?verificationCode=' + data.code
+            this.store.url = 'customers?verificationCode=' + data.code;
             delete data.code;
             data.ident = data.ident.toUpperCase();
             data.refereeOpenid = this.refereeOpenid;
@@ -73,22 +73,6 @@ module.exports = {
             for(var i = 0; i < inputs.length; i++) {
                 cb(inputs[i], this.tags[inputs[i]]);
             }
-        },
-
-        setValue: function() {
-            var data = {
-                name: '陈海峰',
-                ident: '430528199003143053',
-                university: '加里顿大学',
-                major: '计算机信息与技术',
-                mobile: '13316463314',
-                code: '123456'
-            };
-            var self = this, keys = {};
-            this.fieldEach(function(name, field) {
-                field.el.value = data[name];
-                self.trigger('checkSubmit', keys, name, data[name]); 
-            });
         },
         openPosition: function() {
             var self = this;
@@ -131,4 +115,4 @@ module.exports = {
             this.tags.s.close();
         }
     }
-}
+};

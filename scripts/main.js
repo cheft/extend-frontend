@@ -13,7 +13,7 @@ app.validate = require('../assets/js/validation');
 app.error = function(data) {
     var msg = '系统错误';
     if(data.data) {
-        msg = data.data
+        msg = data.data;
     }
     var el = $.tips({content: msg, stayTime: 3000, type: 'warn'});
     el.on('touchstart', function() {

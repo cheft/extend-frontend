@@ -8,7 +8,7 @@ var browserify = require('browserify');
 var uglify     = require('gulp-uglify');
 var rename     = require('gulp-rename');
 var concat     = require('gulp-concat');
-var jshint     = require('gulp-jshint');
+var eslint     = require('gulp-eslint');
 var sourcemaps = require('gulp-sourcemaps');
 var cssmin     = require('gulp-minify-css');
 var buffer     = require('vinyl-buffer');
@@ -90,9 +90,9 @@ gulp.task('serve', function() {
 });
 
 gulp.task('lint', function() {
-    gulp.src(['scripts/*.js', 'scripts/app/**/*.js'])
-        .pipe(jshint())
-        .pipe(jshint.reporter('jshint-stylish'));
+    gulp.src(['scripts/app/*/*.js'])
+        .pipe(eslint())
+        .pipe(eslint.format());
 });
 
 gulp.task('common', function() {
