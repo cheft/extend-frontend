@@ -17,14 +17,17 @@ module.exports = {
                     }
                 }
             });
-            var self = this;
-            $(this.tags.position.root).on('click', function() {
-                self.openPosition();
-            });
-            $(this.tags.university.root).on('click', function() {
-                self.openUniversity();
-            });
+
+            this.tags.code.toggleClose = function() {
+                if(this.el.value === '') {
+                    $(this.close).hide();
+                }else {
+                    $(this.close).show();
+                    this.validate();
+                }
+            };
         },
+
         saved: function(data) {
             if(data.status === 'success') {
                 return app.router.go('share/' + data.data);
