@@ -130,5 +130,5 @@ gulp.task('css', function() {
 
 gulp.task('default', ['watch', 'serve']);
 
-gulp.task('build', ['lint', 'browserify', 'common', 'copy', 'img', 'css']);
+gulp.task('build', ['browserify', 'common', 'copy', 'img', 'css']);
 
