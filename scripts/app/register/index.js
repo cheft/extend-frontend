@@ -4,6 +4,15 @@ module.exports = {
         mount: function() {
             this.trigger('formValidate');
             this.store.url = 'customers/isregister'
+
+            this.tags.code.toggleClose = function() {
+                if(this.el.value == '') {
+                    $(this._close).hide();
+                }else {
+                    $(this._close).show();
+                    this.validate();
+                }  
+            };
         },
 
         geted: function() {
