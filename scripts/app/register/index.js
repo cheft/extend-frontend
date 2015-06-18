@@ -115,8 +115,7 @@ module.exports = {
         },
         selectC: function(e) {
             var self = this;
-            this.store.url = decodeURIComponent('provinces/' +
-                this.tags.position.value + '/cities/' + e.target.innerHTML + '/universities');
+            this.store.url = decodeURIComponent('cities/' + e.target.innerHTML + '/universities');
             this.store.get().done(function(data) {
                 self.schools = data.data;
                 self.update();

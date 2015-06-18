@@ -8,7 +8,7 @@ var browserify = require('browserify');
 var uglify     = require('gulp-uglify');
 var rename     = require('gulp-rename');
 var concat     = require('gulp-concat');
-var eslint     = require('gulp-eslint');
+var jshint     = require('gulp-jshint');
 var sourcemaps = require('gulp-sourcemaps');
 var cssmin     = require('gulp-minify-css');
 var buffer     = require('vinyl-buffer');
@@ -90,9 +90,9 @@ gulp.task('serve', function() {
 });
 
 gulp.task('lint', function() {
-    gulp.src('scripts/app/**/*.js')
-        .pipe(eslint())
-        .pipe(eslint.format());
+    gulp.src(['scripts/*.js', 'scripts/app/**/*.js'])
+        .pipe(jshint())
+        .pipe(jshint.reporter('jshint-stylish'));
 });
 
 gulp.task('common', function() {
@@ -130,5 +130,5 @@ gulp.task('css', function() {
 
 gulp.task('default', ['watch', 'serve']);
 
-gulp.task('build', ['lint', 'browserify', 'common', 'copy', 'img', 'css']);
+gulp.task('build', ['browserify', 'common', 'copy', 'img', 'css']);
 
