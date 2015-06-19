@@ -29,6 +29,6 @@
   },
   "dependencies": {
     "riot": "^2.1.0",
-    "cheftjs": "^1.0.2"
+    "cheftjs": "1.0.9"
   }
 }
