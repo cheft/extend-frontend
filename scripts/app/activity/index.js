@@ -2,13 +2,13 @@ module.exports = {
     store: 'activities/myactivitypage',
     events: {
         mount: function() {
-            self = this;
+            var self = this;
             this.store.url = 'prizes';
-            this.store.get().done(function(data) {
-                self.prizes = data.data;
+            this.store.get().done(function(data1) {
+                self.prizes = data1.data;
                 self.store.url = 'activities/myactivitypage';
                 self.store.get().done(function(data) {
-                    if(data.status != 'success') {
+                    if(data.status !== 'success') {
                         return;
                     }
                     self.store.data = data.data;
@@ -19,12 +19,12 @@ module.exports = {
         updated: function() {
             var list1 = $('.c-recommended-bar li');
             if(list1.length > 0) {
-                list1.css('width',  100 / list1.length + '%');
+                list1.css('width', 100 / list1.length + '%');
                 $('.c-recommended-prize li').css('width', 100 / list1.length + '%');
             }
             var list2 = $('.c-credited-bar li');
             if(list2.length > 0) {
-                list2.css('width',  100 / list2.length + '%');
+                list2.css('width', 100 / list2.length + '%');
                 $('.c-credited-prize li').css('width', 100 / list2.length + '%');
             }
         }
@@ -34,20 +34,20 @@ module.exports = {
         recommend: function(e) {
             if(app.isTouchmove(e)) {
                 return;
-            };
+            }
             app.router.go('share/' + this.store.data.openid);
         },
         ranking: function(e) {
             if(app.isTouchmove(e)) {
                 return;
-            };
+            }
             app.router.go('ranking');
         },
 
         invitation: function(e) {
             if(app.isTouchmove(e)) {
                 return;
-            };
+            }
             app.router.go('invitation');
         },
         calWidth: function(list, count) {
@@ -102,4 +102,4 @@ module.exports = {
             this.update();
         }
     }
-}
+};

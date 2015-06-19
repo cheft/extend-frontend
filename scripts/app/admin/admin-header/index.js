@@ -10,8 +10,8 @@ module.exports = {
                     content: '您没有兑奖权限，请联系管理员获取权限！',
                     button: ['关闭页面']
                 });
-                dia.on('dialog:action',function(e){
-                    if(typeof WeixinJSBridge  == 'undefined') {
+                dia.on('dialog:action', function(){
+                    if(typeof WeixinJSBridge === 'undefined') {
                         history.back();
                     }else {
                         WeixinJSBridge.call('closeWindow');
@@ -20,4 +20,4 @@ module.exports = {
             }
         }
     }
-}
+};

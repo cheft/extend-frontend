@@ -4,7 +4,8 @@
 		<div class="ui-form c-form">
 			<field name="name" label="姓名" icon="person" validate="required realName" maxlength="16"></field>
 			<field name="ident" label="身份证号" icon="about" validate="required idCard" maxlength="18"></field>
-			<field name="university" label="学校" icon="school" validate="required illegal" maxlength="50"></field>
+			<field name="position" label="省份/城市" icon="location" validate="required" maxlength="50" readonly=true></field>
+			<field name="university" label="学校" icon="school" validate="required" maxlength="50" readonly=true></field>
 			<field name="major" label="专业" icon="book" validate="required illegal" maxlength="50"></field>
 			<field name="mobile" type="tel" label="手机号" icon="phone" validate="required phone" maxlength="16"></field>
 			<field name="code" clas="ui-form-item-r" type="tel" label="验证码" icon="message" validate="required number length 6"  maxlength="6">
@@ -26,5 +27,38 @@
 			</ol>
 			<p><a href="#activity-detail" class="c-yellow-font">活动细则 &gt;&gt;</a><button class="c-reco" ontouchstart={ranking}>推荐排行榜</button></p>
 		</div>
+
+		<ui-dialog title="请选择省份" name="p">
+	        <div class="c-list-div">
+	            <ul class="c-list ui-list-text ui-border-tb">
+	                <li class="c-border-t" each={l in parent.provinces} ontouchstart onclick="{parent.parent.selectP}" >
+	                    {l}
+	                </li>
+	            </ul>
+	        </div>
+	    </ui-dialog>
+
+	    <ui-dialog title="请选择城市" name="c">
+	        <div class="c-list-div">
+	            <ul class="c-list ui-list-text ui-border-tb">
+	                <li class="c-border-t" each={l in parent.cities} ontouchstart onclick="{parent.parent.selectC}" >
+	                    {l}
+	                </li>
+	            </ul>
+	        </div>
+	    </ui-dialog>
+
+	    <ui-dialog title="请选择学校" name="s">
+	        <div class="c-list-div">
+	            <ul class="c-list ui-list-text ui-border-tb">
+	                <li class="c-border-t" each={parent.schools} ontouchstart onclick="{parent.parent.selectS}">
+	                    {name}
+	                </li>
+	                <li class="c-border-t" if={parent.schools.length <= 0}>
+	                    无相关数据
+	                </li>
+	            </ul>
+	        </div>
+	    </ui-dialog>
 	</div>
 </register>

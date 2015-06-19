@@ -3,17 +3,41 @@ module.exports = {
     events: {
         mount: function() {
             this.trigger('formValidate');
-            this.store.url = 'customers/isregister'
-        },
+            this.store.url = 'customers/attr';
+            this.store.get().done(function(data) {
+                if(data.status === 'fail') {
+                    if(typeof WeixinJSBridge === 'undefined') {
+                        history.back();
+                    }else {
+                        WeixinJSBridge.call('closeWindow');
+                    }
+                }else {
+                    if(data.data.exists) {
+                        return app.router.go('activity');
+                    }
+                }
+            });
 
-        geted: function() {
-            if(data.data) {
-                return app.router.go('activity');
-            }
+            var self = this;
+            $(this.tags.position.root).on('click', function() {
+                self.openPosition();
+            });
+            $(this.tags.university.root).on('click', function() {
+                self.openUniversity();
+            });
+
+            this.tags.code.toggleClose = function() {
+                if(this.el.value === '') {
+                    $(this.close).hide();
+                }else {
+                    $(this.close).show();
+                    this.validate();
+                }
+            };
         },
 
         saved: function(data) {
-            if(data.status == 'success') {
+            if(data.status === 'success') {
                 return app.router.go('share/' + data.data);
             }
             app.error(data);
@@ -42,18 +66,18 @@ module.exports = {
             var keys = {}, self = this;
             this.fieldEach(function(name, field) {
                 field.on('validate', function(key, value) {
-                    self.trigger('checkSubmit', keys, key, value); 
-                })
+                    self.trigger('checkSubmit', keys, key, value);
+                });
             });
         }
     },
     actions: {
-        register: function(e) {
+        register: function() {
             var data = {};
             this.fieldEach(function(name, field) {
                 data[name] = field.el.value;
             });
-            this.store.url = 'customers?verificationCode=' + data.code
+            this.store.url = 'customers?verificationCode=' + data.code;
             delete data.code;
             data.ident = data.ident.toUpperCase();
             data.refereeOpenid = this.refereeOpenid;
@@ -69,21 +93,50 @@ module.exports = {
                 cb(inputs[i], this.tags[inputs[i]]);
             }
         },
-
-        setValue: function() {
-            var data = {
-                name: '陈海峰',
-                ident: '430528199003143053',
-                university: '加里顿大学',
-                major: '计算机信息与技术',
-                mobile: '13316463314',
-                code: '123456'
-            };
-            self = this, keys = {};
-            this.fieldEach(function(name, field) {
-                field.el.value = data[name];
-                self.trigger('checkSubmit', keys, name, data[name]); 
+        openPosition: function() {
+            var self = this;
+            this.tags.university.el.value = '';
+            this.tags.university.clear();
+            this.store.url = 'provinces';
+            this.store.get().done(function(data) {
+                self.provinces = data.data;
+                self.update();
+                self.tags.p.show();
             });
+        },
+        openUniversity: function() {
+            if(this.tags.position.el.value === '') {
+                return $.tips({content: '请先选择省和城市', stayTime: 2000, type: 'warn'});
+            }
+            this.tags.s.show();
+        },
+        selectP: function(e) {
+            var self = this;
+            this.tags.position.value = e.target.innerHTML;
+            this.store.url = encodeURIComponent('provinces/' + e.target.innerHTML + '/cities');
+            this.store.get().done(function(data) {
+                self.cities = data.data;
+                self.update();
+                self.tags.p.close();
+                self.tags.c.show();
+            });
+        },
+        selectC: function(e) {
+            var self = this;
+            this.store.url = encodeURIComponent('cities/' + e.target.innerHTML + '/universities');
+            this.store.get().done(function(data) {
+                self.schools = data.data || [];
+                self.update();
+                self.tags.c.close();
+                self.tags.s.show();
+            });
+            this.tags.position.el.value = this.tags.position.value + '/' + e.target.innerHTML;
+            this.tags.position.validate();
+        },
+        selectS: function(e) {
+            this.tags.university.el.value = e.target.innerHTML;
+            this.tags.university.validate();
+            this.tags.s.close();
         }
     }
-}
+};

@@ -2,7 +2,7 @@ module.exports = {
     store: 'customers/attr',
     events: {
         mount: function() {
-            this.store.get()
+            this.store.get();
         },
         geted: function(data) {
             if(!data.data.exists) {
@@ -12,4 +12,4 @@ module.exports = {
             }
         }
     }
-}
+};

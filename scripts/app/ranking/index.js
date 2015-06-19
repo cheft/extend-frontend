@@ -14,4 +14,4 @@ module.exports = {
             app.router.back();
         }
     }
-}
+};

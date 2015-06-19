@@ -9,24 +9,24 @@ module.exports = {
         }
     },
     actions: {
-        clear: function(e) {
-            this['{opts.name}'].value = '';
-            this.validate()
+        clear: function() {
+            this.el.value = '';
+            this.validate();
             $(this.el).parent().css('border-color', '#ccc');
             $(this.el).prev().css('color', '#ccc');
-            $(this._close).hide();
+            $(this.close).hide();
         },
 
         toggleClose: function() {
-            if(this.el.value == '') {
-                $(this._close).hide();
+            if(this.el.value === '') {
+                $(this.close).hide();
             }else {
-                $(this._close).show();
+                $(this.close).show();
             }
         },
 
         validate: function() {
-            validate = this.opts.validate;
+            var validate = this.opts.validate;
             if(!validate) {
                 return;
             }
@@ -35,8 +35,8 @@ module.exports = {
             args.unshift($(this.el));
             var result = app.validate.apply(this, args);
             this.trigger('validate', this.opts.label, result);
-            $(this._close).show();
+            $(this.close).show();
             return result;
         }
     }
-}
+};

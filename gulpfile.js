@@ -90,7 +90,7 @@ gulp.task('serve', function() {
 });
 
 gulp.task('lint', function() {
-    gulp.src('scripts/app/**/*.js')
+    gulp.src(['scripts/app/*/*.js'])
         .pipe(eslint())
         .pipe(eslint.format());
 });
@@ -130,5 +130,5 @@ gulp.task('css', function() {
 
 gulp.task('default', ['watch', 'serve']);
 
-gulp.task('build', ['lint', 'browserify', 'common', 'copy', 'img', 'css']);
+gulp.task('build', ['browserify', 'common', 'copy', 'img', 'css']);
 

@@ -5,10 +5,13 @@
     },
     globals: {
         app: true,
-        $: true
+        $: true,
+        wx: true,
+        WeixinJSBridge: true
     },
     rules: {
         strict: 0,
+        'consistent-return': 0,
         quotes: [2, 'single']
     }
 }

@@ -3,7 +3,7 @@ c.Adapter = {Promise: $.Deferred, ajax: $.ajax};
 
 window.app = new c.Application({
     urlRoot: 'api/',
-    contentType: 'application/json',
+    contentType: 'application/json;charset=UTF-8',
     container: 'viewport',
     router: require('./router')
 });
@@ -34,12 +34,15 @@ app.on('ajaxed', function() {
 
 app.getUrls = function(openid) {
     return {
-        // shareHasOpenid: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + app.signature.appId + '&redirect_uri=http://idcwxtest.dafysz.cn/StruthioCamelus/api/dispatcher/share?referee=' + openid  + '&response_type=code&scope=snsapi_base&state=1#wechat_redirect',
-        // shareNoOpenid: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + app.signature.appId + '&redirect_uri=http://idcwxtest.dafysz.cn/StruthioCamelus/api/dispatcher/index&response_type=code&scope=snsapi_base&state=1#wechat_redirect',
-        // studentUrl: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + app.signature.appId + '&redirect_uri=http://idcwxtest.dafysz.cn/student-credit/chooseItem&response_type=code&scope=snsapi_base&state=1&connect_redirect=1#wechat_redirect',
-        shareHasOpenid: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + app.signature.appId + '&redirect_uri=http://wx.dafysz.cn/StruthioCamelus/api/dispatcher/share?referee=' + openid + '&response_type=code&scope=snsapi_base&state=1#wechat_redirect',
-        shareNoOpenid: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + app.signature.appId + '&redirect_uri=http://wx.dafysz.cn/StruthioCamelus/api/dispatcher/index&response_type=code&scope=snsapi_base&state=1#wechat_redirect',
-        studentUrl: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + app.signature.appId + '&redirect_uri=http://wx.dafysz.cn/student-credit/chooseItem&response_type=code&scope=snsapi_base&state=1&connect_redirect=1#wechat_redirect',
+        // dev
+        shareHasOpenid: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + app.signature.appId + '&redirect_uri=http://idcwxtest.dafysz.cn/StruthioCamelus/api/dispatcher/share?referee=' + openid  + '&response_type=code&scope=snsapi_base&state=1#wechat_redirect',
+        shareNoOpenid: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + app.signature.appId + '&redirect_uri=http://idcwxtest.dafysz.cn/StruthioCamelus/api/dispatcher/index&response_type=code&scope=snsapi_base&state=1#wechat_redirect',
+        studentUrl: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + app.signature.appId + '&redirect_uri=http://idcwxtest.dafysz.cn/student-credit/chooseItem&response_type=code&scope=snsapi_base&state=1&connect_redirect=1#wechat_redirect',
+        
+        // pro
+        // shareHasOpenid: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + app.signature.appId + '&redirect_uri=http://wx.dafysz.cn/StruthioCamelus/api/dispatcher/share?referee=' + openid + '&response_type=code&scope=snsapi_base&state=1#wechat_redirect',
+        // shareNoOpenid: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + app.signature.appId + '&redirect_uri=http://wx.dafysz.cn/StruthioCamelus/api/dispatcher/index&response_type=code&scope=snsapi_base&state=1#wechat_redirect',
+        // studentUrl: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + app.signature.appId + '&redirect_uri=http://wx.dafysz.cn/student-credit/chooseItem&response_type=code&scope=snsapi_base&state=1&connect_redirect=1#wechat_redirect',
         concernedUrl: 'http://mp.weixin.qq.com/s?__biz=MzAxNzE3MDU3MA==&mid=206470749&idx=1&sn=d4d2667d07a5f3c7f71348cafe79701a#rd'
     };
 };

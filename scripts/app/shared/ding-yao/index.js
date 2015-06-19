@@ -2,13 +2,13 @@ module.exports = {
     store: 'customers/subscribed',
     events: {
         saved: function(data) {
-            if(data.status == 'success') {
+            if(data.status === 'success') {
                 $.dialog({
                     content: '已帮他顶成功',
                     button: ['确定']
-                });                
+                });
                 this.parent.trigger('openid', this.parent.openid);
-            }else if(data.status == 'fail') {
+            }else if(data.status === 'fail') {
                 $.dialog({
                     content: data.data,
                     button: ['确定']
@@ -31,8 +31,8 @@ module.exports = {
         ding: function(e) {
             if(app.isTouchmove(e)) {
                 return;
-            };
-            self = this;
+            }
+            var self = this;
             var openid = this.parent.openid;
             this.userId = this.parent.store.data.referrer.id;
             this.store.url = 'customers/attr';
@@ -41,10 +41,10 @@ module.exports = {
                     if(data.data.lovingGuy) {
                         var dia = $.dialog({
                             content: '不可重复帮顶哦，您也可以邀请好友轻松赢肾6',
-                            button: ['活动中心','取消']
+                            button: ['活动中心', '取消']
                         });
-                        dia.on('dialog:action',function(e){
-                            if(e.index === 0) {
+                        dia.on('dialog:action', function(evt){
+                            if(evt.index === 0) {
                                 self.goActivity();
                             }
                         });
@@ -61,8 +61,8 @@ module.exports = {
         yao: function(e) {
             if(app.isTouchmove(e)) {
                 return;
-            };
-            self = this;
+            }
+            var self = this;
             this.store.url = 'customers/attr';
             this.store.get().done(function(data) {
                 if(data.data.exists) {
@@ -73,4 +73,4 @@ module.exports = {
             });
         }
     }
-}
+};
