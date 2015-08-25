@@ -9,7 +9,7 @@
 
 # library
 
-* [riot](https://muut.com/riotjs/)
+* [riot](https://muut.com/riotjs)
 * [cheftjs](https://github.com/cheft/cheftjs)
-* [frozenui](frozenui.github.io)
+* [frozenui](http://frozenui.github.io)
 * [zepto](https://github.com/madrobby/zepto)
